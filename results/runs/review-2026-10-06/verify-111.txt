@@ -1,0 +1,19 @@
+cmd:   make verify-111
+env:   DATA=<data> WORK=<work> 
+start: 
+----
+bash scripts/cell.sh verify 111
+hashing   <data>/c111-pwt-dmin.pwt2 (604904156 bytes) ...
+MATCH     cell 111 file  sha256 0b387083f508818bb42dda65b3e0bc1bdc7161a009788f8036346f475247e317
++ <bin>/pwt2_decode.exe <data>/c111-pwt-dmin.pwt2
+container   604904156 bytes, 308279939 records, divisor mode, entropy-coded, max depth 12, m 7037363 primes in 11766 classes, context set 3
+structure   OK (payload SHA-256, tables, 1424 blocks, 1492263498 symbols); read 0.2 s, loaded 2.3 s
+rank table  7037363 primes decoded (3.0 s cumulative)
+decoded     308279939 numbers in tree order (136.1 s cumulative)
+phases      read 0.2 s | checks + sieve 2.1 s | rank table 0.7 s | tree 133.1 s | in-memory decode 133.9 s (table + tree)
+sorted      (183.8 s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     183.8 s
+VERIFIED  cell 111: file hash, structure and footer targets
+----
+exit:  0
+secs:  196.7

@@ -1,0 +1,23 @@
+# cell 101: make verify-101
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## verify
+hashing   <data>/carmichael-1e24-cell101-dmin-classes.cnd (956341716 bytes) ...
+MATCH     cell 101 file  sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb
+stamp  load                <t> s   cum      <t> s   whole file read into memory
+input      <data>/carmichael-1e24-cell101-dmin-classes.cnd: 956341716 B, format CND (classes mod M, interpolative)
+file       sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb
+stamp  file-sha            <t> s   cum      <t> s   SHA-256 of the whole file
+structure  CND: M = 2310, end_width 59, 308279939 records in 1077 nonempty classes; directory 6789 B, body 956334775 B; payload SHA-256 OK
+stamp  structure           <t> s   cum      <t> s   header, directory, payload SHA-256 over header||dir||body
+stamp  decode             <t> s   cum     <t> s   interpolative classes -> values (class by class)
+stamp  sort               <t> s   cum     <t> s   global sort of the decoded classes
+values     308279939 values, span [51, 1087125999730037130781], strictly ascending
+size       24.817 bits per value (whole file)
+values     sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 22550467583581231962095163
+stamp  values-sha         <t> s   cum     <t> s   strictly-ascending check + SHA-256 and sum of the value stream
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; total_check 87794795725388084167960692697377
+stamp  total              <t> s   (phases sum <t> s, unaccounted <t> s)
+DECODED    308279939 values; structure OK (no --certify: not compared with the oracle)
+VERIFIED  cell 101: file hash and sorted values hash 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8

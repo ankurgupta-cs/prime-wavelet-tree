@@ -1,0 +1,5 @@
+mode rstar (Shallue-Webster Algorithm 1 for n and r*)   oracle 308279939 records in 75264 blocks   sampling 75264 blocks (stride 1)   threads 13
+records 308279939   mismatches 0   wall 1209.7 s on 13 threads
+Algorithm 1: 2.22 ladders per record, 0 records needed the generic fallback
+factor r* only: 3.39 us/record -> full table 0.29 h single-thread, 1.3 min on 13 threads (extrapolated)
+every factorization equals the oracle's factor list

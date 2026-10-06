@@ -1,0 +1,11 @@
+# Staged on 2026-10-06 before the final release: the file names here predate the
+# carmichael-1e24-* names (results/cells.tsv), and c111x-dstar-masks.bin was later
+# dropped from the release (the search masks are not hosted). <repo> is the project
+# tree, not this repository.
+0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd  c001-n-classes.cnd
+dd69b283217bb41c96b26751591d5bd04f5fb261d29abbbc4fb10313d666adad  c011-pwt-full.pwt2
+d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb  c101-dmin-cnd1.cnd1
+0b387083f508818bb42dda65b3e0bc1bdc7161a009788f8036346f475247e317  c111-pwt-dmin.pwt2
+e599e76119b7bfcad9e981d67c98ec34a5fcd6e2437825874fc077bc50dd08fc  c111x-dstar-masks.bin
+3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6  c111x-pwt-dstar.pwt2
+a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f  new_table.orc1

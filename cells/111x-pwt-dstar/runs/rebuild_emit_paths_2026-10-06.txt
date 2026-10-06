@@ -1,0 +1,22 @@
+tag:     b1_dstar_emit
+cmd:     <repo>/build/pwt2_decode.exe <work>/pwt2/new_table_opt5.s3.pwt2 --emit-paths <work>/release_build/dstar_paths.bin --fields 14
+cwd:     <work>/release_build
+start:   2026-10-06T14:38:38Z
+----
+container   588684305 bytes, 308279939 records, divisor mode, entropy-coded, max depth 11, m 6993373 primes in 6008 classes, context set 3
+structure   OK (payload SHA-256, tables, 1384 blocks, 1451178003 symbols); read 0.2 s, loaded 2.3 s
+rank table  6993373 primes decoded (2.9 s cumulative)
+decoded     308279939 numbers in tree order (256.1 s cumulative)
+phases      read 0.2 s | checks + sieve 2.0 s | rank table 0.7 s | tree 253.1 s | in-memory decode 253.8 s (table + tree)
+sorted      (304.2 s); sha_nset MATCH; total_check MATCH; count MATCH
+paths       308279939 records x 14 fields = 21579595730 bytes to <work>/release_build/dstar_paths.bin (tree order; tree phase includes this write); sha256 fa7d2f8b86d7e2d890eb994408a65741fa756fdecd9f0bd3693c5a4648a3ef37
+elapsed     304.2 s
+----
+end:     2026-10-06T14:44:59Z
+exit:    0
+seconds: 304.59 (process wall, measured by run_job.sh)
+output:  <work>/release_build/dstar_paths.bin
+bytes:   21579595730
+sha256:  fa7d2f8b86d7e2d890eb994408a65741fa756fdecd9f0bd3693c5a4648a3ef37 (hashing 76.4 s)
+expect:  -
+status:  NO-EXPECTED

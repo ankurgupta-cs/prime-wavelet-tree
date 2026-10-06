@@ -1,0 +1,42 @@
+cmd:   make rebuild-110
+env:   DATA=<data> WORK=<work>
+start: Tue Oct  6 18:23:01 UTC 2026
+----
+bash scripts/cell.sh rebuild 110
++ <bin>/trie_paths.exe <data>/new_table.orc1 <work>/dpaths.bin.partial --fields 12 --threads 16
+records    308279939   blocks 75264   threads 16   mode d_min path   fields 12 (60 B/record)
+verified   308279939 records (n == d_min * r*(d_min), product == d_min); paths emitted to <work>/dpaths.bin.partial
+path len   max 12; histogram: 2:5815908 3:32245425 4:81924929 5:96079341 6:62739224 7:23844892 8:5050602 9:551155 10:27882 11:576 12:5
+omega(n)   histogram: 3:1494738 4:548265 5:3429390 6:19665194 7:62338997 8:99469866 9:81041495 10:33199094 11:6529921 12:547590 13:15328 14:61
+path has   p_max(n) 0.8607   p_min(n) 0.5057
+elapsed    1027.9 s
+hashing   <work>/dpaths.bin.partial (18496796340 bytes) ...
+MATCH     dmin_paths  sha256 391ed7caa7315833c9144c34ff86dcb9f45a0143b270806833c480c654a3dd39
++ <bin>/pwt2_encode.exe <work>/dpaths.bin <data>/new_table.orc1 <work>/c110-pwt-dmin-bytes.pwt2n --fields 12 --naive --scratch <work>/scratch --chunk 33554432 --threads 4
+input       <work>/dpaths.bin (fields 12, divisor (d*lambda(d) > n) mode, PWT2 byte-aligned VByte streams, context set 1)
+order       308279939 records, 7037363 distinct primes in 11766 count classes; root-most: 19 17 31 37 29 41 13 61 (21 s)
+ranked      <work>/scratch/pwt2_encode_1791312312818_ranked.bin (45 s)
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+sorted      308279939 records, max depth 12 (109 s)
+oracle      308279939 records, sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (143 s)
+encoded     (320 s)
+nodes       501366390 (1.626 per record); symbols 1009770142 (table 7037363); escapes 0
+sections    header 160 + classes 12069 + tables 0 + symbols 1296520564 + raw 0 + footer 88
+bits/el     stream 33.645 (of which rank table 0.347) + classes 0.0003 + framing 0.0000
+FILE        1296532881 bytes = 33.646 bits/el   (<work>/c110-pwt-dmin-bytes.pwt2n)
+            paths reproduce the oracle's sum; quote only after pwt2_decode --certify exits 0
+elapsed     323 s
+hashing   <work>/c110-pwt-dmin-bytes.pwt2n (1296532881 bytes) ...
+MATCH     cell 110 (<work>/c110-pwt-dmin-bytes.pwt2n)  sha256 d2ba4ade81f4e972eadd573bef11e309a7999f9122789be56dbfdbed6a54a1bf
+----
+exit:  0
+secs:  1676.2

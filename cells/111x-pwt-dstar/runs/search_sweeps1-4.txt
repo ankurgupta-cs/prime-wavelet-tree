@@ -1,0 +1,149 @@
+dsel_set2  <work>/data/new_table.orc1: 308279939 records; threads 6, batch 65536, max overflow 60000000, huge > 128 children, bitset classes <= 128, slack 16.0, table weight 1.0000, scratch <work>/scratch/dsel_set2/full
+universe   7428174 distinct primes (9 s)
+start      d_min masks (41 s) [d_min from <work>/data/dpaths.bin, 309208 records re-derived by choose_dmin, all equal]
+  build 1: 60 runs 60 s, tree+symbols 102 s, table+models 2 s, nodes 501366390 (1.6263 /el), 283193 sibling caches, keys checked vs Pwt2Keys2 1203429999, mem ws 13.40 GB (peak 13.40)
+MODEL start              nodes 501366390 = 1.6263 /el | OBJECTIVE 15.8466 bits/el = 610648191 bytes | predicted file 610663023 bytes = 15.8470 bits/el
+      entropy (bits/el): table 0.0614 + count 0.7873 + tail 0.0172 + flag 0.0181 + gap 4.3986 = 5.2826 (quantized ideal 5.2826); raw tree 10.3864 + raw table 0.1466 + escapes 0.0001
+      tables section: model 1179091 B (0.0306 bits/el) vs REAL serialized 1179167 B (-0.006%); per class model/real/models: table 11191/11191/321 count 436826/436853/34594 count tail 14850/14851/7 flag 303/303/36 gap length 715921/715969/23392
+      rank table: m 7037363 primes in 11766 classes, class sizes 12069 B, symbols 0.0614 + raw 0.1466 bits/el; symbols 1204086489 (blocks 1149); fingerprint 0c91d83bac32ec91
+      nodes by depth: 0:1 1:778338 2:11453377 3:65459055 4:147565907 5:153235448 6:87446434 7:29198057 8:5621358 9:579368 10:28461 11:581 12:5
+      paths: mean |S| 4.8834, S=d_min 100.000%, S=all primes 0.000%, |S| histogram: 2:5815908 3:32245425 4:81924929 5:96079341 6:62739224 7:23844892 8:5050602 9:551155 10:27882 11:576 12:5
+  sweep 1:   5.02% records, moves 8137473 (52.614%), rejected 405609, live 15.7843 bits/el (-0.393%), overflow nodes 8885675, caches 286438, steps/eval 121.3, 1195 s (ETA 22616 s), ws 14.20 GB
+  sweep 1:  10.01% records, moves 13758625 (44.573%), rejected 685320, live 15.7494 bits/el (-0.614%), overflow nodes 15228864, caches 286442, steps/eval 132.2, 2498 s (ETA 22448 s), ws 14.42 GB
+  sweep 1:  15.01% records, moves 18312905 (39.580%), rejected 940754, live 15.7225 bits/el (-0.783%), overflow nodes 20433634, caches 286443, steps/eval 138.3, 3726 s (ETA 21103 s), ws 14.59 GB
+  sweep 1:  20.00% records, moves 22209869 (36.014%), rejected 1171434, live 15.6998 bits/el (-0.926%), overflow nodes 24955426, caches 286443, steps/eval 142.6, 4971 s (ETA 19878 s), ws 14.75 GB
+  sweep 1:  25.00% records, moves 25587900 (33.201%), rejected 1402191, live 15.6802 bits/el (-1.050%), overflow nodes 28939149, caches 286444, steps/eval 145.9, 6264 s (ETA 18793 s), ws 14.89 GB
+  sweep 1:  30.02% records, moves 28599047 (30.906%), rejected 1616135, live 15.6626 bits/el (-1.161%), overflow nodes 32535819, caches 286444, steps/eval 148.5, 7567 s (ETA 17641 s), ws 15.01 GB
+  sweep 1:  35.01% records, moves 31314914 (29.012%), rejected 1813155, live 15.6467 bits/el (-1.262%), overflow nodes 35815730, caches 286444, steps/eval 150.7, 8884 s (ETA 16489 s), ws 15.13 GB
+  sweep 1:  40.01% records, moves 33832416 (27.430%), rejected 1983878, live 15.6316 bits/el (-1.356%), overflow nodes 38883981, caches 286444, steps/eval 152.6, 10175 s (ETA 15257 s), ws 15.23 GB
+  sweep 1:  45.00% records, moves 36180983 (26.078%), rejected 2130805, live 15.6174 bits/el (-1.447%), overflow nodes 41774274, caches 286444, steps/eval 154.2, 11469 s (ETA 14015 s), ws 15.33 GB
+  sweep 1:  50.00% records, moves 38377153 (24.897%), rejected 2268741, live 15.6038 bits/el (-1.532%), overflow nodes 44506979, caches 286444, steps/eval 155.6, 12778 s (ETA 12778 s), ws 15.43 GB
+  sweep 1:  55.02% records, moves 40450901 (23.850%), rejected 2396125, live 15.5908 bits/el (-1.614%), overflow nodes 47111223, caches 286445, steps/eval 156.9, 14091 s (ETA 11521 s), ws 15.52 GB
+  sweep 1:  60.01% records, moves 42386270 (22.910%), rejected 2516285, live 15.5786 bits/el (-1.691%), overflow nodes 49559736, caches 286445, steps/eval 158.1, 15410 s (ETA 10268 s), ws 15.61 GB
+  sweep 1:  65.01% records, moves 44238363 (22.074%), rejected 2624147, live 15.5667 bits/el (-1.766%), overflow nodes 51921900, caches 286445, steps/eval 159.2, 16724 s (ETA 9002 s), ws 15.69 GB
+  sweep 1:  70.00% records, moves 46024384 (21.326%), rejected 2724683, live 15.5550 bits/el (-1.840%), overflow nodes 54216609, caches 286445, steps/eval 160.2, 18044 s (ETA 7731 s), ws 15.77 GB
+  sweep 1:  75.00% records, moves 47679343 (20.622%), rejected 2850072, live 15.5443 bits/el (-1.908%), overflow nodes 56362164, caches 286445, steps/eval 161.2, 19380 s (ETA 6460 s), ws 15.84 GB
+  sweep 1:  80.02% records, moves 49264555 (19.971%), rejected 2977369, live 15.5339 bits/el (-1.973%), overflow nodes 58428884, caches 286445, steps/eval 162.0, 20729 s (ETA 5177 s), ws 15.92 GB
+  overflow 60002469 nodes > 60000000: rebuilding with the same ranks
+  build 2: 60 runs 55 s, tree+symbols 80 s, table+models 2 s, nodes 498436630 (1.6168 /el), 283484 sibling caches, keys checked vs Pwt2Keys2 0, mem ws 13.96 GB (peak 15.97)
+  CHECK live 4786323148.051000 vs rebuilt 4786323148.048084 bits (diff -0.00292)
+  sweep 1:  85.01% records, moves 50770060 (19.372%), rejected 3099099, live 15.5239 bits/el (-2.037%), overflow nodes 402294, caches 283484, steps/eval 2.2, 22212 s (ETA 3916 s), ws 13.82 GB
+  sweep 1:  90.01% records, moves 52240834 (18.827%), rejected 3196160, live 15.5138 bits/el (-2.100%), overflow nodes 2344987, caches 283487, steps/eval 11.8, 23502 s (ETA 2609 s), ws 13.89 GB
+  sweep 1:  95.00% records, moves 53671651 (18.325%), rejected 3288298, live 15.5040 bits/el (-2.162%), overflow nodes 4243314, caches 283488, steps/eval 20.6, 24790 s (ETA 1303 s), ws 13.95 GB
+  sweep 1: 100.00% records, moves 55038254 (17.853%), rejected 3380011, live 15.4944 bits/el (-2.222%), overflow nodes 6069529, caches 283488, steps/eval 28.4, 26080 s (ETA 0 s), ws 14.01 GB
+SWEEP 1  moves 55038254 (17.853%), rejected 3380011 (re-searched 3380011), gain 0.3522 bits/el, live (old ranks) 15.4944 bits/el; steps/eval 28.4, evaluated 308279939 (84.60 us each incl. apply, wall), capped 0, re-insertion violations 0, eval/apply mismatches 0, rebuilds 1; 26080 s (parallel search 23131 s, sequential apply 2812 s, rebuilds 137 s); ws 14.00 GB, peak 15.97 GB, commit 16.37 GB
+  build 3: 60 runs 55 s, tree+symbols 81 s, table+models 2 s, nodes 497761527 (1.6146 /el), 283481 sibling caches, keys checked vs Pwt2Keys2 0, mem ws 13.94 GB (peak 15.97)
+CHECK  same-rank rebuild: live 4776620199.507587 vs exact 4776620199.508808 bits (diff 0.00122; live parts 4776620199.508938); histogram fingerprint live 3fc7baffecbbdcf6 vs rebuilt 3fc7baffecbbdcf6 EQUAL
+RANKS  used 7037363 -> 7004130 (newly used 21447, dropped 54680); of 6982683 used in both, rank changed 6979381; top-1000 positions changed 888; top 10: 19 31 37 41 17 29 61 73 43 13
+  build 4: 60 runs 58 s, tree+symbols 86 s, table+models 2 s, nodes 497757438 (1.6146 /el), 282252 sibling caches, keys checked vs Pwt2Keys2 1192270568, mem ws 13.97 GB (peak 15.97)
+      paths whose prime order changed under the new ranks: 34964086 (11.342%)
+MODEL after sweep 1      nodes 497757438 = 1.6146 /el | OBJECTIVE 15.5704 bits/el = 600005278 bytes | predicted file 600019927 bytes = 15.5708 bits/el
+      entropy (bits/el): table 0.0611 + count 0.7500 + tail 0.0170 + flag 0.0084 + gap 4.2907 = 5.1272 (quantized ideal 5.1272); raw tree 10.2681 + raw table 0.1460 + escapes 0.0001
+      tables section: model 1116152 B (0.0290 bits/el) vs REAL serialized 1116308 B (-0.014%); per class model/real/models: table 9675/9677/313 count 417727/417791/33133 count tail 14547/14553/7 flag 290/290/36 gap length 673913/673997/22239
+      rank table: m 7004130 primes in 6194 classes, class sizes 6489 B, symbols 0.0611 + raw 0.1460 bits/el; symbols 1192923805 (blocks 1138); fingerprint ccae1369c11a1d60
+      nodes by depth: 0:1 1:782126 2:11259829 3:64695977 4:146846961 5:152319866 6:86524743 7:28933695 8:5751645 9:610067 10:31780 11:745 12:3
+      paths: mean |S| 4.8981, S=d_min 82.147%, S=all primes 0.001%, |S| histogram: 2:5694476 3:31505001 4:81160254 5:96419735 6:63645692 7:24029596 8:5212760 9:580643 10:31037 11:742 12:3
+      re-rank effect +0.0760 bits/el; vs start -1.743%
+  sweep 2:   5.02% records, moves 4143170 (26.788%), rejected 244790, live 15.5372 bits/el (-0.213%), overflow nodes 4949921, caches 284106, steps/eval 120.1, 985 s (ETA 18652 s), ws 13.98 GB
+  sweep 2:  10.01% records, moves 6529722 (21.154%), rejected 373524, live 15.5191 bits/el (-0.330%), overflow nodes 8065551, caches 284212, steps/eval 131.8, 2061 s (ETA 18519 s), ws 14.08 GB
+  sweep 2:  15.01% records, moves 8322628 (17.988%), rejected 467733, live 15.5065 bits/el (-0.410%), overflow nodes 10350112, caches 284220, steps/eval 137.8, 3165 s (ETA 17920 s), ws 14.16 GB
+  sweep 2:  20.00% records, moves 9819582 (15.923%), rejected 554742, live 15.4969 bits/el (-0.472%), overflow nodes 12229211, caches 284224, steps/eval 141.6, 4290 s (ETA 17157 s), ws 14.22 GB
+  sweep 2:  25.00% records, moves 11173533 (14.498%), rejected 627765, live 15.4883 bits/el (-0.527%), overflow nodes 13921127, caches 284229, steps/eval 144.4, 5433 s (ETA 16300 s), ws 14.28 GB
+  sweep 2:  30.02% records, moves 12419540 (13.421%), rejected 694780, live 15.4807 bits/el (-0.576%), overflow nodes 15485084, caches 284230, steps/eval 146.6, 6612 s (ETA 15414 s), ws 14.33 GB
+  sweep 2:  35.01% records, moves 13572757 (12.575%), rejected 766898, live 15.4738 bits/el (-0.620%), overflow nodes 16943240, caches 284232, steps/eval 148.4, 7781 s (ETA 14442 s), ws 14.38 GB
+  sweep 2:  40.01% records, moves 14638982 (11.869%), rejected 835795, live 15.4676 bits/el (-0.660%), overflow nodes 18301929, caches 284235, steps/eval 149.9, 8982 s (ETA 13468 s), ws 14.43 GB
+  sweep 2:  45.00% records, moves 15649491 (11.280%), rejected 894472, live 15.4618 bits/el (-0.698%), overflow nodes 19599090, caches 284235, steps/eval 151.3, 10214 s (ETA 12482 s), ws 14.47 GB
+  sweep 2:  50.00% records, moves 16603195 (10.771%), rejected 954800, live 15.4563 bits/el (-0.733%), overflow nodes 20834549, caches 284235, steps/eval 152.6, 11433 s (ETA 11433 s), ws 14.51 GB
+  sweep 2:  55.02% records, moves 17521400 (10.331%), rejected 1007044, live 15.4510 bits/el (-0.767%), overflow nodes 22034205, caches 284235, steps/eval 153.7, 12647 s (ETA 10340 s), ws 14.56 GB
+  sweep 2:  60.01% records, moves 18396007 (9.943%), rejected 1056633, live 15.4459 bits/el (-0.799%), overflow nodes 23186349, caches 284236, steps/eval 154.8, 13855 s (ETA 9232 s), ws 14.59 GB
+  sweep 2:  65.01% records, moves 19223531 (9.592%), rejected 1101327, live 15.4412 bits/el (-0.830%), overflow nodes 24286046, caches 284236, steps/eval 155.7, 15071 s (ETA 8112 s), ws 14.63 GB
+  sweep 2:  70.00% records, moves 20006179 (9.270%), rejected 1144121, live 15.4368 bits/el (-0.858%), overflow nodes 25334934, caches 284237, steps/eval 156.6, 16298 s (ETA 6983 s), ws 14.67 GB
+  sweep 2:  75.00% records, moves 20760728 (8.979%), rejected 1190471, live 15.4324 bits/el (-0.886%), overflow nodes 26353671, caches 284238, steps/eval 157.5, 17524 s (ETA 5841 s), ws 14.70 GB
+  sweep 2:  80.02% records, moves 21482125 (8.709%), rejected 1237803, live 15.4283 bits/el (-0.913%), overflow nodes 27333851, caches 284243, steps/eval 158.3, 18778 s (ETA 4689 s), ws 14.74 GB
+  sweep 2:  85.01% records, moves 22180337 (8.463%), rejected 1279671, live 15.4242 bits/el (-0.939%), overflow nodes 28290878, caches 284245, steps/eval 159.1, 20024 s (ETA 3530 s), ws 14.77 GB
+  sweep 2:  90.01% records, moves 22840113 (8.231%), rejected 1320477, live 15.4205 bits/el (-0.963%), overflow nodes 29203444, caches 284246, steps/eval 159.8, 21277 s (ETA 2362 s), ws 14.80 GB
+  sweep 2:  95.00% records, moves 23457908 (8.009%), rejected 1359955, live 15.4170 bits/el (-0.985%), overflow nodes 30064258, caches 284247, steps/eval 160.5, 22543 s (ETA 1185 s), ws 14.83 GB
+  sweep 2: 100.00% records, moves 24053216 (7.802%), rejected 1400094, live 15.4136 bits/el (-1.007%), overflow nodes 30900133, caches 284249, steps/eval 161.2, 23810 s (ETA 0 s), ws 14.86 GB
+SWEEP 2  moves 24053216 (7.802%), rejected 1400094 (re-searched 1400094), gain 0.1568 bits/el, live (old ranks) 15.4136 bits/el; steps/eval 161.2, evaluated 308279939 (77.24 us each incl. apply, wall), capped 0, re-insertion violations 0, eval/apply mismatches 0, rebuilds 0; 23810 s (parallel search 22585 s, sequential apply 1225 s, rebuilds 0 s); ws 14.85 GB, peak 15.97 GB, commit 16.37 GB
+  build 5: 60 runs 55 s, tree+symbols 81 s, table+models 2 s, nodes 496243517 (1.6097 /el), 278463 sibling caches, keys checked vs Pwt2Keys2 0, mem ws 13.90 GB (peak 15.97)
+CHECK  same-rank rebuild: live 4751699341.499844 vs exact 4751699341.499104 bits (diff -0.00074; live parts 4751699341.499426); histogram fingerprint live 33cb2db9b773b111 vs rebuilt 33cb2db9b773b111 EQUAL
+RANKS  used 7004130 -> 6997589 (newly used 9313, dropped 15854); of 6988276 used in both, rank changed 6972823; top-1000 positions changed 529; top 10: 19 31 37 41 17 29 61 73 43 13
+  build 6: 60 runs 58 s, tree+symbols 86 s, table+models 2 s, nodes 496238886 (1.6097 /el), 279279 sibling caches, keys checked vs Pwt2Keys2 1187716575, mem ws 13.93 GB (peak 15.97)
+      paths whose prime order changed under the new ranks: 3069341 (0.996%)
+MODEL after sweep 2      nodes 496238886 = 1.6097 /el | OBJECTIVE 15.4476 bits/el = 595272852 bytes | predicted file 595287519 bytes = 15.4480 bits/el
+      entropy (bits/el): table 0.0610 + count 0.6913 + tail 0.0166 + flag 0.0077 + gap 4.2556 = 5.0320 (quantized ideal 5.0321); raw tree 10.2419 + raw table 0.1458 + escapes 0.0001
+      tables section: model 1062892 B (0.0276 bits/el) vs REAL serialized 1063162 B (-0.025%); per class model/real/models: table 9585/9585/313 count 391499/391659/32590 count tail 13248/13250/6 flag 265/265/33 gap length 648295/648403/21661
+      rank table: m 6997589 primes in 6129 classes, class sizes 6424 B, symbols 0.0610 + raw 0.1458 bits/el; symbols 1188364336 (blocks 1134); fingerprint 37bb81c9ee8d5efa
+      nodes by depth: 0:1 1:780139 2:11199758 3:64447152 4:146333910 5:151445309 6:86269903 7:29127687 8:5956311 9:643454 10:34499 11:763
+      paths: mean |S| 4.9094, S=d_min 78.307%, S=all primes 0.002%, |S| histogram: 2:5663385 3:31269462 4:80560402 5:95995387 6:64194858 7:24510347 8:5438755 9:612844 10:33736 11:763
+      re-rank effect +0.0340 bits/el; vs start -2.518%
+  sweep 3:   5.02% records, moves 1565838 (10.124%), rejected 142112, live 15.4344 bits/el (-0.085%), overflow nodes 1954579, caches 279971, steps/eval 117.4, 885 s (ETA 16763 s), ws 13.83 GB
+  sweep 3:  10.01% records, moves 2332579 (7.557%), rejected 190551, live 15.4293 bits/el (-0.119%), overflow nodes 2973595, caches 280032, steps/eval 127.4, 1875 s (ETA 16850 s), ws 13.87 GB
+  sweep 3:  15.01% records, moves 2976149 (6.432%), rejected 227530, live 15.4255 bits/el (-0.143%), overflow nodes 3814446, caches 280056, steps/eval 132.5, 2900 s (ETA 16423 s), ws 13.90 GB
+  sweep 3:  20.00% records, moves 3576335 (5.799%), rejected 260640, live 15.4223 bits/el (-0.164%), overflow nodes 4598110, caches 280072, steps/eval 136.0, 3952 s (ETA 15805 s), ws 13.92 GB
+  sweep 3:  25.00% records, moves 4138626 (5.370%), rejected 292381, live 15.4195 bits/el (-0.182%), overflow nodes 5335200, caches 280084, steps/eval 138.6, 5014 s (ETA 15042 s), ws 13.95 GB
+  sweep 3:  30.02% records, moves 4675795 (5.053%), rejected 319262, live 15.4168 bits/el (-0.199%), overflow nodes 6043561, caches 280095, steps/eval 140.8, 6123 s (ETA 14274 s), ws 13.97 GB
+  sweep 3:  35.01% records, moves 5189771 (4.808%), rejected 345258, live 15.4143 bits/el (-0.216%), overflow nodes 6725792, caches 280100, steps/eval 142.7, 7229 s (ETA 13418 s), ws 13.99 GB
+  sweep 3:  40.01% records, moves 5671809 (4.599%), rejected 372396, live 15.4120 bits/el (-0.231%), overflow nodes 7369670, caches 280107, steps/eval 144.3, 8343 s (ETA 12510 s), ws 14.02 GB
+  sweep 3:  45.00% records, moves 6125974 (4.415%), rejected 395914, live 15.4098 bits/el (-0.244%), overflow nodes 7981091, caches 280116, steps/eval 145.8, 9470 s (ETA 11573 s), ws 14.04 GB
+  sweep 3:  50.00% records, moves 6555882 (4.253%), rejected 419363, live 15.4078 bits/el (-0.257%), overflow nodes 8564640, caches 280124, steps/eval 147.1, 10606 s (ETA 10606 s), ws 14.06 GB
+  sweep 3:  55.02% records, moves 6964629 (4.106%), rejected 441030, live 15.4059 bits/el (-0.270%), overflow nodes 9124118, caches 280127, steps/eval 148.3, 11760 s (ETA 9615 s), ws 14.07 GB
+  sweep 3:  60.01% records, moves 7351137 (3.973%), rejected 462697, live 15.4042 bits/el (-0.281%), overflow nodes 9656954, caches 280132, steps/eval 149.4, 12921 s (ETA 8609 s), ws 14.09 GB
+  sweep 3:  65.01% records, moves 7718482 (3.851%), rejected 483088, live 15.4025 bits/el (-0.292%), overflow nodes 10168486, caches 280135, steps/eval 150.4, 14092 s (ETA 7585 s), ws 14.11 GB
+  sweep 3:  70.00% records, moves 8069382 (3.739%), rejected 503348, live 15.4009 bits/el (-0.302%), overflow nodes 10661673, caches 280140, steps/eval 151.4, 15281 s (ETA 6548 s), ws 14.13 GB
+  sweep 3:  75.00% records, moves 8407156 (3.636%), rejected 524758, live 15.3993 bits/el (-0.312%), overflow nodes 11140013, caches 280147, steps/eval 152.4, 16475 s (ETA 5492 s), ws 14.14 GB
+  sweep 3:  80.02% records, moves 8732606 (3.540%), rejected 547425, live 15.3978 bits/el (-0.322%), overflow nodes 11605079, caches 280152, steps/eval 153.3, 17695 s (ETA 4419 s), ws 14.16 GB
+  sweep 3:  85.01% records, moves 9042104 (3.450%), rejected 566706, live 15.3964 bits/el (-0.331%), overflow nodes 12050235, caches 280158, steps/eval 154.1, 18950 s (ETA 3341 s), ws 14.17 GB
+  sweep 3:  90.01% records, moves 9339367 (3.366%), rejected 584686, live 15.3950 bits/el (-0.340%), overflow nodes 12482064, caches 280162, steps/eval 154.9, 20173 s (ETA 2239 s), ws 14.19 GB
+  sweep 3:  95.00% records, moves 9628301 (3.287%), rejected 602769, live 15.3937 bits/el (-0.349%), overflow nodes 12904817, caches 280167, steps/eval 155.7, 21437 s (ETA 1127 s), ws 14.20 GB
+  sweep 3: 100.00% records, moves 9909510 (3.214%), rejected 620446, live 15.3924 bits/el (-0.357%), overflow nodes 13319389, caches 280171, steps/eval 156.4, 22717 s (ETA 0 s), ws 14.22 GB
+SWEEP 3  moves 9909510 (3.214%), rejected 620446 (re-searched 620446), gain 0.0552 bits/el, live (old ranks) 15.3924 bits/el; steps/eval 156.4, evaluated 308279939 (73.69 us each incl. apply, wall), capped 0, re-insertion violations 0, eval/apply mismatches 0, rebuilds 0; 22717 s (parallel search 22156 s, sequential apply 561 s, rebuilds 0 s); ws 14.20 GB, peak 15.97 GB, commit 16.33 GB
+  build 7: 60 runs 55 s, tree+symbols 81 s, table+models 2 s, nodes 496023218 (1.6090 /el), 277297 sibling caches, keys checked vs Pwt2Keys2 0, mem ws 13.89 GB (peak 15.97)
+CHECK  same-rank rebuild: live 4745172704.434843 vs exact 4745172704.436293 bits (diff 0.00145; live parts 4745172704.436150); histogram fingerprint live f91062b6dd4402dd vs rebuilt f91062b6dd4402dd EQUAL
+RANKS  used 6997589 -> 6995232 (newly used 6727, dropped 9084); of 6988505 used in both, rank changed 6960318; top-1000 positions changed 291; top 10: 19 31 37 41 17 29 61 73 43 13
+  build 8: 60 runs 58 s, tree+symbols 86 s, table+models 2 s, nodes 496022711 (1.6090 /el), 277677 sibling caches, keys checked vs Pwt2Keys2 1187058103, mem ws 13.92 GB (peak 15.97)
+      paths whose prime order changed under the new ranks: 1063117 (0.345%)
+MODEL after sweep 3      nodes 496022711 = 1.6090 /el | OBJECTIVE 15.4073 bits/el = 593721837 bytes | predicted file 593736530 bytes = 15.4077 bits/el
+      entropy (bits/el): table 0.0610 + count 0.6631 + tail 0.0157 + flag 0.0073 + gap 4.2503 = 4.9973 (quantized ideal 4.9974); raw tree 10.2374 + raw table 0.1457 + escapes 0.0001
+      tables section: model 1026269 B (0.0266 bits/el) vs REAL serialized 1026611 B (-0.033%); per class model/real/models: table 9548/9548/313 count 368380/368589/32258 count tail 11679/11681/6 flag 264/264/33 gap length 636398/636529/21406
+      rank table: m 6995232 primes in 6038 classes, class sizes 6333 B, symbols 0.0610 + raw 0.1457 bits/el; symbols 1187702404 (blocks 1133); fingerprint d11a029261328623
+      nodes by depth: 0:1 1:780377 2:11177359 3:64340560 4:146097491 5:151267279 6:86362579 7:29263510 8:6039247 9:658265 10:35279 11:764
+      paths: mean |S| 4.9139, S=d_min 77.245%, S=all primes 0.002%, |S| histogram: 2:5649480 3:31165618 4:80312748 5:95880516 6:64393952 7:24689043 8:5526035 9:627268 10:34515 11:764
+      re-rank effect +0.0149 bits/el; vs start -2.772%
+  sweep 4:   5.02% records, moves 604015 (3.905%), rejected 66734, live 15.4020 bits/el (-0.035%), overflow nodes 747299, caches 277914, steps/eval 113.5, 822 s (ETA 15567 s), ws 13.78 GB
+  sweep 4:  10.01% records, moves 936799 (3.035%), rejected 86879, live 15.4000 bits/el (-0.048%), overflow nodes 1188606, caches 277940, steps/eval 122.7, 1779 s (ETA 15992 s), ws 13.79 GB
+  sweep 4:  15.01% records, moves 1244979 (2.691%), rejected 102856, live 15.3984 bits/el (-0.058%), overflow nodes 1597564, caches 277957, steps/eval 127.7, 2756 s (ETA 15608 s), ws 13.81 GB
+  sweep 4:  20.00% records, moves 1537434 (2.493%), rejected 118461, live 15.3970 bits/el (-0.067%), overflow nodes 1988892, caches 277971, steps/eval 131.2, 3752 s (ETA 15003 s), ws 13.82 GB
+  sweep 4:  25.00% records, moves 1817869 (2.359%), rejected 132152, live 15.3958 bits/el (-0.075%), overflow nodes 2366173, caches 277988, steps/eval 134.0, 4769 s (ETA 14307 s), ws 13.83 GB
+  sweep 4:  30.02% records, moves 2085773 (2.254%), rejected 147327, live 15.3946 bits/el (-0.083%), overflow nodes 2727587, caches 278000, steps/eval 136.3, 5814 s (ETA 13554 s), ws 13.85 GB
+  sweep 4:  35.01% records, moves 2339391 (2.167%), rejected 162360, live 15.3935 bits/el (-0.090%), overflow nodes 3071984, caches 278014, steps/eval 138.3, 6924 s (ETA 12852 s), ws 13.86 GB
+  sweep 4:  40.01% records, moves 2584525 (2.095%), rejected 177593, live 15.3925 bits/el (-0.096%), overflow nodes 3407124, caches 278022, steps/eval 140.1, 8033 s (ETA 12045 s), ws 13.87 GB
+  sweep 4:  45.00% records, moves 2814859 (2.029%), rejected 191580, live 15.3915 bits/el (-0.103%), overflow nodes 3724366, caches 278026, steps/eval 141.7, 9166 s (ETA 11201 s), ws 13.88 GB
+  sweep 4:  50.00% records, moves 3034675 (1.969%), rejected 204009, live 15.3906 bits/el (-0.108%), overflow nodes 4028696, caches 278042, steps/eval 143.1, 10310 s (ETA 10310 s), ws 13.89 GB
+  sweep 4:  55.02% records, moves 3248300 (1.915%), rejected 217302, live 15.3898 bits/el (-0.114%), overflow nodes 4326545, caches 278052, steps/eval 144.4, 11472 s (ETA 9380 s), ws 13.90 GB
+  sweep 4:  60.01% records, moves 3454084 (1.867%), rejected 230144, live 15.3889 bits/el (-0.119%), overflow nodes 4616508, caches 278057, steps/eval 145.7, 12641 s (ETA 8423 s), ws 13.91 GB
+  sweep 4:  65.01% records, moves 3649417 (1.821%), rejected 243411, live 15.3882 bits/el (-0.125%), overflow nodes 4893325, caches 278063, steps/eval 146.8, 13823 s (ETA 7440 s), ws 13.92 GB
+  sweep 4:  70.00% records, moves 3836371 (1.778%), rejected 255800, live 15.3874 bits/el (-0.129%), overflow nodes 5160376, caches 278073, steps/eval 147.9, 15007 s (ETA 6430 s), ws 13.93 GB
+  sweep 4:  75.00% records, moves 4020366 (1.739%), rejected 268119, live 15.3866 bits/el (-0.134%), overflow nodes 5425362, caches 278085, steps/eval 148.9, 16196 s (ETA 5399 s), ws 13.94 GB
+  sweep 4:  80.02% records, moves 4198285 (1.702%), rejected 278982, live 15.3859 bits/el (-0.139%), overflow nodes 5682615, caches 278094, steps/eval 149.9, 17406 s (ETA 4347 s), ws 13.95 GB
+  sweep 4:  85.01% records, moves 4368281 (1.667%), rejected 290654, live 15.3852 bits/el (-0.144%), overflow nodes 5930735, caches 278100, steps/eval 150.8, 18624 s (ETA 3283 s), ws 13.96 GB
+  sweep 4:  90.01% records, moves 4530534 (1.633%), rejected 301991, live 15.3846 bits/el (-0.148%), overflow nodes 6169163, caches 278112, steps/eval 151.7, 19850 s (ETA 2203 s), ws 13.96 GB
+  sweep 4:  95.00% records, moves 4691045 (1.602%), rejected 312449, live 15.3839 bits/el (-0.152%), overflow nodes 6407352, caches 278120, steps/eval 152.5, 21080 s (ETA 1108 s), ws 13.97 GB
+  sweep 4: 100.00% records, moves 4847870 (1.573%), rejected 323742, live 15.3833 bits/el (-0.156%), overflow nodes 6640824, caches 278130, steps/eval 153.3, 22328 s (ETA 0 s), ws 13.98 GB
+SWEEP 4  moves 4847870 (1.573%), rejected 323742 (re-searched 323742), gain 0.0240 bits/el, live (old ranks) 15.3833 bits/el; steps/eval 153.3, evaluated 308279939 (72.43 us each incl. apply, wall), capped 0, re-insertion violations 0, eval/apply mismatches 0, rebuilds 0; 22328 s (parallel search 22002 s, sequential apply 325 s, rebuilds 0 s); ws 13.97 GB, peak 15.97 GB, commit 16.32 GB
+  build 9: 60 runs 55 s, tree+symbols 81 s, table+models 2 s, nodes 495987073 (1.6089 /el), 277055 sibling caches, keys checked vs Pwt2Keys2 0, mem ws 13.89 GB (peak 15.97)
+CHECK  same-rank rebuild: live 4742364340.254515 vs exact 4742364340.254896 bits (diff 0.000381; live parts 4742364340.255093); histogram fingerprint live 2f1b0d051e5c913f vs rebuilt 2f1b0d051e5c913f EQUAL
+RANKS  used 6995232 -> 6994159 (newly used 6156, dropped 7229); of 6988003 used in both, rank changed 6963074; top-1000 positions changed 186; top 10: 19 31 37 41 17 29 61 73 43 13
+  build 10: 60 runs 58 s, tree+symbols 86 s, table+models 2 s, nodes 495987350 (1.6089 /el), 277205 sibling caches, keys checked vs Pwt2Keys2 1186942281, mem ws 13.92 GB (peak 15.97)
+      paths whose prime order changed under the new ranks: 180654 (0.059%)
+MODEL after sweep 4      nodes 495987350 = 1.6089 /el | OBJECTIVE 15.3897 bits/el = 593040676 bytes | predicted file 593055405 bytes = 15.3900 bits/el
+      entropy (bits/el): table 0.0610 + count 0.6497 + tail 0.0150 + flag 0.0070 + gap 4.2492 = 4.9819 (quantized ideal 4.9819); raw tree 10.2359 + raw table 0.1456 + escapes 0.0001
+      tables section: model 1001076 B (0.0260 bits/el) vs REAL serialized 1001472 B (-0.040%); per class model/real/models: table 9525/9527/313 count 351486/351717/32109 count tail 10617/10617/6 flag 258/258/32 gap length 629190/629353/21242
+      rank table: m 6994159 primes in 6014 classes, class sizes 6309 B, symbols 0.0610 + raw 0.1456 bits/el; symbols 1187585168 (blocks 1133); fingerprint 08e88734a41d8284
+      nodes by depth: 0:1 1:780373 2:11165597 3:64287757 4:145996904 5:151240739 6:86432294 7:29314651 8:6068033 9:664501 10:35717 11:783
+      paths: mean |S| 4.9157, S=d_min 76.798%, S=all primes 0.002%, |S| histogram: 2:5640880 3:31111965 4:80209948 5:95861994 6:64483863 7:24746304 8:5556054 9:633214 10:34934 11:783
+      re-rank effect +0.0064 bits/el; vs start -2.883%
+best       state after sweep 4: 15.3897 bits/el (model, fresh ranks) = -2.883% vs start (emitted / saved)
+emitted    <work>/scratch/dsel_set2/full/s2_full.bin (308279939 records x 14 fields, every S rebuilds its n)
+elapsed    96324.1 s, peak working set 15.97 GB
+exit 0

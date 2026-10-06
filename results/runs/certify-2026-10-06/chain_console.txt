@@ -1,0 +1,10 @@
+b1_c001 exit=0 secs=130.67 bytes=- sha=- status=NO-OUTPUT
+b1_c000 exit=0 secs=86.07 bytes=- sha=- status=NO-OUTPUT
+b1_c100 exit=0 secs=1594.12 bytes=- sha=- status=NO-OUTPUT
+b1_c101 exit=0 secs=1616.51 bytes=- sha=- status=NO-OUTPUT
+b1_dstar_emit exit=0 secs=304.59 bytes=21579595730 sha=fa7d2f8b86d7e2d890eb994408a65741fa756fdecd9f0bd3693c5a4648a3ef37 status=NO-EXPECTED
+b1_dstar_encode exit=0 secs=450.63 bytes=588684305 sha=3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6 status=MATCH
+b1_cert_c011 exit=0 secs=292.10 bytes=- sha=- status=NO-OUTPUT
+b1_cert_c111 exit=0 secs=218.80 bytes=- sha=- status=NO-OUTPUT
+b1_cert_dstar exit=0 secs=215.22 bytes=- sha=- status=NO-OUTPUT
+chain all done

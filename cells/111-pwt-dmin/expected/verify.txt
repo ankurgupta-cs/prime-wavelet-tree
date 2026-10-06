@@ -1,0 +1,15 @@
+# cell 111: make verify-111
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## verify
+hashing   <data>/carmichael-1e24-cell111-pwt-dmin.pwt2 (604904156 bytes) ...
+MATCH     cell 111 file  sha256 0b387083f508818bb42dda65b3e0bc1bdc7161a009788f8036346f475247e317
+container   604904156 bytes, 308279939 records, divisor mode, entropy-coded, max depth 12, m 7037363 primes in 11766 classes, context set 3
+structure   OK (payload SHA-256, tables, 1424 blocks, 1492263498 symbols); read <t> s, loaded <t> s
+rank table  7037363 primes decoded (<t> s cumulative)
+decoded     308279939 numbers in tree order (<t> s cumulative)
+phases      read <t> s | checks + sieve <t> s | rank table <t> s | tree <t> s | in-memory decode <t> s (table + tree)
+sorted      (<t> s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     <t> s
+VERIFIED  cell 111: file hash, structure and footer targets

@@ -1,0 +1,19 @@
+cmd:   make verify-110
+start: 2026-10-06T16:16:30Z
+----
+bash scripts/cell.sh verify 110
+hashing   <scratch>/c110.pwt2n (1296532881 bytes) ...
+MATCH     cell 110 file  sha256 d2ba4ade81f4e972eadd573bef11e309a7999f9122789be56dbfdbed6a54a1bf
++ <repo>/build/pwt2_decode.exe <scratch>/c110.pwt2n
+container   1296532881 bytes, 308279939 records, divisor mode, byte-aligned, max depth 12, m 7037363 primes in 11766 classes, context set 1
+structure   OK (payload SHA-256, tables, 0 blocks, 1009770142 symbols); read 0.4 s, loaded 4.5 s
+rank table  7037363 primes decoded (5.0 s cumulative)
+decoded     308279939 numbers in tree order (83.9 s cumulative)
+phases      read 0.4 s | checks + sieve 4.1 s | rank table 0.5 s | tree 78.8 s | in-memory decode 79.3 s (table + tree)
+sorted      (131.0 s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     131.0 s
+VERIFIED  cell 110: file hash, structure and footer targets
+----
+end:   2026-10-06T16:19:05Z
+exit:  0
+seconds: 154.2

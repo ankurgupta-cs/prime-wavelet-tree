@@ -1,0 +1,27 @@
+2026-09-29 20:41:39  ##### ROUND 3 start (steps: X4_1t_r1 X4_1t_r2 X4_1t_r3 X3_1t)
+2026-09-29 20:41:39  binary bin\trie_paths.exe sha256 2dd5ee93e3026faa00402d0696df2aaa24671fe735b03a605f5e39c2ecb53da4 MATCH round 1
+2026-09-29 20:41:41  X4_1t_r1 flush wait: modified page list 117 MB (< 512 MB) OK
+2026-09-29 20:42:21  STEP X4_1t_r1 input ORC1 sha256 MATCH (untimed pre-hash, 18 s; input now warm in the file cache)
+2026-09-29 20:42:22  STEP X4_1t_r1 start  (standby file cache 27.2 GB, available 39.3 GB, modified (dirty) 127 MB)
+2026-09-29 20:43:20    2026-09-29 20:43:20  X4_1t_r1 exit=0  wall=48.28s (0.80 min)  stopwatch=48.66s  cpu=48.27s (user 43.84 + kernel 4.42; cpu/wall 1.00)  peakWS=0.01GB  freeRAMafter=36.8GB  start=20:42:29.780  end=20:43:18.060  cmd: <work>\timing_build\bin\trie_paths.exe <work>\data\new_table.orc1 data\rd3\fpaths_1t_r1.bin --full --fields 14 --threads 1
+2026-09-29 20:43:20    background CPU (other processes, 5-s samples): mean 0.068 cores, max 0.18 cores; 0 sample(s) flagged (>= 0.25 cores or heavy-list name); clock 4.76 GHz mean over awake logical CPUs, 3.8 awake (>= 5% busy), 6 samples
+2026-09-29 20:44:47  STEP X4_1t_r1 DONE: tool elapsed 48.3 s; stdout identical to round 1 (threads/path/elapsed aside); sha256 86828c5e8d78a661394acc72533fbded080b2e107ce9defc0f31f364e4b13136 (21579595730 B; MATCH round-1 certified)
+2026-09-29 20:44:48  X4_1t_r2 flush wait: modified page list 135 MB (< 512 MB) OK
+2026-09-29 20:45:28  STEP X4_1t_r2 input ORC1 sha256 MATCH (untimed pre-hash, 18 s; input now warm in the file cache)
+2026-09-29 20:45:29  STEP X4_1t_r2 start  (standby file cache 39.2 GB, available 39.3 GB, modified (dirty) 125 MB)
+2026-09-29 20:46:27    2026-09-29 20:46:27  X4_1t_r2 exit=0  wall=47.75s (0.80 min)  stopwatch=48.10s  cpu=47.70s (user 43.16 + kernel 4.55; cpu/wall 1.00)  peakWS=0.01GB  freeRAMafter=37.0GB  start=20:45:36.745  end=20:46:24.493  cmd: <work>\timing_build\bin\trie_paths.exe <work>\data\new_table.orc1 data\rd3\fpaths_1t_r2.bin --full --fields 14 --threads 1
+2026-09-29 20:46:27    background CPU (other processes, 5-s samples): mean 0.067 cores, max 0.10 cores; 0 sample(s) flagged (>= 0.25 cores or heavy-list name); clock 4.75 GHz mean over awake logical CPUs, 5.5 awake (>= 5% busy), 6 samples
+2026-09-29 20:47:53  STEP X4_1t_r2 DONE: tool elapsed 47.7 s; stdout identical to round 1 (threads/path/elapsed aside); sha256 86828c5e8d78a661394acc72533fbded080b2e107ce9defc0f31f364e4b13136 (21579595730 B; MATCH round-1 certified)
+2026-09-29 20:47:55  X4_1t_r3 flush wait: modified page list 130 MB (< 512 MB) OK
+2026-09-29 20:48:34  STEP X4_1t_r3 input ORC1 sha256 MATCH (untimed pre-hash, 18 s; input now warm in the file cache)
+2026-09-29 20:48:35  STEP X4_1t_r3 start  (standby file cache 39.3 GB, available 39.5 GB, modified (dirty) 125 MB)
+2026-09-29 20:49:34    2026-09-29 20:49:34  X4_1t_r3 exit=0  wall=48.03s (0.80 min)  stopwatch=48.48s  cpu=47.92s (user 43.52 + kernel 4.41; cpu/wall 1.00)  peakWS=0.01GB  freeRAMafter=37.0GB  start=20:48:43.078  end=20:49:31.104  cmd: <work>\timing_build\bin\trie_paths.exe <work>\data\new_table.orc1 data\rd3\fpaths_1t_r3.bin --full --fields 14 --threads 1
+2026-09-29 20:49:34    background CPU (other processes, 5-s samples): mean 0.073 cores, max 0.14 cores; 0 sample(s) flagged (>= 0.25 cores or heavy-list name); clock 4.74 GHz mean over awake logical CPUs, 5.9 awake (>= 5% busy), 7 samples
+2026-09-29 20:51:01  STEP X4_1t_r3 DONE: tool elapsed 48.0 s; stdout identical to round 1 (threads/path/elapsed aside); sha256 86828c5e8d78a661394acc72533fbded080b2e107ce9defc0f31f364e4b13136 (21579595730 B; MATCH round-1 certified)
+2026-09-29 20:51:03  X3_1t flush wait: modified page list 100 MB (< 512 MB) OK
+2026-09-29 20:51:43  STEP X3_1t input ORC1 sha256 MATCH (untimed pre-hash, 18 s; input now warm in the file cache)
+2026-09-29 20:51:44  STEP X3_1t start  (standby file cache 39.3 GB, available 39.4 GB, modified (dirty) 100 MB)
+2026-09-29 23:31:49    2026-09-29 23:31:48  X3_1t exit=0  wall=9,592.40s (159.87 min)  stopwatch=9,595.21s  cpu=9,592.28s (user 9,586.48 + kernel 5.80; cpu/wall 1.00)  peakWS=0.01GB  freeRAMafter=39.4GB  start=20:51:51.449  end=23:31:43.846  cmd: <work>\timing_build\bin\trie_paths.exe <work>\data\new_table.orc1 data\rd3\dpaths_1t.bin --fields 12 --threads 1
+2026-09-29 23:31:49    background CPU (other processes, 5-s samples): mean 0.067 cores, max 0.37 cores; 0 sample(s) flagged (>= 0.25 cores or heavy-list name); clock 4.77 GHz mean over awake logical CPUs, 3.4 awake (>= 5% busy), 1290 samples
+2026-09-29 23:33:03  STEP X3_1t DONE: tool elapsed 9592.4 s; stdout identical to round 1 (threads/path/elapsed aside); sha256 391ed7caa7315833c9144c34ff86dcb9f45a0143b270806833c480c654a3dd39 (18496796340 B; MATCH round-1 certified)
+2026-09-29 23:33:03  ##### ROUND 3 ALL DONE

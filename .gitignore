@@ -1,0 +1,34 @@
+# build output and the large data (never commit them)
+/build/
+/data/
+/work/
+*.partial
+
+# the data folder files written by `make site` (they go to the data directory, not into git)
+/dist/
+
+# Python caches of the site generator
+__pycache__/
+
+# the maintainers' pre-release checklist (kept beside the tree, never committed)
+/RELEASE_TODO.md
+
+# data files of every format, except the small test fixtures under tests/
+*.txt.gz
+*.orc1
+*.cnd
+*.cnd1
+*.vbg
+*.pwt1
+*.pwt2
+*.pwt2n
+*.raw
+*.bin
+!/tests/prefix/prefix.orc1
+!/tests/prefix/golden_files/*
+!/tests/fixtures/pwt2_craft/*
+
+# LaTeX by-products of `make pdf`
+/results/*.aux
+/results/*.log
+/results/*.out

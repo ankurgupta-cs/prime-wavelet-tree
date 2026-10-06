@@ -1,0 +1,9 @@
+# Check out every text file with LF line ends on every platform: the bash
+# scripts, the manifests and the fixtures are read byte for byte. Binary
+# files and the run logs (kept exactly as captured) are never converted;
+# tests/prefix has its own "* -text".
+* text=auto eol=lf
+*.pdf binary
+*.gz binary
+tests/fixtures/pwt2_craft/** -text
+**/runs/** -text

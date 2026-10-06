@@ -1,0 +1,18 @@
+cmd:   make certify-111
+start: 2026-10-06T16:55:03Z
+----
+bash scripts/cell.sh certify 111
++ <repo>/build/pwt2_decode.exe <data>/c111-pwt-dmin.pwt2 --certify <data>/new_table.orc1
+container   604904156 bytes, 308279939 records, divisor mode, entropy-coded, max depth 12, m 7037363 primes in 11766 classes, context set 3
+structure   OK (payload SHA-256, tables, 1424 blocks, 1492263498 symbols); read 0.4 s, loaded 2.5 s
+rank table  7037363 primes decoded (3.2 s cumulative)
+decoded     308279939 numbers in tree order (139.8 s cumulative)
+phases      read 0.4 s | checks + sieve 2.1 s | rank table 0.7 s | tree 136.5 s | in-memory decode 137.3 s (table + tree)
+sorted      (187.3 s); sha_nset MATCH; total_check MATCH; count MATCH
+oracle file SHA-256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f (202.4 s)
+CERTIFIED   every decoded number equals the oracle's, in order (216.0 s); oracle sha_src c934af2a208832689586d12bbfe9e9cfc4ccb6447375baa39308d2e3373e6170
+elapsed     216.0 s
+----
+end:   2026-10-06T16:58:40Z
+exit:  0
+seconds: 217.3

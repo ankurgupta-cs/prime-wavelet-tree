@@ -1,0 +1,28 @@
+cmd:   make rebuild-001
+start: 2026-10-06T16:19:56Z
+----
+bash scripts/cell.sh rebuild 001
+present   n_list (<work>/n.raw, sha256 ae272474e7bb0459...)
++ <repo>/build/list_build.exe classes <work>/n.raw <work>/c001-n-classes.cnd --mod 10810800 --targets-self
+stamp  load                1.866 s   cum      1.866 s   open + zero-filled allocation + read
+input      <work>/n.raw: 308279939 records; mode classes, M = 10810800
+stamp  targets            15.660 s   cum     17.527 s   sha_nset + total_check of the loaded input
+stamp  prepare            25.326 s   cum     42.853 s   class split: validate, r = v mod M, k = (v - r)/M per class; end width
+stamp  encode             30.698 s   cum     73.551 s   interpolative blob per class + VByte directory
+stamp  seal                4.900 s   cum     78.451 s   header + SHA-256 over header||dir||body + footer
+stamp  write               0.581 s   cum     79.032 s   header, directory, blobs, footer; closed
+stamp  total              79.032 s   (phases sum 79.032 s, unaccounted 0.000 s)
+stamp  total-targets      63.372 s   (total minus targets)
+classes    430391 nonempty of 10810800, end width 57
+container  header 64 + directory 11372460 + blobs 1533938367 + footer 88 = 1545310979 B = 40.101 bits/el
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62
+sha256     0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd  (untimed; the file as read back from disk)
+crosscheck (untimed) shipped cnd1_encode into RAM: 63.788 s, 1545310979 B; written file BYTE-IDENTICAL to it
+verify     (untimed) relaxed CND reader, M = 10810800 from the header: structure + payload sha OK; classes decoded 33.123 s + global sort 19.662 s; 308279939 values all equal to the input: VERIFIED
+verify     v1 Cnd1Reader not run: it pins M = 2310 (this file has M = 10810800)
+hashing   <work>/c001-n-classes.cnd (1545310979 bytes) ...
+MATCH     cell 001 (<work>/c001-n-classes.cnd)  sha256 0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd
+----
+end:   2026-10-06T16:25:16Z
+exit:  0
+seconds: 320.7

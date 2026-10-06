@@ -1,0 +1,34 @@
+tag:     b1_c001
+cmd:     <repo>/build/list_decode.exe <work>/release_data/c001-n-classes.cnd --kind n --certify <work>/data/new_table.orc1
+cwd:     <work>/release_build
+start:   2026-10-06T13:41:29Z
+----
+stamp  load                0.538 s   cum      0.538 s   whole file read into memory
+input      <work>/release_data/c001-n-classes.cnd: 1545310979 B, format CND (classes mod M, interpolative)
+file       sha256 0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd
+stamp  file-sha            4.910 s   cum      5.448 s   SHA-256 of the whole file
+structure  CND: M = 10810800, end_width 57, 308279939 records in 430391 nonempty classes; directory 11372460 B, body 1533938367 B; payload SHA-256 OK
+stamp  structure           4.981 s   cum     10.429 s   header, directory, payload SHA-256 over header||dir||body
+stamp  decode             28.873 s   cum     39.301 s   interpolative classes -> values (class by class)
+stamp  sort               19.477 s   cum     58.778 s   global sort of the decoded classes
+values     308279939 values, span [561, 999999999855878641139521], strictly ascending
+size       40.101 bits per value (whole file)
+values     sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 87794795725388084167960692697377
+stamp  values-sha         19.921 s   cum     78.700 s   strictly-ascending check + SHA-256 and sum of the value stream
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; total_check 87794795725388084167960692697377
+footer     sha_nset MATCH; total_check MATCH (vs the stored n stream)
+oracle     <work>/data/new_table.orc1: file sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+stamp  oracle-sha         15.201 s   cum     93.901 s   SHA-256 of the oracle file
+oracle     308279939 records; n stream sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum 87794795725388084167960692697377
+stamp  oracle             36.495 s   cum    130.395 s   oracle n stream compared element by element
+stamp  total             130.395 s   (phases sum 130.395 s, unaccounted 0.000 s)
+CERTIFIED  308279939 stored n; every n equals the oracle's, in order; count, sum and sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 match; CND footer targets match
+----
+end:     2026-10-06T13:43:40Z
+exit:    0
+seconds: 130.67 (process wall, measured by run_job.sh)
+output:  -
+bytes:   -
+sha256:  - (hashing 0 s)
+expect:  -
+status:  NO-OUTPUT

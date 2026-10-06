@@ -1,0 +1,105 @@
+bash tests/test_release_tools.sh build
+== setup: fixture oracle and intermediates in <home>/AppData/Local/Temp/cn_reltools.7C7CGG
+   639 records; flat files: c000 3253 B, c100 2548 B, c001 10816470 B, c101 6926 B
+== list_decode: certified round trips
+PASS  list_decode c000_n
+PASS  c000 --emit == n.raw
+PASS  c000 --emit-n == n.raw
+PASS  list_decode c001_n
+PASS  c001 (M = 10,810,800) --emit == n.raw
+PASS  list_decode c001_m510510_n
+PASS  list_decode c100_d
+PASS  c100 --emit == d.raw
+PASS  c100 --emit-n == n.raw
+PASS  list_decode c101_d
+PASS  c101 --emit == d.raw
+PASS  c101 --emit-n == n.raw
+PASS  list_decode c101_m1_d
+PASS  list_decode c101_m3_d
+PASS  list_decode c101_decode_only
+PASS  c101 decode-only --emit == d.raw
+PASS  values sha256 line == sha256 of d.raw
+PASS  file sha256 line == sha256 of the file
+PASS  list_decode c000_as_d
+PASS  cnd_decode certifies the same c101
+PASS  cnd_decode --emit-d == list_decode --emit
+== list_decode: wrong claims and usage
+PASS  list_decode d_list_as_n_cnd
+PASS  list_decode d_list_as_n_vbg
+PASS  list_decode wrong_oracle
+PASS  list_decode no_targets
+PASS  list_decode usage_no_kind
+PASS  list_decode usage_bad_kind
+PASS  list_decode bad_magic
+PASS  list_decode d_not_squarefree
+PASS  list_decode d_even
+== list_decode: corrupted VBG1 (no checksum in the format: certification catches content changes)
+PASS  list_decode vbg_flip_certify
+PASS  list_decode vbg_truncated
+PASS  list_decode vbg_trailing_byte
+PASS  list_decode vbg_count_plus1
+PASS  list_decode vbg_count_minus1
+PASS  list_decode vbg_noncanonical
+PASS  list_decode vbg_zero_gap
+== list_decode: corrupted CND (plain, then crafted with a valid payload SHA-256)
+PASS  list_decode cnd_body_flip
+PASS  list_decode cnd_truncated
+PASS  list_decode cnd_footer_target_decode_only
+PASS  list_decode cnd_footer_target_certify
+PASS  list_decode cnd_huge_M
+PASS  list_decode cnd_M_plus1
+PASS  list_decode cnd_records_plus1
+PASS  list_decode cnd_noncanonical_dir
+PASS  list_decode cnd_reserved_byte
+PASS  list_decode cnd_crafted_body_certify
+== pwt2_decode --emit-paths: encode -> emit paths -> re-encode
+PASS  pwt2 dmin_s1: emitted paths == encoder input (as a multiset of 639 records x 12 fields)
+PASS  pwt2 dmin_s1: re-encoded container byte-identical (6449 B)
+PASS  pwt2 dmin_s2: emitted paths == encoder input (as a multiset of 639 records x 12 fields)
+PASS  pwt2 dmin_s2: re-encoded container byte-identical (12593 B)
+PASS  pwt2 dmin_s3: emitted paths == encoder input (as a multiset of 639 records x 12 fields)
+PASS  pwt2 dmin_s3: re-encoded container byte-identical (12594 B)
+PASS  pwt2 dmin_naive: emitted paths == encoder input (as a multiset of 639 records x 12 fields)
+PASS  pwt2 dmin_naive: re-encoded container byte-identical (4679 B)
+PASS  pwt2 full_s1: emitted paths == encoder input (as a multiset of 639 records x 14 fields)
+PASS  pwt2 full_s1: re-encoded container byte-identical (9199 B)
+PASS  pwt2 full_s2: emitted paths == encoder input (as a multiset of 639 records x 14 fields)
+PASS  pwt2 full_s2: re-encoded container byte-identical (18342 B)
+PASS  pwt2 full_s3: emitted paths == encoder input (as a multiset of 639 records x 14 fields)
+PASS  pwt2 full_s3: re-encoded container byte-identical (18343 B)
+PASS  pwt2 full_naive: emitted paths == encoder input (as a multiset of 639 records x 14 fields)
+PASS  pwt2 full_naive: re-encoded container byte-identical (7140 B)
+PASS  pwt2 dstar_like_s3: emitted paths == encoder input (as a multiset of 639 records x 14 fields)
+PASS  pwt2 dstar_like_s3: re-encoded container byte-identical (15935 B)
+PASS  pwt2 dstar_like_naive: emitted paths == encoder input (as a multiset of 639 records x 14 fields)
+PASS  pwt2 dstar_like_naive: re-encoded container byte-identical (5525 B)
+== pwt2_decode --emit-paths: defaults, field choice, failures
+PASS  full tree uses all 14 fields (max depth 14)
+PASS  divisor file: default --fields 12
+PASS  full file: default --fields 14
+PASS  d_min paths at 14 fields re-encode to the same container
+PASS  max depth 14 > --fields 12: refused, nothing written
+PASS  --fields 13 rejected (usage)
+PASS  --fields without --emit-paths rejected (usage)
+PASS  target mismatch: exit 1, no paths file or partial left
+PASS  payload byte flipped: exit 1, nothing written
+PASS  plain pwt2_decode --certify --emit-n (no paths line, n.raw identical)
+== paths_cmp: path files compared as sets (record order ignored)
+PASS  paths_cmp emitted_vs_input_dstar: exit 0, SAME SET, no run files left
+PASS  paths_cmp emitted_vs_input_dmin_7runs: exit 0, SAME SET, no run files left
+PASS  paths_cmp emitted_vs_input_full: exit 0, SAME SET, no run files left
+PASS  paths_cmp dstar_vs_full: exit 1, DIFFERENT, no run files left
+PASS  paths_cmp counts equal comm's (213 common of 639)
+PASS  paths_cmp one_record_missing: exit 1, DIFFERENT, no run files left
+PASS  paths_cmp one missing record: only in B 1
+PASS  paths_cmp duplicate_record_in_B: exit 1, FAILED, no run files left
+PASS  paths_cmp duplicate_record_in_A: exit 1, FAILED, no run files left
+PASS  paths_cmp truncated_record: exit 1, FAILED, no run files left
+PASS  paths_cmp unsorted_fields: exit 1, FAILED, no run files left
+PASS  paths_cmp one file: usage (exit 2)
+PASS  paths_cmp --fields 13: usage (exit 2)
+== 90 passed, 0 failed
+
+real	0m35.049s
+user	0m0.000s
+sys	0m0.015s

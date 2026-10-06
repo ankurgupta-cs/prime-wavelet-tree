@@ -1,0 +1,10 @@
+b1_c001	0	130.67	-	-	-	NO-OUTPUT	<repo>/build/list_decode.exe <work>/release_data/c001-n-classes.cnd --kind n --certify <work>/data/new_table.orc1
+b1_c000	0	86.07	-	-	-	NO-OUTPUT	<repo>/build/list_decode.exe <work>/release_build/c000.vbg --kind n --certify <work>/data/new_table.orc1
+b1_c100	0	1594.12	-	-	-	NO-OUTPUT	<repo>/build/list_decode.exe <work>/release_build/c100.vbg --kind d --threads 13 --certify <work>/data/new_table.orc1
+b1_c101	0	1616.51	-	-	-	NO-OUTPUT	<repo>/build/list_decode.exe <work>/release_data/c101-dmin-cnd1.cnd1 --kind d --threads 13 --certify <work>/data/new_table.orc1
+b1_dstar_emit	0	304.59	21579595730	fa7d2f8b86d7e2d890eb994408a65741fa756fdecd9f0bd3693c5a4648a3ef37	-	NO-EXPECTED	<repo>/build/pwt2_decode.exe <work>/pwt2/new_table_opt5.s3.pwt2 --emit-paths <work>/release_build/dstar_paths.bin --fields 14
+b1_dstar_encode	0	450.63	588684305	3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6	3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6	MATCH	<repo>/build/pwt2_encode.exe <work>/release_build/dstar_paths.bin <work>/data/new_table.orc1 <work>/release_build/dstar_reenc.pwt2 --fields 14 --ctx-set 3 --scratch <work>/release_build/sc_dstar_b1 --chunk 33554432 --threads 4
+b1_cert_c011	0	292.10	-	-	-	NO-OUTPUT	<repo>/build/pwt2_decode.exe <work>/release_data/c011-pwt-full.pwt2 --certify <work>/data/new_table.orc1
+b1_cert_c111	0	218.80	-	-	-	NO-OUTPUT	<repo>/build/pwt2_decode.exe <work>/release_data/c111-pwt-dmin.pwt2 --certify <work>/data/new_table.orc1
+b1_cert_dstar	0	215.22	-	-	-	NO-OUTPUT	<repo>/build/pwt2_decode.exe <work>/release_data/c111x-pwt-dstar.pwt2 --certify <work>/data/new_table.orc1
+b1_paths_cmp	0	313.98	-	-	-	NO-OUTPUT	<repo>/build/paths_cmp.exe <work>/release_build/dstar_paths.bin <work>/scratch/dsel_set2/full5/s2_full5.bin --fields 14 --scratch <work>/release_build/sc_pathscmp --threads 8

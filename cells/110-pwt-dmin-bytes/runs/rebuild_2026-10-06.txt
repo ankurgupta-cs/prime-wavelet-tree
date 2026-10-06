@@ -1,0 +1,36 @@
+tag:     c110
+cmd:     <repo>/build/pwt2_encode.exe <work>/data/dpaths.bin <work>/data/new_table.orc1 <work>/release_build/c110.pwt2n --fields 12 --naive --scratch <work>/release_build/sc110 --chunk 33554432 --threads 4
+cwd:     <work>/release_build
+start:   2026-10-06T13:07:11Z
+----
+input       <work>/data/dpaths.bin (fields 12, divisor (d*lambda(d) > n) mode, PWT2 byte-aligned VByte streams, context set 1)
+order       308279939 records, 7037363 distinct primes in 11766 count classes; root-most: 19 17 31 37 29 41 13 61 (29 s)
+ranked      <work>/release_build/sc110/pwt2_encode_1791292031821_ranked.bin (53 s)
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+sorted      308279939 records, max depth 12 (123 s)
+oracle      308279939 records, sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (157 s)
+encoded     (336 s)
+nodes       501366390 (1.626 per record); symbols 1009770142 (table 7037363); escapes 0
+sections    header 160 + classes 12069 + tables 0 + symbols 1296520564 + raw 0 + footer 88
+bits/el     stream 33.645 (of which rank table 0.347) + classes 0.0003 + framing 0.0000
+FILE        1296532881 bytes = 33.646 bits/el   (<work>/release_build/c110.pwt2n)
+            paths reproduce the oracle's sum; quote only after pwt2_decode --certify exits 0
+elapsed     338 s
+----
+end:     2026-10-06T13:12:54Z
+exit:    0
+seconds: 338.31 (process wall, measured by run_job.sh)
+output:  <work>/release_build/c110.pwt2n
+bytes:   1296532881
+sha256:  d2ba4ade81f4e972eadd573bef11e309a7999f9122789be56dbfdbed6a54a1bf (hashing 4.7 s)
+expect:  d2ba4ade81f4e972eadd573bef11e309a7999f9122789be56dbfdbed6a54a1bf
+status:  MATCH

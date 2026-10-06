@@ -1,0 +1,28 @@
+# cell 100: make certify-100
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## certify
+stamp  load                <t> s   cum      <t> s   whole file read into memory
+input      <work>/c100.vbg: 1220449393 B, format VBG1 (VByte gaps)
+file       sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575
+stamp  file-sha            <t> s   cum      <t> s   SHA-256 of the whole file
+structure  VBG1: 308279939 records, payload 1220449369 B (header consistent with the file size)
+stamp  structure           <t> s   cum      <t> s   VBG1 header vs file size
+stamp  decode              <t> s   cum      <t> s   VByte gaps -> values (ascending by construction)
+values     308279939 values, span [51, 1087125999730037130781], strictly ascending
+size       31.671 bits per value (whole file)
+values     sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 22550467583581231962095163
+stamp  values-sha         <t> s   cum     <t> s   strictly-ascending check + SHA-256 and sum of the value stream
+factored   all 308279939 d (threads 13): n = d * (d^-1 mod lambda(d))
+stamp  factor           <t> s   cum   <t> s   split_u128 every d -> lambda -> inverse -> n
+stamp  sort-n             <t> s   cum   <t> s   sort + distinctness of the reconstructed n
+n          308279939 values, span [561, 999999999855878641139521], strictly ascending
+n          sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum mod 2^128 87794795725388084167960692697377
+stamp  n-sha              <t> s   cum   <t> s   SHA-256 and sum of the n stream
+oracle     <data>/carmichael-1e24-oracle.orc1: file sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+stamp  oracle-sha         <t> s   cum   <t> s   SHA-256 of the oracle file
+oracle     308279939 records; n stream sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum 87794795725388084167960692697377
+stamp  oracle             <t> s   cum   <t> s   oracle n stream compared element by element
+stamp  total            <t> s   (phases sum <t> s, unaccounted <t> s)
+CERTIFIED  308279939 d -> n (factored); every n equals the oracle's, in order; count, sum and sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 match

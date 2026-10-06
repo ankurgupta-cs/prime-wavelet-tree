@@ -1,0 +1,37 @@
+tag:     b1_c100
+cmd:     <repo>/build/list_decode.exe <work>/release_build/c100.vbg --kind d --threads 13 --certify <work>/data/new_table.orc1
+cwd:     <work>/release_build
+start:   2026-10-06T13:45:06Z
+----
+stamp  load                0.821 s   cum      0.821 s   whole file read into memory
+input      <work>/release_build/c100.vbg: 1220449393 B, format VBG1 (VByte gaps)
+file       sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575
+stamp  file-sha            4.269 s   cum      5.090 s   SHA-256 of the whole file
+structure  VBG1: 308279939 records, payload 1220449369 B (header consistent with the file size)
+stamp  structure           0.001 s   cum      5.091 s   VBG1 header vs file size
+stamp  decode              3.402 s   cum      8.493 s   VByte gaps -> values (ascending by construction)
+values     308279939 values, span [51, 1087125999730037130781], strictly ascending
+size       31.671 bits per value (whole file)
+values     sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 22550467583581231962095163
+stamp  values-sha         21.875 s   cum     30.368 s   strictly-ascending check + SHA-256 and sum of the value stream
+factored   all 308279939 d (threads 13): n = d * (d^-1 mod lambda(d))
+stamp  factor           1465.870 s   cum   1496.238 s   split_u128 every d -> lambda -> inverse -> n
+stamp  sort-n             27.059 s   cum   1523.297 s   sort + distinctness of the reconstructed n
+n          308279939 values, span [561, 999999999855878641139521], strictly ascending
+n          sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum mod 2^128 87794795725388084167960692697377
+stamp  n-sha              19.654 s   cum   1542.951 s   SHA-256 and sum of the n stream
+oracle     <work>/data/new_table.orc1: file sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+stamp  oracle-sha         15.099 s   cum   1558.051 s   SHA-256 of the oracle file
+oracle     308279939 records; n stream sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum 87794795725388084167960692697377
+stamp  oracle             35.372 s   cum   1593.423 s   oracle n stream compared element by element
+stamp  total            1593.423 s   (phases sum 1593.423 s, unaccounted 0.000 s)
+CERTIFIED  308279939 d -> n (factored); every n equals the oracle's, in order; count, sum and sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 match
+----
+end:     2026-10-06T14:11:41Z
+exit:    0
+seconds: 1594.12 (process wall, measured by run_job.sh)
+output:  -
+bytes:   -
+sha256:  - (hashing 0 s)
+expect:  -
+status:  NO-OUTPUT

@@ -1,0 +1,66 @@
+{
+  "_about": "Every link and licence statement on the website, in the README links block and in the data folder files comes from this file and from results/cells.tsv, through site/build_site.py. A null value prints the text with a 'link at release' marker and no link (for a licence: 'pending'). data_folder_url is the folder the paper cites; data_base_url is its v1/ subfolder, where the files are. The url column of results/cells.tsv must agree with data_base_url.",
+
+  "github_owner": "ankurgupta-cs",
+  "repo_name": "prime-wavelet-tree",
+  "branch": "main",
+  "repo_public": false,
+  "_repo_public": "false while the repository is private. The data folder files (dist/data-folder/) then name the repository and the website as 'will be released at', in plain text without links, because the folder may go up first. Set it to true when the repository is public and Pages serves the website, run make site, and copy index.html, v1/index.html and v1/README.txt to the data folder again. The website and the README are only seen once the repository is public, so the flag does not change them.",
+
+  "data_folder_url": "https://blue.butler.edu/~jewebste/prime-wavelet-tree/",
+  "data_base_url": "https://blue.butler.edu/~jewebste/prime-wavelet-tree/v1",
+  "data_version": "v1",
+  "data_index_files": ["SHA256SUMS", "MANIFEST.tsv", "README.txt", "LICENSE-DATA.txt"],
+
+  "arxiv_id": "2610.02550",
+  "arxiv_primary_class": "math.NT",
+  "doi": null,
+
+  "table_credit": "A. Shallue and J. Webster",
+  "table_credit_full": "Andrew Shallue and Jonathan Webster",
+  "table_paper": {"authors": "A. Shallue and J. Webster", "title": "Algorithms for Carmichael numbers", "arxiv_id": "2506.09903"},
+
+  "paper": {
+    "title": "The Prime Wavelet Tree: Compressing the Carmichael Numbers",
+    "bibtex_title": "The Prime Wavelet Tree: Compressing the {C}armichael Numbers",
+    "bibtex_key": "GuptaWebsterWebster2026",
+    "year": 2026,
+    "authors": [
+      {"name": "Ankur Gupta", "short": "A. Gupta", "bibtex": "Gupta, Ankur"},
+      {"name": "Jonathan Webster", "short": "J. Webster", "bibtex": "Webster, Jonathan"},
+      {"name": "Sylvia Webster", "short": "S. Webster", "bibtex": "Webster, Sylvia"}
+    ],
+    "affiliation": "Butler University",
+    "venue_note": "Submitted to DCC 2027."
+  },
+
+  "code_licence": null,
+  "code_licence_pending": "pending a decision by Butler University",
+  "data_licence": "CC0-1.0",
+
+  "repo_paths": {
+    "_about": "Paths inside the repository that the site links to on GitHub. The build checks that they exist when it runs inside a repository checkout.",
+    "cells_dir": "cells",
+    "specs": {
+      "oracle": "docs/ORACLE_FORMAT.md",
+      "vbyte_list": "docs/VBG_FORMAT.md",
+      "class_list": "docs/CND_FORMAT.md",
+      "pwt": "docs/PWT2_FORMAT.md",
+      "pwt_bytes": "docs/PWT2_FORMAT.md",
+      "paths": "docs/PATHS_FORMAT.md",
+      "masks": "docs/MASKS_FORMAT.md"
+    }
+  },
+
+  "make_targets": {
+    "_about": "Make target names; {cell} is a cell tag such as 111x.",
+    "check": "check",
+    "fetch": "fetch-{cell}",
+    "verify": "verify-{cell}",
+    "certify": "certify-{cell}",
+    "rebuild": "rebuild-{cell}",
+    "fetch_oracle": "fetch-oracle",
+    "rebuild_oracle": "rebuild-oracle",
+    "dstar_search": "search-dstar"
+  }
+}

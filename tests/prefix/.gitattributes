@@ -1,0 +1,3 @@
+# The prefix self-test hashes these files byte for byte (the text table is
+# LF-only): never convert line ends on checkout.
+* -text

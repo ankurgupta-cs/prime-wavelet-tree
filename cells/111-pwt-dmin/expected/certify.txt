@@ -1,0 +1,14 @@
+# cell 111: make certify-111
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## certify
+container   604904156 bytes, 308279939 records, divisor mode, entropy-coded, max depth 12, m 7037363 primes in 11766 classes, context set 3
+structure   OK (payload SHA-256, tables, 1424 blocks, 1492263498 symbols); read <t> s, loaded <t> s
+rank table  7037363 primes decoded (<t> s cumulative)
+decoded     308279939 numbers in tree order (<t> s cumulative)
+phases      read <t> s | checks + sieve <t> s | rank table <t> s | tree <t> s | in-memory decode <t> s (table + tree)
+sorted      (<t> s); sha_nset MATCH; total_check MATCH; count MATCH
+oracle file SHA-256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f (<t> s)
+CERTIFIED   every decoded number equals the oracle's, in order (<t> s); oracle sha_src c934af2a208832689586d12bbfe9e9cfc4ccb6447375baa39308d2e3373e6170
+elapsed     <t> s

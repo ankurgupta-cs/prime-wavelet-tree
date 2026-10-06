@@ -1,0 +1,24 @@
+tag:     c100
+cmd:     <repo>/build/list_build.exe vbyte <work>/data/d.raw <work>/release_build/c100.vbg
+cwd:     <work>/release_build
+start:   2026-10-06T12:48:52Z
+----
+stamp  load                3.522 s   cum      3.522 s   open + zero-filled allocation + read
+input      <work>/data/d.raw: 308279939 records; mode vbyte
+stamp  prepare             0.331 s   cum      3.853 s   input check: strictly ascending
+stamp  encode              2.182 s   cum      6.035 s   VByte gap stream in RAM (first value absolute)
+stamp  write               0.765 s   cum      6.801 s   24 B header + payload, closed
+stamp  total               6.801 s   (phases sum 6.801 s, unaccounted 0.001 s)
+payload    1220449369 B = 31.671 bits/el   (flat_bench "VByte gaps" figure)
+file       1220449393 B = 31.671 bits/el   (payload + 24 B header)
+verify     (untimed) 308279939 values decoded from disk in 2.989 s, all equal to the input; brute-force VByte count 1220449369 B == payload: VERIFIED
+sha256     57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575  (untimed; the file as read back from disk)
+----
+end:     2026-10-06T12:49:12Z
+exit:    0
+seconds: 15.51 (process wall, measured by run_job.sh)
+output:  <work>/release_build/c100.vbg
+bytes:   1220449393
+sha256:  57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575 (hashing 4.4 s)
+expect:  57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575
+status:  MATCH

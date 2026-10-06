@@ -1,0 +1,40 @@
+tag:     b1_c101
+cmd:     <repo>/build/list_decode.exe <work>/release_data/c101-dmin-cnd1.cnd1 --kind d --threads 13 --certify <work>/data/new_table.orc1
+cwd:     <work>/release_build
+start:   2026-10-06T14:11:41Z
+----
+stamp  load                0.337 s   cum      0.337 s   whole file read into memory
+input      <work>/release_data/c101-dmin-cnd1.cnd1: 956341716 B, format CND (classes mod M, interpolative)
+file       sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb
+stamp  file-sha            3.044 s   cum      3.381 s   SHA-256 of the whole file
+structure  CND: M = 2310, end_width 59, 308279939 records in 1077 nonempty classes; directory 6789 B, body 956334775 B; payload SHA-256 OK
+stamp  structure           3.093 s   cum      6.475 s   header, directory, payload SHA-256 over header||dir||body
+stamp  decode             22.623 s   cum     29.098 s   interpolative classes -> values (class by class)
+stamp  sort               17.849 s   cum     46.946 s   global sort of the decoded classes
+values     308279939 values, span [51, 1087125999730037130781], strictly ascending
+size       24.817 bits per value (whole file)
+values     sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 22550467583581231962095163
+stamp  values-sha         19.957 s   cum     66.903 s   strictly-ascending check + SHA-256 and sum of the value stream
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; total_check 87794795725388084167960692697377
+factored   all 308279939 d (threads 13): n = d * (d^-1 mod lambda(d))
+stamp  factor           1452.106 s   cum   1519.009 s   split_u128 every d -> lambda -> inverse -> n
+stamp  sort-n             26.815 s   cum   1545.824 s   sort + distinctness of the reconstructed n
+n          308279939 values, span [561, 999999999855878641139521], strictly ascending
+n          sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum mod 2^128 87794795725388084167960692697377
+stamp  n-sha              19.647 s   cum   1565.472 s   SHA-256 and sum of the n stream
+footer     sha_nset MATCH; total_check MATCH (vs the reconstructed n stream)
+oracle     <work>/data/new_table.orc1: file sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+stamp  oracle-sha         15.088 s   cum   1580.560 s   SHA-256 of the oracle file
+oracle     308279939 records; n stream sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum 87794795725388084167960692697377
+stamp  oracle             35.282 s   cum   1615.842 s   oracle n stream compared element by element
+stamp  total            1615.842 s   (phases sum 1615.842 s, unaccounted 0.000 s)
+CERTIFIED  308279939 d -> n (factored); every n equals the oracle's, in order; count, sum and sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 match; CND footer targets match
+----
+end:     2026-10-06T14:38:37Z
+exit:    0
+seconds: 1616.51 (process wall, measured by run_job.sh)
+output:  -
+bytes:   -
+sha256:  - (hashing 0 s)
+expect:  -
+status:  NO-OUTPUT

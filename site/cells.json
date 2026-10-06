@@ -1,0 +1,170 @@
+{
+  "_about": "Prose of the website and of the data folder files, and nothing else. Every number, file name, SHA-256 and URL comes from results/cells.tsv, and every command from the scripts in cells/ and scripts/ (see load_data in build_site.py). Markup: {n} {d} {dmin} {dstar} {rstar} {lambda}, powers such as 10^24, and {fact:key} for a value build_site.py computes from results/cells.tsv.",
+
+  "bound": "10^24",
+  "prefix_bound": "10^12",
+
+  "row_labels": {
+    "raw n": "Raw {n}",
+    "d_min": "{dmin}",
+    "PWT": "PWT",
+    "PWT + d_min": "PWT + {dmin}",
+    "PWT + d*": "PWT + {dstar}"
+  },
+
+  "cells": {
+    "000": {
+      "title": "{n} list, byte-aligned",
+      "stores": "The sorted list of every Carmichael number {n}. The first value is stored in full and each later value as its difference from the previous one, in a byte-aligned VByte code.",
+      "format": "vbyte_list"
+    },
+    "001": {
+      "title": "{n} list, coded",
+      "stores": "The sorted list of every Carmichael number {n}, split into residue classes modulo 10,810,800. Each class is stored by binary interpolative coding.",
+      "format": "class_list",
+      "contents": "The Carmichael numbers {n} in sorted order, coded by residue class mod 10,810,800 with binary interpolative coding."
+    },
+    "100": {
+      "title": "{dmin} list, byte-aligned",
+      "stores": "The sorted list of {dmin}({n}), the smallest stopping divisor of each Carmichael number {n}, as VByte gaps. Each {n} follows from {dmin}({n}) once {dmin}({n}) is factored.",
+      "format": "vbyte_list"
+    },
+    "101": {
+      "title": "{dmin} list, coded",
+      "stores": "The sorted list of {dmin}({n}), split into residue classes modulo 2310. Each class is stored by binary interpolative coding. Each {n} follows from {dmin}({n}) once {dmin}({n}) is factored.",
+      "format": "class_list",
+      "contents": "The divisors {dmin}({n}) in sorted order, coded by residue class mod 2310 with binary interpolative coding."
+    },
+    "010": {
+      "title": "PWT over all primes, byte-aligned",
+      "stores": "A prime wavelet tree over the full prime factorization of every Carmichael number {n}, with one byte-aligned VByte code per symbol. Every prime of every {n} is on its path, so no factoring is needed.",
+      "format": "pwt_bytes"
+    },
+    "011": {
+      "title": "PWT over all primes, coded",
+      "stores": "A prime wavelet tree over the full prime factorization of every Carmichael number {n}, coded by rANS with context models. Every prime of every {n} is on its path, so no factoring is needed.",
+      "format": "pwt",
+      "contents": "Frequency-ordered prime wavelet tree over the full prime factorizations, coded with context models and rANS."
+    },
+    "110": {
+      "title": "PWT over {dmin}, byte-aligned",
+      "stores": "A prime wavelet tree over the primes of {dmin}({n}) for every Carmichael number {n}, with one byte-aligned VByte code per symbol. Decoding rebuilds each {n} from its path. The remaining primes of {n} come from factoring the cofactor {rstar}.",
+      "format": "pwt_bytes"
+    },
+    "111": {
+      "title": "PWT over {dmin}, coded",
+      "stores": "A prime wavelet tree over the primes of {dmin}({n}) for every Carmichael number {n}, coded by rANS with context models. Decoding rebuilds each {n} from its path. The remaining primes of {n} come from factoring the cofactor {rstar}.",
+      "format": "pwt",
+      "contents": "Frequency-ordered prime wavelet tree over the primes of {dmin}({n}), coded with context models and rANS."
+    },
+    "111x": {
+      "title": "PWT over {dstar}, coded",
+      "stores": "The tree of cell 111 over a different stopping divisor {dstar}({n}) of each Carmichael number {n}. A heuristic search chooses {dstar}({n}) to make the tree smaller, and it keeps {dmin}({n}) for most numbers. Decoding works as for cell 111. The file stores the chosen divisors, so it can be rebuilt without repeating the search.",
+      "format": "pwt",
+      "rebuilt_from": "the divisors stored in the file",
+      "contents": "As cell 111, over the primes of divisors {dstar}({n}) chosen by a heuristic search."
+    }
+  },
+
+  "files": {
+    "oracle": {
+      "format": "oracle",
+      "what": "The oracle is a lossless binary copy of the text table in which every prime factor is proven prime. It decodes to the text byte for byte. Certifying and rebuilding a cell need it.",
+      "contents": "The oracle, a binary copy of the full table (every {n} with its prime factors). It regenerates new_table.txt byte for byte."
+    }
+  },
+
+  "intermediates": {
+    "n_list": {"name": "{n} list", "what": "Every {n} as a 16-byte little-endian integer, in increasing order."},
+    "dmin_list": {"name": "{dmin} list", "what": "{dmin}({n}) for every {n} as a 16-byte little-endian integer, in increasing order."},
+    "dmin_paths": {"name": "{dmin} paths", "what": "The primes of {dmin}({n}) for every {n}, in 12 fields of 5 bytes, in increasing order of {n}."},
+    "full_paths": {"name": "full factorizations", "what": "Every prime of every {n}, in 14 fields of 5 bytes, in increasing order of {n}."}
+  },
+
+  "formats": [
+    {
+      "key": "text", "name": "Text table",
+      "text": "This is the source table, with one line per Carmichael number in increasing order. Each line holds {n} and then its prime factors in increasing order, separated by spaces, and ends in a line feed. The file has {fact:text_bytes} bytes. Its authors serve it, and it is not part of the repository."
+    },
+    {
+      "key": "oracle", "name": "Oracle",
+      "text": "A lossless binary copy of the text table. It stores each {n} with all its prime factors, and every factor is proven prime when the file is built. Decoding it gives back the text byte for byte. Every other file is checked against it, element by element."
+    },
+    {
+      "key": "vbyte_list", "name": "Byte-aligned list",
+      "text": "A sorted list of integers ({n} in cell 000, {dmin} in cell 100). A 24-byte header is followed by VByte gaps. The first value is stored in full and each later value as its difference from the previous one, with seven data bits per byte."
+    },
+    {
+      "key": "class_list", "name": "Residue-class list",
+      "text": "A sorted list of integers split into residue classes modulo M. The header gives M, which is 10,810,800 for {n} in cell 001 and 2310 for {dmin} in cell 101. Each class is stored by binary interpolative coding with centered minimal binary codes. A directory gives the position of each class, and a SHA-256 covers the header, the directory and the body."
+    },
+    {
+      "key": "pwt", "name": "Prime wavelet tree, coded",
+      "text": "A tree over the prime sets of one stopping divisor {d} per Carmichael number {n}. The divisor is {dmin}({n}), {dstar}({n}), or {n} itself in the trees over all primes. The most frequent primes sit nearest the root. The file is a pre-order walk of the tree. Each node stores its number of children and a terminal flag. The primes of its children are stored as gaps between frequency ranks, coded by rANS with context models. The file also holds the rank table of the primes. Decoding visits each node once and rebuilds each {n} from its divisor {d} as {d} times ({d}^-1 mod {lambda}({d}))."
+    },
+    {
+      "key": "pwt_bytes", "name": "Prime wavelet tree, byte-aligned",
+      "text": "The same tree and pre-order walk with one VByte code per symbol and no entropy coding (cells 010 and 110)."
+    },
+    {
+      "key": "paths", "name": "Path files",
+      "text": "These intermediate files are rebuilt from the oracle and not hosted. Each Carmichael number has one record of 12 or 14 fields of 5 bytes. Each field holds one prime in big-endian order, and unused fields are zero. The encoders read them, and the decoders write them back in tree order. The {dstar} file is rebuilt that way, from the paths it stores."
+    },
+    {
+      "key": "masks", "name": "Divisor-search masks",
+      "text": "The divisor search writes its choice in this format. An 8-byte record count is followed by one 16-bit little-endian mask per Carmichael number, in increasing order of {n}. Bit j of the mask selects the (j+1)-th smallest prime of {n}, and the selected primes form {dstar}({n}). The masks of the published search are not hosted."
+    },
+    {
+      "key": "checksums", "name": "Checksums and manifest",
+      "text": "SHA256SUMS lists the SHA-256 of every hosted file in the format read by sha256sum -c. The repository holds the same file. MANIFEST.tsv lists each hosted file with its size in bytes, bits per CN, SHA-256, cell and contents."
+    }
+  ],
+
+  "tiers": [
+    {
+      "key": "check", "name": "Self-test", "targets": ["check"],
+      "download": "none", "time": "about a minute", "memory": null, "disk": null,
+      "shows": "Every tool runs on the {fact:prefix_cns} Carmichael numbers below {fact:prefix_bound}. Each encoder must reproduce its expected file byte for byte. Each decoder must certify its file against the oracle of that prefix. The divisor search must reproduce its expected output."
+    },
+    {
+      "key": "verify", "name": "Verify a file", "targets": ["fetch:111x", "verify:111x"],
+      "download": "one file, {fact:hosted_cell_gb_min} to {fact:hosted_cell_gb_max} GB", "time": "a few minutes", "memory": null, "disk": null,
+      "shows": "The file matches its published SHA-256 and decodes without error."
+    },
+    {
+      "key": "certify", "name": "Certify against the oracle", "targets": ["fetch_oracle", "certify:111x"],
+      "download": "the file and the oracle ({fact:oracle_gb} GB)",
+      "time": "{fact:certify_one_lo} to {fact:certify_one_hi} min, except {fact:certify_many_lo} to {fact:certify_many_hi} min on {fact:certify_many_threads} threads for the {dmin} lists",
+      "memory": null, "disk": null,
+      "shows": "Every decoded Carmichael number equals the oracle's, element by element."
+    },
+    {
+      "key": "rebuild", "name": "Rebuild a cell from the oracle", "targets": ["fetch_oracle", "rebuild:111"],
+      "download": "the oracle ({fact:oracle_gb} GB)",
+      "time": "{fact:build_one_lo} to {fact:build_one_hi} min on one thread (the Build column)",
+      "memory": "up to {fact:build_ram_gb} GB",
+      "disk": "up to {fact:build_disk_gb} GB for one cell, {fact:intermediates_gb} GB to keep all four intermediate files",
+      "shows": "The encoders write the published files byte for byte."
+    },
+    {
+      "key": "dstar-rebuild", "name": "Rebuild the {dstar} file", "targets": ["fetch:111x", "fetch_oracle", "rebuild:111x"],
+      "download": "the {dstar} file and the oracle",
+      "time": "about {fact:dstar_rebuild_min} min, as run with 4 encoder threads",
+      "memory": null,
+      "disk": "{fact:dstar_paths_gb} GB for the exported paths, plus scratch",
+      "shows": "The {dstar} file stores the chosen divisors. Exporting them and encoding them again gives the published file byte for byte, without the search."
+    },
+    {
+      "key": "oracle", "name": "Rebuild the oracle from the text", "targets": ["rebuild_oracle"],
+      "download": "the text table ({fact:text_gb} GB)", "time": "about {fact:oracle_build_min} min", "memory": null,
+      "disk": "about {fact:oracle_disk_gb} GB (the text, the oracle and a decoded copy)",
+      "shows": "The oracle is built from the published text and decodes back to it byte for byte."
+    },
+    {
+      "key": "dstar", "name": "Rerun the divisor search", "targets": ["dstar_search"],
+      "download": "the oracle ({fact:oracle_gb} GB)", "time": "{fact:search_h} h on {fact:search_threads} threads (five sweeps)",
+      "memory": "{fact:search_ram_gb} GB peak", "disk": null,
+      "shows": "This is the search that chose {dstar}. Rebuilding cell 111x does not need it, because the file stores the chosen divisors. The search has not been rerun. It prices candidates in floating point, so a rerun is not known to reproduce the published choice byte for byte."
+    }
+  ]
+}

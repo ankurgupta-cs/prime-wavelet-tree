@@ -1,0 +1,54 @@
+# golden_prefix.tsv -- size and SHA-256 of every file the 10^12-prefix self-test builds
+# (tests/prefix/selftest_prefix.sh). Input: the first 8,241 lines = bytes 0..249,923 of
+# the 18,358,310,309-byte table (sha256 c934af2a...), all CNs below 10^12.
+# Outputs depend only on the tools and the flags in the script (thread counts
+# included for dsel_set2: --threads 1 runs a different, sequential search).
+# The paths_*.bin entries are pwt2_decode --emit-paths exports, in tree order.
+# FROZEN 2026-10-06 (23 entries). A mismatch means a tool now writes different
+# bytes: find out why before changing this list, and never regenerate it to
+# make a run pass.
+# name<TAB>bytes<TAB>sha256<TAB>what
+prefix_1e12.txt	249924	df648163ece972c23aea5e2a773e3523bb9762729c609205a0e1df7f9166b7c7	input: first 8,241 lines (bytes 0..249,923) of the 18,358,310,309-byte table
+prefix.orc1	65489	631569c253dda47882649f067f2bb3e5785dab4663b0c62121bdadc3f442003e	ORC1 oracle, every factor MR-proven
+n.raw	131856	04cb6542ace1c2bccb219298cda8feceddab3c98d47c025e83047b3c7373107d	n list, 16-byte LE, ascending
+dpaths.bin	494460	42773c997da5df03141faba8189795d9bce5ecccc4f10e311e77e2c461f8577e	d_min paths, 12 x 5-byte fields per CN, n order
+fpaths.bin	576870	916af1916f5b18466447d3f55b47af779b1149aaceeb8c5cb5bf2beed6e7c656	full factorizations, 14 x 5-byte fields per CN, n order
+d.raw	131856	169243a85639adf3c66dd5205d451e64ad13d3b548582c5386708cc50f62cff7	d_min list, 16-byte LE, ascending
+c000.vbg	33207	473107cf58750525fdddc7817b48f476120607369162a81a8cb4ee4b8951f766	cell 000: n list, VByte gaps (VBG1)
+c001.cnd	10840279	0191b99475eb3b9bc6fbe8a2961651f752eaa21a9b39fc86c8d4d1649a7c0ac8	cell 001: n list, classes mod 10,810,800 (CND1 layout)
+c100.vbg	17634	92f3e2262565f8a5be46dc5a2e4ca49c19865b82440d85ac0464bebccc24a0db	cell 100: d_min list, VByte gaps (VBG1)
+c101.cnd1	17315	db39632180be73e52898e01ff1a1483686a3fd195d46010f301ecdaa08d5cd9b	cell 101: d_min list, CND1 mod 2310
+c010.pwt2n	50196	20c78b35afa23881990e9476ef48a0781ae3bdc8c371115c7413cdf2d9bf1e4b	cell 010: PWT2 byte-aligned, full factorizations
+c011.pwt2	65539	26d8ee0f99fb739a19b0d3ca5287912d7e55aea9f5b6c2da5ec3fcf3fd1c308c	cell 011: PWT2 context set 3, full factorizations
+c110.pwt2n	27440	b5edad88cb8f0784cdc22302bddf4e2ff2b3defdf6e360a0d86cdb0932fc25f2	cell 110: PWT2 byte-aligned, d_min
+c111.pwt2	38132	c1c672c0c3f9c83920fc86ffd8eab432c342c3cdc4462cef0a50d5f1c134dc75	cell 111: PWT2 context set 3, d_min
+dstar_masks4.bin	16490	bd38c4d17183e7fd5be583bfb4cd083024e065bb4c8f496ac6dfb386375e8ccc	d* masks after 4 sweeps (u64 count + u16 mask per CN)
+dstar_masks5.bin	16490	b86be278defa279165d4532e372b6019d8d187381a1b4b454bec9e42102a54ec	d* masks after a 5th sweep resumed from the masks (as masks_full5.bin)
+dstar_paths5.bin	576870	6ef74dbc58d433d8b13f79030fdd31a4978d27da18fecf5cec432c4b613a2497	d* paths, 14 x 5-byte fields per CN (as s2_full5.bin)
+c111x.pwt2	30264	c453a1a3f262bd5323e306607a0b9dada292244c12e0cc95812e5854097a7a1a	cell 111 with d*: PWT2 context set 3 over the d* divisors
+paths_c010.bin	576870	da690f7afe59f12aef4e95e4b7030b1dd1072eedca57e6d37f478e53a374f4fe	pwt2_decode --emit-paths c010.pwt2n --fields 14 (tree order)
+paths_c011.bin	576870	da690f7afe59f12aef4e95e4b7030b1dd1072eedca57e6d37f478e53a374f4fe	pwt2_decode --emit-paths c011.pwt2 --fields 14 (tree order)
+paths_c110.bin	494460	fe2f5ce208763ff24b227398476061f19298cb47c9e886a4e57204a010458fb1	pwt2_decode --emit-paths c110.pwt2n --fields 12 (tree order)
+paths_c111.bin	494460	fe2f5ce208763ff24b227398476061f19298cb47c9e886a4e57204a010458fb1	pwt2_decode --emit-paths c111.pwt2 --fields 12 (tree order)
+paths_c111x.bin	576870	dd58c568b1367a7fe4feaf047df4d35ff7ecbf3339a62a3039e5550a3a3710a0	pwt2_decode --emit-paths c111x.pwt2 --fields 14 (tree order)
+#
+# Provenance (verified 2026-10-06; comment lines are ignored by the script):
+# - prefix_1e12.txt = the first 8,241 lines of the table; line 8,242 is
+#   1000151515441 > 10^12. Every line's factors ascend and multiply to n.
+# - n.raw = the first 131,856 B of the full-table n.raw (sha256 ae272474...);
+#   dpaths.bin = the first 494,460 B of the full dpaths.bin (391ed7ca...);
+#   fpaths.bin = the first 576,870 B of the full fpaths.bin (86828c5e...);
+#   every value of d.raw occurs in the full-table d.raw (22b9b6ab...).
+# - Every entry was identical in three runs before the freeze (the first 18
+#   in a fourth as well). Confirmation runs after the freeze are listed in
+#   selftest_runs.txt. Each paths_*.bin export re-encodes to its tree file
+#   byte for byte and holds the encoder input's records as a multiset.
+# - The exports depend on the tree shape only, not on the coding: c010 and
+#   c011 export the same bytes, and so do c110 and c111.
+# - The binaries that produced the published full-table files reproduce the
+#   prefix files byte for byte: the PWT2 encoders of cells 010/110 and
+#   011/111/d*, and the d* search (masks after 4 and 5 sweeps, and the paths).
+# - Context set 3's tree-gap mantissa models are not used at this size (no
+#   model beats the raw bits), so c011/c111/c111x exercise the set-2 classes
+#   plus an empty sixth class. c001.cnd is 10.8 MB because its CND directory
+#   holds one VByte for each of the 10,810,800 classes.

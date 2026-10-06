@@ -1,0 +1,27 @@
+tag:     dsel_emit
+cmd:     <repo>/build/dsel_set2.exe --orc1 <work>/data/new_table.orc1 --dpaths <work>/data/dpaths.bin --threads 6 --sweeps 0 --min-gain 0.01 --check-rebuild --max-overflow 60000000 --chunk 33554432 --scratch <work>/release_build/dsel_scratch --masks-in <work>/scratch/dsel_set2/full5/masks_full5.bin --emit <work>/release_build/s2_from_masks.bin
+cwd:     <work>/release_build
+start:   2026-10-06T13:20:25Z
+----
+dsel_set2  <work>/data/new_table.orc1: 308279939 records; threads 6, batch 65536, max overflow 60000000, huge > 128 children, bitset classes <= 128, slack 16.0, table weight 1.0000, scratch <work>/release_build/dsel_scratch
+universe   7428174 distinct primes (9 s)
+start      <work>/scratch/dsel_set2/full5/masks_full5.bin masks (35 s) [d_min from <work>/data/dpaths.bin, 309208 records re-derived by choose_dmin, all equal]
+  build 1: 60 runs 55 s, tree+symbols 95 s, table+models 2 s, nodes 495990373 (1.6089 /el), 277122 sibling caches, keys checked vs Pwt2Keys2 1186948888, mem ws 13.26 GB (peak 13.26)
+MODEL start              nodes 495990373 = 1.6089 /el | OBJECTIVE 15.3839 bits/el = 592819030 bytes | predicted file 592833778 bytes = 15.3843 bits/el
+      entropy (bits/el): table 0.0610 + count 0.6445 + tail 0.0149 + flag 0.0070 + gap 4.2495 = 4.9769 (quantized ideal 4.9769); raw tree 10.2354 + raw table 0.1456 + escapes 0.0001
+      tables section: model 995289 B (0.0258 bits/el) vs REAL serialized 995712 B (-0.042%); per class model/real/models: table 9507/9508/313 count 348275/348539/32079 count tail 10116/10119/6 flag 258/258/32 gap length 627133/627288/21253
+      rank table: m 6993373 primes in 6008 classes, class sizes 6303 B, symbols 0.0610 + raw 0.1456 bits/el; symbols 1187591751 (blocks 1133); fingerprint 5911ec0eec56158d
+      nodes by depth: 0:1 1:780676 2:11159289 3:64260140 4:145946631 5:151245235 6:86475273 7:29339935 8:6079492 9:666959 10:35956 11:786
+      paths: mean |S| 4.9165, S=d_min 76.592%, S=all primes 0.003%, |S| histogram: 2:5635746 3:31083854 4:80157026 5:95865028 6:64527522 7:24771171 8:5568149 9:635487 10:35170 11:786
+best       state after sweep 0: 15.3839 bits/el (model, fresh ranks) = +0.000% vs start (emitted / saved)
+emitted    <work>/release_build/s2_from_masks.bin (308279939 records x 14 fields, every S rebuilds its n)
+elapsed    231.0 s, peak working set 14.01 GB
+----
+end:     2026-10-06T13:25:33Z
+exit:    0
+seconds: 232.09 (process wall, measured by run_job.sh)
+output:  <work>/release_build/s2_from_masks.bin
+bytes:   21579595730
+sha256:  92302de4e0a0d3d7ab4ef10dab431e4fd21805607166ea87b7fccfdb57fc8e8e (hashing 75.5 s)
+expect:  92302de4e0a0d3d7ab4ef10dab431e4fd21805607166ea87b7fccfdb57fc8e8e
+status:  MATCH

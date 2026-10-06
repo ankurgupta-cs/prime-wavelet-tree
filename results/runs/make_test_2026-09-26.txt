@@ -1,0 +1,66 @@
+build/test_sieve.exe
+all tests passed (sieve N = 10000000, 664579 primes)
+cd build && ./test_oracle.exe
+all oracle tests passed
+build/test_cnb.exe
+all cnb tests passed
+build/test_splitter.exe
+all splitter tests passed (637 fixture lines certified)
+build/test_cnd.exe
+all cnd tests passed
+build/test_pwt.exe
+bitmap: 17983 primes below 200003, rank/select/advance OK
+rANS: 900000 symbols -> 207631 bytes (ideal 207628 bytes, +0.001%)
+fixture: 637 lines
+d_min paths, B = 1e8: 637 paths, 1926 nodes, 7225 bytes = 90.738 bits/el (symbols 9.419 vs model 9.272, raw 15.838, tables 4997 B), edges low 1495 high 430
+full paths, B = 1e8: 637 paths, 3410 nodes, 9933 bytes = 124.747 bits/el (symbols 12.697 vs model 12.547, raw 26.606, tables 6587 B), edges low 2974 high 435
+d_min paths, B = 1e5 (mixed universes): 637 paths, 1926 nodes, 7292 bytes = 91.579 bits/el (symbols 9.432 vs model 9.293, raw 16.224, tables 5033 B), edges low 1371 high 554
+full paths, B = 1e4 (mixed universes): 637 paths, 3410 nodes, 10086 bytes = 126.669 bits/el (symbols 12.722 vs model 12.580, raw 27.776, tables 6645 B), edges low 2598 high 811
+synthetic (B = 2000, escape, both universes): 7178 paths, 13386 nodes, 15283 bytes = 17.033 bits/el (symbols 5.933 vs model 5.920, raw 6.328, tables 4066 B), edges low 8612 high 4773
+wide root (70,000 children): 70000 paths, 70001 nodes, 739 bytes = 0.084 bits/el (symbols 0.001 vs model 0.000, raw 0.000, tables 506 B), edges low 70000 high 0
+disk source: external sort with 50-record runs reproduces the in-memory container byte for byte
+PWT0 d_min: 5152 bytes = 64.703 bits/el (stream 4936 B)
+corruption below the hash: 186 caught structurally, 14 decoded to a wrong set (footer targets catch), 0 unnoticed
+PWT0 full: 8790 bytes = 110.392 bits/el (stream 8574 B)
+corruption below the hash: 157 caught structurally, 43 decoded to a wrong set (footer targets catch), 0 unnoticed
+corruption below the hash: 128 caught structurally, 72 decoded to a wrong set (footer targets catch), 0 unnoticed
+crafted geometry: wrapped section lengths are rejected before any section is read
+test_pwt: all OK
+build/test_cnfactor.exe
+Montgomery: 200k one-limb + 200k two-limb products and 2k powers agree with the reference
+leaf primality: 500k values and the base-set boundary pseudoprimes agree with 12-base MR
+fixture: 637 lines; Algorithm 1 reproduces every factor list for n (4.10 ladders each) and for r* (1.36), 0 fallbacks
+test_cnfactor: all OK
+build/test_pwt2.exe
+bit I/O: word-based writer/reader byte-identical to the bit-serial ones on 200 random streams
+fastnum: binary gcd and the lambda inverse agree with exact 128-bit checks on 2M random inputs, all even moduli
+bits_quot: bits(floor(X / R)) without division agrees on 2.1M exhaustive + 6M random pairs
+universe: wheel-210 round trip; prime index below B, wheel above, strictly increasing across B
+order: counts, ties, classes and value index correct; damaged orders rejected
+fixture: 637 Carmichael numbers
+fixture d_min                rANS  637 records: 5926 bytes, 1501 nodes, 4537 symbols (table 651)
+fixture d_min                naive 637 records: 4650 bytes, 1501 nodes, 3652 symbols (table 651)
+fixture full                 rANS  637 records: 8422 bytes, 2566 nodes, 7825 symbols (table 750)
+fixture full                 naive 637 records: 7104 bytes, 2566 nodes, 5881 symbols (table 750)
+fixture alternative divisor  rANS  637 records: 5826 bytes, 1502 nodes, 4613 symbols (table 731) -- alternative differs from d_min on 559 records
+fixture alternative divisor  naive 637 records: 4843 bytes, 1502 nodes, 3734 symbols (table 731) -- alternative differs from d_min on 559 records
+synthetic rANS  5122 records: 1559 bytes, 1 escapes, rank table with 60 primes above B
+synthetic naive 5122 records: 15809 bytes, 0 escapes, rank table with 60 primes above B
+corruption rANS : 2079 rejected, 1 benign (header padding-free bits that decode identically), 0 silent wrong sets
+corruption naive: 2046 rejected, 34 benign (header padding-free bits that decode identically), 0 silent wrong sets
+crafted: 132 review containers (clean-room and mutation cases) all get their expected verdict
+set 2 d_min                637 records: 12398 bytes, 1251 models, 4538 symbols
+set 2 full                 637 records: 18064 bytes, 1838 models, 7825 symbols
+set 2 alternative divisor  637 records: 12343 bytes, 1218 models, 4614 symbols
+set 3 d_min                637 records: 12399 bytes, 1251 models, 4538 symbols
+set 3 full                 637 records: 18065 bytes, 1838 models, 7825 symbols
+set 3 alternative divisor  637 records: 12344 bytes, 1218 models, 4614 symbols
+set 2 synthetic 5112 records: 1278 bytes, 1 escapes
+set 2 mantissa synthetic 30000 records: 6145 bytes, 0 mantissa models
+set 3 mantissa synthetic 30000 records: 3801 bytes, 10 mantissa models
+set 3 mantissa corruption: 400 rejected, 0 benign, 0 silent wrong sets
+set 2 corruption: 2078 rejected, 2 benign, 0 silent wrong sets
+test_pwt2: all OK
+build/test_bsgap.exe
+fixture classes: 637 records exercised
+all bsgap tests passed

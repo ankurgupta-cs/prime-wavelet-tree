@@ -1,0 +1,24 @@
+# cell 101: the encode step of make rebuild-101
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## encode
+present   dmin_list (<work>/d.raw, sha256 22b9b6ab918bca08...)
+stamp  load                <t> s   cum      <t> s   open + zero-filled allocation + read
+input      <work>/d.raw: 308279939 records; mode classes, M = 2310
+stamp  targets            <t> s   cum     <t> s   sha_nset + total_check streamed from ORC1
+stamp  prepare            <t> s   cum     <t> s   class split: validate, r = v mod M, k = (v - r)/M per class; end width
+stamp  encode             <t> s   cum     <t> s   interpolative blob per class + VByte directory
+stamp  seal                <t> s   cum     <t> s   header + SHA-256 over header||dir||body + footer
+stamp  write               <t> s   cum     <t> s   header, directory, blobs, footer; closed
+stamp  total              <t> s   (phases sum <t> s, unaccounted <t> s)
+stamp  total-targets      <t> s   (total minus targets)
+classes    1077 nonempty of 2310, end width 59
+container  header 64 + directory 6789 + blobs 956334775 + footer 88 = 956341716 B = 24.817 bits/el
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62
+sha256     d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb  (untimed; the file as read back from disk)
+crosscheck (untimed) shipped cnd1_encode into RAM: <t> s, 956341716 B; written file BYTE-IDENTICAL to it
+verify     (untimed) relaxed CND reader, M = 2310 from the header: structure + payload sha OK; classes decoded <t> s + global sort <t> s; 308279939 values all equal to the input: VERIFIED
+verify     (untimed) official v1 Cnd1Reader decode_all <t> s: all equal to the input: VERIFIED
+hashing   <work>/carmichael-1e24-cell101-dmin-classes.cnd (956341716 bytes) ...
+MATCH     cell 101 (<work>/carmichael-1e24-cell101-dmin-classes.cnd)  sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb

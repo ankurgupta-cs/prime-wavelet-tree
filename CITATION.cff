@@ -1,0 +1,77 @@
+# The code licence is pending a decision by Butler University, so this file has no
+# license field for the software. The data files are dedicated to the public domain
+# under CC0 1.0 (see the data reference below).
+cff-version: 1.2.0
+message: "If you use this code or these files, please cite the paper (preferred-citation) and the table of Carmichael numbers (references)."
+type: software
+title: "The Prime Wavelet Tree: code and files for compressing the Carmichael numbers below 10^24"
+abstract: >-
+  Code that writes, decodes and certifies eight lossless representations of
+  the table of all Carmichael numbers below 10^24 (the A/B/C matrix of the
+  paper) and a prime wavelet tree over heuristically chosen divisors, with the
+  commands, expected hashes and run logs behind every reported number.
+authors:
+  - family-names: Gupta
+    given-names: Ankur
+    affiliation: Butler University
+  - family-names: Webster
+    given-names: Jonathan
+    affiliation: Butler University
+  - family-names: Webster
+    given-names: Sylvia
+    affiliation: Butler University
+repository-code: "https://github.com/ankurgupta-cs/prime-wavelet-tree"
+url: "https://ankurgupta-cs.github.io/prime-wavelet-tree/"
+keywords:
+  - Carmichael numbers
+  - compression
+  - succinct data structures
+  - wavelet tree
+  - rANS
+preferred-citation:
+  type: article
+  title: "The Prime Wavelet Tree: Compressing the Carmichael Numbers"
+  authors:
+    - family-names: Gupta
+      given-names: Ankur
+    - family-names: Webster
+      given-names: Jonathan
+    - family-names: Webster
+      given-names: Sylvia
+  year: 2026
+  url: "https://arxiv.org/abs/2610.02550"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.02550"
+references:
+  - type: article
+    title: "Algorithms for Carmichael numbers"
+    authors:
+      - family-names: Shallue
+        given-names: "A."
+      - family-names: Webster
+        given-names: "J."
+    year: 2026
+    url: "https://arxiv.org/abs/2506.09903"
+    identifiers:
+      - type: other
+        value: "arXiv:2506.09903"
+  - type: data
+    title: "Carmichael numbers below 10^24 (new_table.txt)"
+    authors:
+      - family-names: Shallue
+        given-names: "A."
+      - family-names: Webster
+        given-names: "J."
+    url: "https://blue.butler.edu/~jewebste/new_table.txt"
+  - type: data
+    title: "The Prime Wavelet Tree: data files, version 1"
+    authors:
+      - family-names: Gupta
+        given-names: Ankur
+      - family-names: Webster
+        given-names: Jonathan
+      - family-names: Webster
+        given-names: Sylvia
+    url: "https://blue.butler.edu/~jewebste/prime-wavelet-tree/"
+    license: CC0-1.0

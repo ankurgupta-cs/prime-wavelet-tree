@@ -1,0 +1,126 @@
+# cell 111x: make rebuild-111x (ROUTE=paths: export, then encode), and ROUTE=masks with the masks the search saved (not hosted)
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## pwt2_decode <d* file> --emit-paths ... --fields 14 (ROUTE=paths)
+container   588684305 bytes, 308279939 records, divisor mode, entropy-coded, max depth 11, m 6993373 primes in 6008 classes, context set 3
+structure   OK (payload SHA-256, tables, 1384 blocks, 1451178003 symbols); read <t> s, loaded <t> s
+rank table  6993373 primes decoded (<t> s cumulative)
+decoded     308279939 numbers in tree order (<t> s cumulative)
+phases      read <t> s | checks + sieve <t> s | rank table <t> s | tree <t> s | in-memory decode <t> s (table + tree)
+sorted      (<t> s); sha_nset MATCH; total_check MATCH; count MATCH
+paths       308279939 records x 14 fields = 21579595730 bytes to <work>/c111x.paths.bin (tree order; tree phase includes this write); sha256 fa7d2f8b86d7e2d890eb994408a65741fa756fdecd9f0bd3693c5a4648a3ef37
+elapsed     <t> s
+
+## pwt2_encode <paths> ... --fields 14 --ctx-set 3 (ROUTE=paths)
+input       <work>/c111x.paths.bin (fields 14, divisor (d*lambda(d) > n) mode, PWT2 entropy-coded, context set 3)
+order       308279939 records, 6993373 distinct primes in 6008 count classes; root-most: 19 31 37 41 17 29 61 73 (<t> s)
+ranked      <work>/scratch/pwt2_encode_<id>_ranked.bin (<t> s)
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+sorted      308279939 records, max depth 11 (<t> s)
+oracle      308279939 records, sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (<t> s)
+encoded     (<t> s)
+nodes       495990373 (1.609 per record); symbols 1451178003 (table 6993373); escapes 1152
+sections    header 160 + classes 6303 + tables 2819167 + symbols 333754155 + raw 252104432 + footer 88
+bits/el     symbols 8.661 (quantized ideal 8.661, exact entropy 8.661) + raw 6.542 + tables 0.0732 + classes 0.0002 + framing 0.0000
+contexts    63722 models; per class: ideal bits/el | models | table bytes
+  table          0.0610 |     313 |      9508
+  count          0.6446 |   32079 |    348539
+  count tail     0.0149 |       6 |     10119
+  flag           0.0070 |      32 |       258
+  gap length     4.2495 |   21253 |    627288
+  gap mantissa    3.6838 |   10039 |   1823455
+rank table  0.2067 bits/el (symbols ideal 0.0610 + raw 0.1456 + classes 0.0002)
+FILE        588684305 bytes = 15.277 bits/el   (<work>/carmichael-1e24-cell111x-pwt-dstar.pwt2)
+            paths reproduce the oracle's sum; quote only after pwt2_decode --certify exits 0
+elapsed     <t> s
+
+## paths_cmp: exported paths vs the search output (same set; a check run once, not a make step)
+A          <work>/c111x.paths.bin
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+stamp  sort_a             <t> s   cum     <t> s   external sort of A into runs
+B          <work>/dstar_paths.bin
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+stamp  sort_b             <t> s   cum    <t> s   external sort of B into runs
+stamp  compare           <t> s   cum    <t> s   lockstep merge of the two sorted streams
+A          308279939 records (file 308279939), max length 11; sorted-stream sha256 e252bfb363a79ae9e6497f853b48979ce006605584377259d4b2302c7d28def6
+A lengths  2:5635746 3:31083854 4:80157026 5:95865028 6:64527522 7:24771171 8:5568149 9:635487 10:35170 11:786
+B          308279939 records (file 308279939), max length 11; sorted-stream sha256 e252bfb363a79ae9e6497f853b48979ce006605584377259d4b2302c7d28def6
+B lengths  2:5635746 3:31083854 4:80157026 5:95865028 6:64527522 7:24771171 8:5568149 9:635487 10:35170 11:786
+merge      common 308279939, only in A 0, only in B 0
+stamp  total             <t> s   (phases sum <t> s, unaccounted <t> s)
+SAME SET   308279939 paths; every record of A is in B and vice versa (no duplicates in either)
+
+## dsel_set2 --sweeps 0 --masks-in ... --emit (ROUTE=masks, from the masks of the published search; they are not hosted)
+dsel_set2  <data>/carmichael-1e24-oracle.orc1: 308279939 records; threads 6, batch 65536, max overflow 60000000, huge > 128 children, bitset classes <= 128, slack 16.0, table weight 1.0000, scratch <work>/dsel_scratch
+universe   7428174 distinct primes (<t> s)
+start      <work>/dstar_masks5.bin masks (<t> s) [d_min from <work>/dpaths.bin, 309208 records re-derived by choose_dmin, all equal]
+  build 1: 60 runs <t> s, tree+symbols <t> s, table+models <t> s, nodes 495990373 (1.6089 /el), 277122 sibling caches, keys checked vs Pwt2Keys2 1186948888, mem ws <m> GB (peak <m>)
+MODEL start              nodes 495990373 = 1.6089 /el | OBJECTIVE 15.3839 bits/el = 592819030 bytes | predicted file 592833778 bytes = 15.3843 bits/el
+      entropy (bits/el): table 0.0610 + count 0.6445 + tail 0.0149 + flag 0.0070 + gap 4.2495 = 4.9769 (quantized ideal 4.9769); raw tree 10.2354 + raw table 0.1456 + escapes 0.0001
+      tables section: model 995289 B (0.0258 bits/el) vs REAL serialized 995712 B (-0.042%); per class model/real/models: table 9507/9508/313 count 348275/348539/32079 count tail 10116/10119/6 flag 258/258/32 gap length 627133/627288/21253
+      rank table: m 6993373 primes in 6008 classes, class sizes 6303 B, symbols 0.0610 + raw 0.1456 bits/el; symbols 1187591751 (blocks 1133); fingerprint 5911ec0eec56158d
+      nodes by depth: 0:1 1:780676 2:11159289 3:64260140 4:145946631 5:151245235 6:86475273 7:29339935 8:6079492 9:666959 10:35956 11:786
+      paths: mean |S| 4.9165, S=d_min 76.592%, S=all primes 0.003%, |S| histogram: 2:5635746 3:31083854 4:80157026 5:95865028 6:64527522 7:24771171 8:5568149 9:635487 10:35170 11:786
+best       state after sweep 0: 15.3839 bits/el (model, fresh ranks) = +0.000% vs start (emitted / saved)
+emitted    <work>/dstar_paths.bin (308279939 records x 14 fields, every S rebuilds its n)
+elapsed    <t> s, peak working set <m> GB
+
+## pwt2_encode <d* paths> ... --fields 14 --ctx-set 3 (ROUTE=masks)
+input       <work>/dstar_paths.bin (fields 14, divisor (d*lambda(d) > n) mode, PWT2 entropy-coded, context set 3)
+order       308279939 records, 6993373 distinct primes in 6008 count classes; root-most: 19 31 37 41 17 29 61 73 (<t> s)
+ranked      <work>/scratch/pwt2_encode_<id>_ranked.bin (<t> s)
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+sorted      308279939 records, max depth 11 (<t> s)
+oracle      308279939 records, sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (<t> s)
+encoded     (<t> s)
+nodes       495990373 (1.609 per record); symbols 1451178003 (table 6993373); escapes 1152
+sections    header 160 + classes 6303 + tables 2819167 + symbols 333754155 + raw 252104432 + footer 88
+bits/el     symbols 8.661 (quantized ideal 8.661, exact entropy 8.661) + raw 6.542 + tables 0.0732 + classes 0.0002 + framing 0.0000
+contexts    63722 models; per class: ideal bits/el | models | table bytes
+  table          0.0610 |     313 |      9508
+  count          0.6446 |   32079 |    348539
+  count tail     0.0149 |       6 |     10119
+  flag           0.0070 |      32 |       258
+  gap length     4.2495 |   21253 |    627288
+  gap mantissa    3.6838 |   10039 |   1823455
+rank table  0.2067 bits/el (symbols ideal 0.0610 + raw 0.1456 + classes 0.0002)
+FILE        588684305 bytes = 15.277 bits/el   (<work>/carmichael-1e24-cell111x-pwt-dstar.pwt2)
+            paths reproduce the oracle's sum; quote only after pwt2_decode --certify exits 0
+elapsed     <t> s

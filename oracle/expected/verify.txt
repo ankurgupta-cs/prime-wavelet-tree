@@ -1,0 +1,13 @@
+# oracle: make verify-oracle
+# Timings and paths are masked.
+
+## verify
+hashing   <data>/carmichael-1e24-oracle.orc1 (4462931093 bytes) ...
+MATCH     oracle  sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+records   308279939 (ok)
+total_chk ok
+output    ok
+sha256    c934af2a208832689586d12bbfe9e9cfc4ccb6447375baa39308d2e3373e6170
+expected  c934af2a208832689586d12bbfe9e9cfc4ccb6447375baa39308d2e3373e6170
+round-trip CERTIFIED
+VERIFIED  oracle: file hash and round trip to the text's SHA-256 c934af2a208832689586d12bbfe9e9cfc4ccb6447375baa39308d2e3373e6170

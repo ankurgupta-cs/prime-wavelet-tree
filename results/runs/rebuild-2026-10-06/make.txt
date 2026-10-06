@@ -1,0 +1,7 @@
+make: Nothing to be done for 'all'.
+make: 'build/list_build.exe' is up to date.
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -march=native -Wall -Wextra -I. dsel_set2.cpp -o build/dsel_set2.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -march=native -Wall -Wextra -I. trie_paths.cpp -o build/trie_paths.exe
+make: 'build/nstats_orc1.exe' is up to date.
+make: 'build/dlist_from_paths.exe' is up to date.
+make seconds: 29.839787000

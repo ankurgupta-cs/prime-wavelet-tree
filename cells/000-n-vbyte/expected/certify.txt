@@ -1,0 +1,22 @@
+# cell 000: make certify-000
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## certify
+stamp  load                <t> s   cum      <t> s   whole file read into memory
+input      <work>/c000.vbg: 2362758686 B, format VBG1 (VByte gaps)
+file       sha256 5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8
+stamp  file-sha            <t> s   cum      <t> s   SHA-256 of the whole file
+structure  VBG1: 308279939 records, payload 2362758662 B (header consistent with the file size)
+stamp  structure           <t> s   cum      <t> s   VBG1 header vs file size
+stamp  decode              <t> s   cum     <t> s   VByte gaps -> values (ascending by construction)
+values     308279939 values, span [561, 999999999855878641139521], strictly ascending
+size       61.315 bits per value (whole file)
+values     sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 87794795725388084167960692697377
+stamp  values-sha         <t> s   cum     <t> s   strictly-ascending check + SHA-256 and sum of the value stream
+oracle     <data>/carmichael-1e24-oracle.orc1: file sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+stamp  oracle-sha         <t> s   cum     <t> s   SHA-256 of the oracle file
+oracle     308279939 records; n stream sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum 87794795725388084167960692697377
+stamp  oracle             <t> s   cum     <t> s   oracle n stream compared element by element
+stamp  total              <t> s   (phases sum <t> s, unaccounted <t> s)
+CERTIFIED  308279939 stored n; every n equals the oracle's, in order; count, sum and sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 match

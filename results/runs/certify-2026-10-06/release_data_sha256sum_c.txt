@@ -1,0 +1,11 @@
+# Staged on 2026-10-06 before the final release: the file names here predate the
+# carmichael-1e24-* names (results/cells.tsv), and c111x-dstar-masks.bin was later
+# dropped from the release (the search masks are not hosted).
+c001-n-classes.cnd: OK
+c011-pwt-full.pwt2: OK
+c101-dmin-cnd1.cnd1: OK
+c111-pwt-dmin.pwt2: OK
+c111x-dstar-masks.bin: OK
+c111x-pwt-dstar.pwt2: OK
+new_table.orc1: OK
+rc=0 secs=35

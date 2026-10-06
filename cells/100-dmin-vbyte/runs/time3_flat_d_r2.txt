@@ -1,0 +1,8 @@
+records  308279939   (data/d.raw)
+
+VByte gaps      1220449369 B = 31.671 bits/el   decode to the sorted values 1.81 s   VERIFIED
+
+M = 2310
+  classes 1077 nonempty of 2310, end width 59; encode 21.3 s
+  container (CND1 layout: header 64 + directory 6789 + blobs 956334775 + footer 88) = 956341716 B = 24.817 bits/el
+  decode: blobs -> k-sets 19.2 s; + values and global sort 17.5 s = 36.7 s to the sorted values   VERIFIED

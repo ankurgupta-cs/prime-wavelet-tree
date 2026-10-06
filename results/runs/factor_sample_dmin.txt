@@ -1,0 +1,4 @@
+mode dmin   oracle 308279939 records in 75264 blocks   sampling 753 blocks (stride 100)   threads 1
+records 3084288   mismatches 0   wall 261.4 s on 1 threads
+phase A (factor d, lambda, n): 43.56 us/record -> 3.73 h single-thread; phase B (factor r*): 9.22 us/record -> 0.79 h; both 4.52 h single-thread, 271.2 min on 1 threads (extrapolated)
+every factorization equals the oracle's factor list

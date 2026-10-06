@@ -1,0 +1,31 @@
+tag:     b1_c000
+cmd:     <repo>/build/list_decode.exe <work>/release_build/c000.vbg --kind n --certify <work>/data/new_table.orc1
+cwd:     <work>/release_build
+start:   2026-10-06T13:43:40Z
+----
+stamp  load                1.581 s   cum      1.581 s   whole file read into memory
+input      <work>/release_build/c000.vbg: 2362758686 B, format VBG1 (VByte gaps)
+file       sha256 5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8
+stamp  file-sha            7.848 s   cum      9.429 s   SHA-256 of the whole file
+structure  VBG1: 308279939 records, payload 2362758662 B (header consistent with the file size)
+stamp  structure           0.001 s   cum      9.430 s   VBG1 header vs file size
+stamp  decode              5.128 s   cum     14.559 s   VByte gaps -> values (ascending by construction)
+values     308279939 values, span [561, 999999999855878641139521], strictly ascending
+size       61.315 bits per value (whole file)
+values     sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 87794795725388084167960692697377
+stamp  values-sha         20.146 s   cum     34.705 s   strictly-ascending check + SHA-256 and sum of the value stream
+oracle     <work>/data/new_table.orc1: file sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+stamp  oracle-sha         15.141 s   cum     49.846 s   SHA-256 of the oracle file
+oracle     308279939 records; n stream sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum 87794795725388084167960692697377
+stamp  oracle             35.815 s   cum     85.661 s   oracle n stream compared element by element
+stamp  total              85.661 s   (phases sum 85.661 s, unaccounted 0.000 s)
+CERTIFIED  308279939 stored n; every n equals the oracle's, in order; count, sum and sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 match
+----
+end:     2026-10-06T13:45:06Z
+exit:    0
+seconds: 86.07 (process wall, measured by run_job.sh)
+output:  -
+bytes:   -
+sha256:  - (hashing 0 s)
+expect:  -
+status:  NO-OUTPUT

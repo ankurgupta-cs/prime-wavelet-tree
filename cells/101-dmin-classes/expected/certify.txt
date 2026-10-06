@@ -1,0 +1,39 @@
+# cell 101: make certify-101
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## certify (cnd_decode, the default)
+records    308279939   M 2310   end_width 59
+decoded    308279939 d values, payload sha OK, span [51, 1087125999730037130781]
+factored   all 308279939 d (threads 16), reconstructing order...
+sha nset   ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (match)
+oracle     308279939 records elementwise equal
+round-trip CERTIFIED
+
+## certify (CERTIFY_TOOL=list_decode)
+stamp  load                <t> s   cum      <t> s   whole file read into memory
+input      <data>/carmichael-1e24-cell101-dmin-classes.cnd: 956341716 B, format CND (classes mod M, interpolative)
+file       sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb
+stamp  file-sha            <t> s   cum      <t> s   SHA-256 of the whole file
+structure  CND: M = 2310, end_width 59, 308279939 records in 1077 nonempty classes; directory 6789 B, body 956334775 B; payload SHA-256 OK
+stamp  structure           <t> s   cum      <t> s   header, directory, payload SHA-256 over header||dir||body
+stamp  decode             <t> s   cum     <t> s   interpolative classes -> values (class by class)
+stamp  sort               <t> s   cum     <t> s   global sort of the decoded classes
+values     308279939 values, span [51, 1087125999730037130781], strictly ascending
+size       24.817 bits per value (whole file)
+values     sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 22550467583581231962095163
+stamp  values-sha         <t> s   cum     <t> s   strictly-ascending check + SHA-256 and sum of the value stream
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; total_check 87794795725388084167960692697377
+factored   all 308279939 d (threads 13): n = d * (d^-1 mod lambda(d))
+stamp  factor           <t> s   cum   <t> s   split_u128 every d -> lambda -> inverse -> n
+stamp  sort-n             <t> s   cum   <t> s   sort + distinctness of the reconstructed n
+n          308279939 values, span [561, 999999999855878641139521], strictly ascending
+n          sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum mod 2^128 87794795725388084167960692697377
+stamp  n-sha              <t> s   cum   <t> s   SHA-256 and sum of the n stream
+footer     sha_nset MATCH; total_check MATCH (vs the reconstructed n stream)
+oracle     <data>/carmichael-1e24-oracle.orc1: file sha256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f
+stamp  oracle-sha         <t> s   cum   <t> s   SHA-256 of the oracle file
+oracle     308279939 records; n stream sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; sum 87794795725388084167960692697377
+stamp  oracle             <t> s   cum   <t> s   oracle n stream compared element by element
+stamp  total            <t> s   (phases sum <t> s, unaccounted <t> s)
+CERTIFIED  308279939 d -> n (factored); every n equals the oracle's, in order; count, sum and sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 match; CND footer targets match

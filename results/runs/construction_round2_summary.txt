@@ -1,0 +1,154 @@
+# Redacted on 2026-10-06 for publication: the names of other running processes
+# were removed. Every other line is as captured.
+ROUND 2 construction-time measurements, generated 2026-09-29 20:24:02 by analyze2.ps1
+Quoted time = the tool's own 'stamp total' (classes runs: also 'total-targets'); 'proc wall' is the whole process incl. untimed verification.
+
+=== every run
+X1L_r1   stamp total    18.674 s  | proc wall 19.24 s, cpu 18.11 s (user 16.61 + kernel 1.50; cpu/wall 0.94), peakWS 0.01 GB, exit 0, 15:03:12.038-15:03:31.273
+         phases: open 0.004, extract 18.234, close 0.285
+         background 0.052 cores mean, 0.07 max, 0 flagged sample(s); clock 4.75 GHz over 3.5 awake CPUs; quiet gate 1 check(s), passed at cpu5s=1.0%
+         output 4932479024 B sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (MATCH certified; hashing 20 s)
+X1L_r2   stamp total    18.935 s  | proc wall 19.57 s, cpu 18.39 s (user 16.80 + kernel 1.59; cpu/wall 0.94), peakWS 0.01 GB, exit 0, 15:15:09.238-15:15:28.813
+         phases: open 0.002, extract 18.528, close 0.283
+         background 0.090 cores mean, 0.13 max, 0 flagged sample(s); clock 4.72 GHz over 7.5 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.4%
+         output 4932479024 B sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (MATCH certified; hashing 20 s)
+X1L_r3   stamp total    19.004 s  | proc wall 19.53 s, cpu 18.33 s (user 16.42 + kernel 1.91; cpu/wall 0.94), peakWS 0.01 GB, exit 0, 15:27:01.528-15:27:21.057
+         phases: open 0.002, extract 18.443, close 0.438
+         background 0.060 cores mean, 0.11 max, 0 flagged sample(s); clock 4.79 GHz over 1.0 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.6%
+         output 4932479024 B sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (MATCH certified; hashing 20 s)
+X2P_r1   stamp total    41.248 s  | proc wall 58.00 s, cpu 54.23 s (user 48.63 + kernel 5.61; cpu/wall 0.94), peakWS 4.66 GB, exit 0, 15:05:14.900-15:06:12.896
+         phases: alloc 0.940, read 3.287, multiply 6.975, sort 25.776, check 0.402, write 3.420
+         background 0.092 cores mean, 0.27 max, 0 flagged sample(s); clock 4.77 GHz over 3.4 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.4%
+         output 4932479024 B sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (MATCH certified; tool sha agrees; hashing 20 s)
+X2P_r2   stamp total    40.995 s  | proc wall 57.66 s, cpu 53.81 s (user 48.19 + kernel 5.63; cpu/wall 0.93), peakWS 4.66 GB, exit 0, 15:17:12.454-15:18:10.115
+         phases: alloc 0.926, read 3.283, multiply 6.895, sort 25.690, check 0.400, write 3.366
+         background 0.039 cores mean, 0.07 max, 0 flagged sample(s); clock 4.80 GHz over 2.3 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.3%
+         output 4932479024 B sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (MATCH certified; tool sha agrees; hashing 20 s)
+X2P_r3   stamp total    44.170 s  | proc wall 62.37 s, cpu 59.81 s (user 52.97 + kernel 6.84; cpu/wall 0.96), peakWS 4.66 GB, exit 0, 15:29:16.318-15:30:18.686
+         phases: alloc 1.067, read 3.673, multiply 7.349, sort 28.227, check 0.436, write 3.017
+         background 1.214 cores mean, 1.54 max, 9 flagged sample(s) flagged: [process names removed]; clock 4.55 GHz over 14.1 awake CPUs; quiet gate 1 check(s), passed at cpu5s=8.2%
+         output 4932479024 B sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (MATCH certified; tool sha agrees; hashing 22 s)
+E000_r1  stamp total     6.831 s  | proc wall 21.61 s, cpu 19.75 s (user 16.13 + kernel 3.63; cpu/wall 0.91), peakWS 6.80 GB, exit 0, 15:06:45.692-15:07:07.304
+         phases: load 1.669, prepare 0.527, encode 3.051, write 1.466
+         background 0.061 cores mean, 0.12 max, 0 flagged sample(s); clock 4.74 GHz over 5.3 awake CPUs; quiet gate 1 check(s), passed at cpu5s=1.0%
+         output 2362758686 B sha256 5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8 (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 9 s)
+E000_r2  stamp total     6.783 s  | proc wall 21.53 s, cpu 19.69 s (user 16.00 + kernel 3.69; cpu/wall 0.91), peakWS 6.80 GB, exit 0, 15:18:40.410-15:19:01.940
+         phases: load 1.608, prepare 0.528, encode 3.010, write 1.516
+         background 0.038 cores mean, 0.08 max, 0 flagged sample(s); clock 4.80 GHz over 3.3 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.4%
+         output 2362758686 B sha256 5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8 (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 9 s)
+E000_r3  stamp total     7.377 s  | proc wall 23.25 s, cpu 21.52 s (user 17.53 + kernel 3.98; cpu/wall 0.93), peakWS 6.80 GB, exit 0, 15:30:55.365-15:31:18.616
+         phases: load 1.908, prepare 0.525, encode 3.233, write 1.589
+         background 1.302 cores mean, 1.50 max, 4 flagged sample(s) flagged: [process names removed]; clock 4.60 GHz over 13.5 awake CPUs; quiet gate 1 check(s), passed at cpu5s=8.7%
+         output 2362758686 B sha256 5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8 (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 10 s)
+E100_r1  stamp total     5.227 s  | proc wall 14.01 s, cpu 12.22 s (user 9.67 + kernel 2.55; cpu/wall 0.87), peakWS 5.73 GB, exit 0, 15:07:29.408-15:07:43.414
+         phases: load 1.621, prepare 0.530, encode 1.999, write 0.940
+         background 0.053 cores mean, 0.11 max, 0 flagged sample(s); clock 4.82 GHz over 1.0 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.3%
+         output 1220449393 B sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575 (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 5 s)
+E100_r2  stamp total     5.252 s  | proc wall 14.08 s, cpu 12.28 s (user 9.89 + kernel 2.39; cpu/wall 0.87), peakWS 5.73 GB, exit 0, 15:19:23.554-15:19:37.635
+         phases: load 1.623, prepare 0.537, encode 2.002, write 0.955
+         background 0.063 cores mean, 0.09 max, 0 flagged sample(s); clock 4.80 GHz over 3.0 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.8%
+         output 1220449393 B sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575 (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 5 s)
+E100_r3  stamp total     5.601 s  | proc wall 15.01 s, cpu 13.61 s (user 10.45 + kernel 3.16; cpu/wall 0.91), peakWS 5.73 GB, exit 0, 15:31:43.041-15:31:58.052
+         phases: load 1.913, prepare 0.530, encode 2.143, write 0.892
+         background 1.292 cores mean, 1.68 max, 3 flagged sample(s) flagged: [process names removed]; clock 4.58 GHz over 12.7 awake CPUs; quiet gate 1 check(s), passed at cpu5s=7.3%
+         output 1220449393 B sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575 (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 5 s)
+E001_r1  stamp total    80.116 s (total-targets 64.255 s)  | proc wall 203.11 s, cpu 201.77 s (user 191.89 + kernel 9.88; cpu/wall 0.99), peakWS 14.57 GB, exit 0, 15:08:01.269-15:11:24.377
+         phases: load 1.634, targets 15.861, prepare 25.825, encode 30.860, seal 5.081, write 0.709
+         background 0.065 cores mean, 0.21 max, 0 flagged sample(s); clock 4.78 GHz over 3.1 awake CPUs; quiet gate 1 check(s), passed at cpu5s=1.9%
+         output 1545310979 B sha256 0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 6 s)
+E001_r2  stamp total    79.807 s (total-targets 63.939 s)  | proc wall 202.56 s, cpu 201.30 s (user 191.84 + kernel 9.45; cpu/wall 0.99), peakWS 14.57 GB, exit 0, 15:19:54.957-15:23:17.517
+         phases: load 1.630, targets 15.869, prepare 25.554, encode 30.850, seal 5.039, write 0.716
+         background 0.043 cores mean, 0.11 max, 0 flagged sample(s); clock 4.80 GHz over 2.5 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.2%
+         output 1545310979 B sha256 0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 6 s)
+E001_r3  stamp total    90.911 s (total-targets 73.819 s)  | proc wall 230.02 s, cpu 228.77 s (user 217.50 + kernel 11.27; cpu/wall 0.99), peakWS 14.57 GB, exit 0, 15:32:17.735-15:36:07.760
+         phases: load 1.927, targets 17.092, prepare 31.555, encode 33.922, seal 5.502, write 0.774
+         background 1.232 cores mean, 1.80 max, 30 flagged sample(s) flagged: [process names removed]; clock 4.58 GHz over 14.8 awake CPUs; quiet gate 1 check(s), passed at cpu5s=8.7%
+         output 1545310979 B sha256 0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd (no certified hash (checked vs the tool's own hash and across passes); tool sha agrees; hashing 7 s)
+E101_r1  stamp total    69.665 s (total-targets 36.216 s)  | proc wall 192.37 s, cpu 191.05 s (user 179.94 + kernel 11.11; cpu/wall 0.99), peakWS 11.92 GB, exit 0, 15:11:41.546-15:14:53.918
+         phases: load 1.634, targets 33.450, prepare 9.348, encode 21.528, seal 3.158, write 0.396
+         background 0.042 cores mean, 0.09 max, 0 flagged sample(s); clock 4.79 GHz over 2.9 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.0%
+         output 956341716 B sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb (MATCH certified; tool sha agrees; hashing 4 s)
+E101_r2  stamp total    69.448 s (total-targets 36.141 s)  | proc wall 192.19 s, cpu 190.95 s (user 179.08 + kernel 11.88; cpu/wall 0.99), peakWS 11.92 GB, exit 0, 15:23:34.524-15:26:46.714
+         phases: load 1.628, targets 33.307, prepare 9.257, encode 21.586, seal 3.143, write 0.378
+         background 0.047 cores mean, 0.14 max, 0 flagged sample(s); clock 4.79 GHz over 2.6 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.1%
+         output 956341716 B sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb (MATCH certified; tool sha agrees; hashing 4 s)
+E101_r3  stamp total    75.132 s (total-targets 39.048 s)  | proc wall 209.22 s, cpu 207.94 s (user 195.48 + kernel 12.45; cpu/wall 0.99), peakWS 11.92 GB, exit 0, 15:36:27.368-15:39:56.592
+         phases: load 1.886, targets 36.083, prepare 10.156, encode 23.156, seal 3.345, write 0.369
+         background 1.057 cores mean, 1.62 max, 27 flagged sample(s) flagged: [process names removed]; clock 4.59 GHz over 14.4 awake CPUs; quiet gate 1 check(s), passed at cpu5s=8.6%
+         output 956341716 B sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb (MATCH certified; tool sha agrees; hashing 4 s)
+X2O15    stamp total 1,175.025 s  | proc wall 1,193.31 s, cpu 14,204.22 s (user 14,180.94 + kernel 23.28; cpu/wall 11.90), peakWS 9.19 GB, exit 0, 15:40:12.691-16:00:05.997
+         phases: alloc 0.964, extract 1,162.302, sort 8.058, check 0.444, write 3.140
+         background 1.294 cores mean, 1.60 max, 144 flagged sample(s) flagged: [process names removed]; clock 3.74 GHz over 15.8 awake CPUs; quiet gate 1 check(s), passed at cpu5s=8.2%
+         output 4932479024 B sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (MATCH certified; tool sha agrees; hashing 21 s)
+E4_1t    no stamps         | proc wall 433.86 s, cpu 415.05 s (user 384.55 + kernel 30.50; cpu/wall 0.96), peakWS 4.09 GB, exit 0, 16:01:58.038-16:09:11.900
+         pwt2 phase ends (s since start): order 21.6, ranked 58.7, sorted 184.6, oracle 218.9, encoded 431.6, elapsed 434.2
+         background 0.348 cores mean, 1.12 max, 7 flagged sample(s) flagged: [process names removed]; clock 4.71 GHz over 7.5 awake CPUs; quiet gate 1 check(s), passed at cpu5s=2.5%
+         output 1296532881 B sha256 d2ba4ade81f4e972eadd573bef11e309a7999f9122789be56dbfdbed6a54a1bf (MATCH certified; hashing 5 s)
+E5_1t    no stamps         | proc wall 518.31 s, cpu 494.66 s (user 465.31 + kernel 29.34; cpu/wall 0.95), peakWS 2.96 GB, exit 0, 16:09:28.282-16:18:06.597
+         pwt2 phase ends (s since start): order 26.5, ranked 62.6, sorted 187.8, oracle 222.0, encoded 519.0, elapsed 519.0
+         background 0.142 cores mean, 0.54 max, 1 flagged sample(s) flagged: [process names removed]; clock 4.74 GHz over 6.2 awake CPUs; quiet gate 1 check(s), passed at cpu5s=1.0%
+         output 604904156 B sha256 0b387083f508818bb42dda65b3e0bc1bdc7161a009788f8036346f475247e317 (MATCH certified; hashing 2 s)
+E6_1t    no stamps         | proc wall 417.10 s, cpu 387.16 s (user 349.86 + kernel 37.30; cpu/wall 0.93), peakWS 7.09 GB, exit 0, 16:19:47.128-16:26:44.225
+         pwt2 phase ends (s since start): order 24.1, ranked 72.7, sorted 223.0, oracle 258.6, encoded 413.7, elapsed 417.3
+         background 0.267 cores mean, 1.12 max, 3 flagged sample(s) flagged: [process names removed]; clock 4.71 GHz over 6.2 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.9%
+         output 2591083919 B sha256 b7e2e68993e5e09b6c36a642eb01f9629551b5f86e219dbabe644e2fc43ab9e6 (MATCH certified; hashing 11 s)
+E7_1t    no stamps         | proc wall 803.79 s, cpu 772.39 s (user 725.89 + kernel 46.50; cpu/wall 0.96), peakWS 4.48 GB, exit 0, 16:27:06.485-16:40:30.274
+         pwt2 phase ends (s since start): order 33.1, ranked 87.4, sorted 245.8, oracle 280.9, encoded 801.6, elapsed 803.7
+         background 0.987 cores mean, 2.93 max, 94 flagged sample(s) flagged: [process names removed]; clock 4.58 GHz over 13.2 awake CPUs; quiet gate 1 check(s), passed at cpu5s=3.8%
+         output 1234242404 B sha256 dd69b283217bb41c96b26751591d5bd04f5fb261d29abbbc4fb10313d666adad (MATCH certified; hashing 5 s)
+X2O15b   stamp total 1,073.255 s  | proc wall 1,090.42 s, cpu 13,540.20 s (user 13,533.52 + kernel 6.69; cpu/wall 12.42), peakWS 9.19 GB, exit 0, 17:11:59.022-17:30:09.443
+         phases: alloc 0.870, extract 1,061.480, sort 7.115, check 0.419, write 3.258
+         background 0.209 cores mean, 1.14 max, 12 flagged sample(s) flagged: [process names removed]; clock 3.82 GHz over 15.5 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.5%
+         output 4932479024 B sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (MATCH certified; tool sha agrees; hashing 20 s)
+E7_1tb   no stamps         | proc wall 712.18 s, cpu 682.36 s (user 644.94 + kernel 37.42; cpu/wall 0.96), peakWS 4.48 GB, exit 0, 17:32:28.859-17:44:21.035
+         pwt2 phase ends (s since start): order 24.0, ranked 73.4, sorted 225.3, oracle 259.2, encoded 709.7, elapsed 712.2
+         background 0.139 cores mean, 0.40 max, 0 flagged sample(s); clock 4.75 GHz over 4.6 awake CPUs; quiet gate 1 check(s), passed at cpu5s=2.0%
+         output 1234242404 B sha256 dd69b283217bb41c96b26751591d5bd04f5fb261d29abbbc4fb10313d666adad (MATCH certified; hashing 5 s)
+X2O1     stamp total 9,477.113 s  | proc wall 9,494.18 s, cpu 9,489.66 s (user 9,485.20 + kernel 4.45; cpu/wall 1.00), peakWS 4.66 GB, exit 0, 17:44:36.911-20:22:51.088
+         phases: alloc 0.870, extract 9,446.827, sort 25.796, check 0.400, write 3.067
+         background 0.072 cores mean, 1.01 max, 4 flagged sample(s) flagged: [process names removed]; clock 4.76 GHz over 4.0 awake CPUs; quiet gate 1 check(s), passed at cpu5s=0.8%
+         output 4932479024 B sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (MATCH certified; tool sha agrees; hashing 20 s)
+
+=== list steps: median of r1 r2 r3 (stamp seconds)
+X1L   total: 18.674 / 18.935 / 19.004  -> MEDIAN 18.935 s (spread 1.8%)
+      median phases: open 0.002, extract 18.443, close 0.285, total 18.935
+      proc wall median 19.53 s, proc cpu median 18.33 s; outputs across passes: 1 distinct sha256 (ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62)
+X2P   total: 41.248 / 40.995 / 44.170  -> MEDIAN 41.248 s (spread 7.7%)
+      median phases: alloc 0.940, read 3.287, multiply 6.975, sort 25.776, check 0.402, write 3.366, total 41.248
+      proc wall median 58.00 s, proc cpu median 54.23 s; outputs across passes: 1 distinct sha256 (22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8)
+E000  total: 6.831 / 6.783 / 7.377  -> MEDIAN 6.831 s (spread 8.8%)
+      median phases: load 1.669, prepare 0.527, encode 3.051, write 1.516, total 6.831
+      proc wall median 21.61 s, proc cpu median 19.75 s; outputs across passes: 1 distinct sha256 (5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8)
+E100  total: 5.227 / 5.252 / 5.601  -> MEDIAN 5.252 s (spread 7.2%)
+      median phases: load 1.623, prepare 0.530, encode 2.002, write 0.940, total 5.252
+      proc wall median 14.08 s, proc cpu median 12.28 s; outputs across passes: 1 distinct sha256 (57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575)
+E001  total: 80.116 / 79.807 / 90.911  -> MEDIAN 80.116 s (spread 13.9%)
+      total-targets: 64.255 / 63.939 / 73.819  -> MEDIAN 64.255 s
+      median phases: load 1.634, targets 15.869, prepare 25.825, encode 30.860, seal 5.081, write 0.716, total 80.116, total-targets 64.255
+      proc wall median 203.11 s, proc cpu median 201.77 s; outputs across passes: 1 distinct sha256 (0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd)
+E101  total: 69.665 / 69.448 / 75.132  -> MEDIAN 69.665 s (spread 8.2%)
+      total-targets: 36.216 / 36.141 / 39.048  -> MEDIAN 36.216 s
+      median phases: load 1.634, targets 33.450, prepare 9.348, encode 21.586, seal 3.158, write 0.378, total 69.665, total-targets 36.216
+      proc wall median 192.37 s, proc cpu median 191.05 s; outputs across passes: 1 distinct sha256 (d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb)
+
+=== single runs
+X2O15  stamp total 1,175.025 s (alloc 0.964, extract 1,162.302, sort 8.058, check 0.444, write 3.140); proc cpu 14,204.2 s
+X2O15b stamp total 1,073.255 s (alloc 0.870, extract 1,061.480, sort 7.115, check 0.419, write 3.258); proc cpu 13,540.2 s
+X2O1   stamp total 9,477.113 s (alloc 0.870, extract 9,446.827, sort 25.796, check 0.400, write 3.067); proc cpu 9,489.7 s
+E4_1t  --threads 1: proc wall 433.86 s (cpu 415.05 s, cpu/wall 0.96); round-1 --threads 4 median wall 356.08 s (cpu 415.28 s) -> 1-thread / 4-thread = 1.218
+E5_1t  --threads 1: proc wall 518.31 s (cpu 494.66 s, cpu/wall 0.95); round-1 --threads 4 median wall 433.72 s (cpu 495.48 s) -> 1-thread / 4-thread = 1.195
+E6_1t  --threads 1: proc wall 417.10 s (cpu 387.16 s, cpu/wall 0.93); round-1 --threads 4 median wall 326.93 s (cpu 395.34 s) -> 1-thread / 4-thread = 1.276
+E7_1t  --threads 1: proc wall 803.79 s (cpu 772.39 s, cpu/wall 0.96); round-1 --threads 4 median wall 611.77 s (cpu 679.92 s) -> 1-thread / 4-thread = 1.314
+E7_1tb --threads 1: proc wall 712.18 s (cpu 682.36 s, cpu/wall 0.96); round-1 --threads 4 median wall 611.77 s (cpu 679.92 s) -> 1-thread / 4-thread = 1.164
+
+=== per-cell construction (medians; stamp totals for the new tools, process walls for round-1 tools)
+000   X1L ORC1->n.raw               18.94 s + E000 list_build vbyte                           6.83 s =      25.77 s = 0.43 min
+001   X1L ORC1->n.raw               18.94 s + E001 list_build classes M=10810800 (total)     80.12 s =      99.05 s = 1.65 min
+001*  X1L ORC1->n.raw               18.94 s + E001 (total-targets)                           64.26 s =      83.19 s = 1.39 min
+100   X3+X2P paths->d.raw        1,158.24 s + E100 list_build vbyte                           5.25 s =   1,163.49 s = 19.4 min
+100o  X2O15b ORC1->d.raw         1,073.26 s + E100 list_build vbyte                           5.25 s =   1,078.51 s = 18.0 min
+100s  X2O1 ORC1->d.raw 1 thr     9,477.11 s + E100 list_build vbyte                           5.25 s =   9,482.37 s = 158.0 min
+101   X3+X2P paths->d.raw        1,158.24 s + E101 list_build classes M=2310 (total)         69.67 s =   1,227.90 s = 20.5 min
+101o  X2O15b ORC1->d.raw         1,073.26 s + E101 list_build classes M=2310 (total)         69.67 s =   1,142.92 s = 19.0 min
+101s  X2O1 ORC1->d.raw 1 thr     9,477.11 s + E101 list_build classes M=2310 (total)         69.67 s =   9,546.78 s = 159.1 min
+      (X3 = round-1 trie_paths d_min paths median 1,116.99 s, 15 threads; E101 vs round-1 cnd_encode E3 median 74.61 s)

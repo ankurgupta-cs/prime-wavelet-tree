@@ -1,0 +1,35 @@
+# cell 011: the encode step of make rebuild-011
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## encode
+input       <work>/fpaths.bin (fields 14, full-factorization mode, PWT2 entropy-coded, context set 3)
+order       308279939 records, 7428174 distinct primes in 12563 count classes; root-most: 19 31 37 41 13 17 29 61 (<t> s)
+ranked      <work>/scratch/pwt2_encode_<id>_ranked.bin (<t> s)
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+sorted      308279939 records, max depth 14 (<t> s)
+oracle      308279939 records, sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (<t> s)
+encoded     (<t> s)
+nodes       1021045229 (3.312 per record); symbols 3612171525 (table 7428174); escapes 1
+sections    header 160 + classes 12879 + tables 8154309 + symbols 980887984 + raw 245186984 + footer 88
+bits/el     symbols 25.454 (quantized ideal 25.453, exact entropy 25.453) + raw 6.363 + tables 0.2116 + classes 0.0003 + framing 0.0000
+contexts    110680 models; per class: ideal bits/el | models | table bytes
+  table          0.0647 |     322 |     11191
+  count          1.1596 |   57582 |    841728
+  count tail     0.0129 |       9 |      7559
+  flag           0.0184 |      46 |       368
+  gap length    10.2201 |   35918 |   1019732
+  gap mantissa   13.9778 |   16803 |   6273731
+rank table  0.2167 bits/el (symbols ideal 0.0647 + raw 0.1517 + classes 0.0003)
+FILE        1234242404 bytes = 32.029 bits/el   (<work>/carmichael-1e24-cell011-pwt-full.pwt2)
+            paths reproduce the oracle's sum; quote only after pwt2_decode --certify exits 0
+elapsed     <t> s

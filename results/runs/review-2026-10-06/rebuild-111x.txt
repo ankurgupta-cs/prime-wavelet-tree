@@ -1,0 +1,50 @@
+cmd:   make rebuild-111x
+env:   DATA=<data> WORK=<work>
+start: Tue Oct  6 19:09:51 UTC 2026
+----
+bash scripts/cell.sh rebuild 111x
++ <bin>/pwt2_decode.exe <data>/c111x-pwt-dstar.pwt2 --emit-paths <work>/c111x.paths.bin --fields 14
+container   588684305 bytes, 308279939 records, divisor mode, entropy-coded, max depth 11, m 6993373 primes in 6008 classes, context set 3
+structure   OK (payload SHA-256, tables, 1384 blocks, 1451178003 symbols); read 0.4 s, loaded 2.4 s
+rank table  6993373 primes decoded (3.1 s cumulative)
+decoded     308279939 numbers in tree order (255.2 s cumulative)
+phases      read 0.4 s | checks + sieve 2.0 s | rank table 0.6 s | tree 252.1 s | in-memory decode 252.8 s (table + tree)
+sorted      (303.0 s); sha_nset MATCH; total_check MATCH; count MATCH
+paths       308279939 records x 14 fields = 21579595730 bytes to <work>/c111x.paths.bin (tree order; tree phase includes this write); sha256 fa7d2f8b86d7e2d890eb994408a65741fa756fdecd9f0bd3693c5a4648a3ef37
+elapsed     303.0 s
++ <bin>/pwt2_encode.exe <work>/c111x.paths.bin <data>/new_table.orc1 <work>/c111x-pwt-dstar.pwt2 --fields 14 --ctx-set 3 --scratch <work>/scratch --chunk 33554432 --threads 4
+input       <work>/c111x.paths.bin (fields 14, divisor (d*lambda(d) > n) mode, PWT2 entropy-coded, context set 3)
+order       308279939 records, 6993373 distinct primes in 6008 count classes; root-most: 19 31 37 41 17 29 61 73 (21 s)
+ranked      <work>/scratch/pwt2_encode_1791314095558_ranked.bin (48 s)
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+sorted      308279939 records, max depth 11 (119 s)
+oracle      308279939 records, sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (153 s)
+encoded     (436 s)
+nodes       495990373 (1.609 per record); symbols 1451178003 (table 6993373); escapes 1152
+sections    header 160 + classes 6303 + tables 2819167 + symbols 333754155 + raw 252104432 + footer 88
+bits/el     symbols 8.661 (quantized ideal 8.661, exact entropy 8.661) + raw 6.542 + tables 0.0732 + classes 0.0002 + framing 0.0000
+contexts    63722 models; per class: ideal bits/el | models | table bytes
+  table          0.0610 |     313 |      9508
+  count          0.6446 |   32079 |    348539
+  count tail     0.0149 |       6 |     10119
+  flag           0.0070 |      32 |       258
+  gap length     4.2495 |   21253 |    627288
+  gap mantissa    3.6838 |   10039 |   1823455
+rank table  0.2067 bits/el (symbols ideal 0.0610 + raw 0.1456 + classes 0.0002)
+FILE        588684305 bytes = 15.277 bits/el   (<work>/c111x-pwt-dstar.pwt2)
+            paths reproduce the oracle's sum; quote only after pwt2_decode --certify exits 0
+elapsed     438 s
+hashing   <work>/c111x-pwt-dstar.pwt2 (588684305 bytes) ...
+MATCH     cell 111x (<work>/c111x-pwt-dstar.pwt2)  sha256 3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6
+----
+exit:  0
+secs:  753.8

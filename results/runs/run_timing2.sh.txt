@@ -1,0 +1,41 @@
+#!/bin/sh
+# Quiet-machine decode timing (protocol from the PWT2 reviews): one build for
+# every file (hashes logged), machine state logged before each round, runs
+# interleaved across files, 3 repetitions, no --certify during timing; then
+# a final certification of every PWT2 file with the same decoder.
+W=<work>
+cd $W || exit 2
+P=<repo>/build
+cp $P/pwt_decode.exe $W/pwt_decode_t.exe && cp $P/pwt2_decode.exe $W/pwt2_decode_t.exe && cp $P/cofactor_bench.exe $W/cofactor_bench_t.exe || exit 2
+L=logs/timing_session2.txt
+{
+  echo "=== timing session $(date)"
+  sha256sum pwt_decode_t.exe pwt2_decode_t.exe cofactor_bench_t.exe
+  powercfg //getactivescheme 2>/dev/null
+  wmic cpu get Name,NumberOfCores,NumberOfLogicalProcessors,MaxClockSpeed 2>/dev/null | tr -d '\r' | grep -v '^$'
+} > $L 2>&1
+state() {
+  echo "--- state $(date)" >> $L
+  wmic OS get FreePhysicalMemory 2>/dev/null | tr -d '\r' | grep -v '^$' >> $L
+  wmic cpu get LoadPercentage 2>/dev/null | tr -d '\r' | grep -v '^$' >> $L
+  tasklist //FO CSV 2>/dev/null | sort -t, -k5 -r | head -8 >> $L
+}
+OLD="old/new_table_dmin.pwt1 old/new_table_full.pwt1 old/new_table_dmin.pwt0 old/new_table_full.pwt0"
+NEW="pwt2/new_table_dmin.pwt2 pwt2/new_table_full.pwt2 pwt2/new_table_dmin.pwt2n pwt2/new_table_full.pwt2n pwt2/new_table_dmin.s2.pwt2 pwt2/new_table_full.s2.pwt2 pwt2/new_table_dmin.s3.pwt2 pwt2/new_table_full.s3.pwt2 pwt2/new_table_opt5.s2.pwt2 pwt2/new_table_opt5.s3.pwt2 pwt2/new_table_opt5.pwt2n"
+for f in $NEW; do [ -f "$f" ] || { echo "missing $f" >> $L; exit 3; }; done
+for rep in 1 2 3; do
+  state
+  for f in $OLD; do b=$(basename $f); ./pwt_decode_t.exe $f > logs/time2_${b}_r$rep.txt 2>&1; echo "$b r$rep exit $? $(date +%T)" >> $L; done
+  for f in $NEW; do b=$(basename $f); ./pwt2_decode_t.exe $f > logs/time2_${b}_r$rep.txt 2>&1; echo "$b r$rep exit $? $(date +%T)" >> $L; done
+done
+state
+OPTPATHS=${OPTPATHS:-scratch/dsel_set2/full5/s2_full5.bin}
+for rep in 1 2; do
+  ./cofactor_bench_t.exe data/new_table.orc1 data/dpaths.bin --fields 12 --stride 100 > logs/time2_cofactor_dmin_r$rep.txt 2>&1; echo "cofactor dmin r$rep exit $? $(date +%T)" >> $L
+  ./cofactor_bench_t.exe data/new_table.orc1 $OPTPATHS --fields 14 --stride 100 > logs/time2_cofactor_opt_r$rep.txt 2>&1; echo "cofactor opt ($OPTPATHS) r$rep exit $? $(date +%T)" >> $L
+done
+for f in $NEW; do
+  b=$(basename $f); ./pwt2_decode_t.exe $f --certify data/new_table.orc1 > logs/pwt2_recertify2_$b.txt 2>&1; echo "recertify $b exit $?" >> $L
+done
+./cofactor_bench_t.exe data/new_table.orc1 $OPTPATHS --fields 14 --stride 1 > logs/cofactor_verify_opt5_full.txt 2>&1; echo "cofactor full verify opt5 exit $?" >> $L
+echo "=== timing done $(date)" >> $L

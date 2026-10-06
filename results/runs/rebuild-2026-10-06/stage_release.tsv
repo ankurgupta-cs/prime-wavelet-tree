@@ -1,0 +1,11 @@
+# Staged on 2026-10-06 before the final release: the file names here predate the
+# carmichael-1e24-* names (results/cells.tsv), and c111x-dstar-masks.bin was later
+# dropped from the release (the search masks are not hosted). <repo> is the project
+# tree, not this repository.
+c001-n-classes.cnd	001	1545310979	0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd	0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd	MATCH	<work>/release_build/c001.cnd	1.8
+c101-dmin-cnd1.cnd1	101	956341716	d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb	d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb	MATCH	<repo>/artifacts/new_table.cnd1	10.5
+c011-pwt-full.pwt2	011	1234242404	dd69b283217bb41c96b26751591d5bd04f5fb261d29abbbc4fb10313d666adad	dd69b283217bb41c96b26751591d5bd04f5fb261d29abbbc4fb10313d666adad	MATCH	<work>/pwt2/new_table_full.s3.pwt2	1.4
+c111-pwt-dmin.pwt2	111	604904156	0b387083f508818bb42dda65b3e0bc1bdc7161a009788f8036346f475247e317	0b387083f508818bb42dda65b3e0bc1bdc7161a009788f8036346f475247e317	MATCH	<repo>/artifacts/new_table.pwt2	8.9
+c111x-pwt-dstar.pwt2	111x	588684305	3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6	3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6	MATCH	<work>/pwt2/new_table_opt5.s3.pwt2	0.7
+new_table.orc1	oracle	4462931093	a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f	a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f	MATCH	<work>/data/new_table.orc1	2.5
+c111x-dstar-masks.bin	111x	616559886	e599e76119b7bfcad9e981d67c98ec34a5fcd6e2437825874fc077bc50dd08fc	e599e76119b7bfcad9e981d67c98ec34a5fcd6e2437825874fc077bc50dd08fc	MATCH	<work>/scratch/dsel_set2/full5/masks_full5.bin	0.8

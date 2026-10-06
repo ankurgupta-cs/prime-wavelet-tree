@@ -1,0 +1,45 @@
+# selftest_runs.txt -- confirmation runs of selftest_prefix.sh after the golden list was frozen.
+# golden_prefix.tsv  sha256 1aa926e8114cfab05b981a472bef42c443582aa80e8517c9f923ee3f703bc3a1 (23 entries)
+# selftest_prefix.sh sha256 dfdfb9862c88241cfec61c16ab9136ae0591e393e277873d43eacbc56edeedf5
+# Machine: Intel i9-9900K, Windows 10, GCC 16.1.0 (w64devkit, -O2 -march=native), Git Bash.
+# Other jobs shared the machine during these runs (CPU load 53-76% when sampled), so the
+# times are upper bounds. The tools themselves take 20-27 s of each run; the rest is
+# hashing and comparing in the shell.
+#
+# date       run                                     checks             seconds
+2026-10-06   1  work directory kept                   91 ok, 0 failed    45.3
+2026-10-06   2  work directory kept                   91 ok, 0 failed    57.6
+2026-10-06   3  repository copy, temporary directory  91 ok, 0 failed    51.0
+2026-10-06   4  after two comment edits, see below    91 ok, 0 failed    49.4
+#
+# Runs 1 and 2 wrote the same 70 output files byte for byte (every cell file, intermediate,
+# decoded stream, exported path file and sorted-record list; logs excluded), and the size and
+# hash list of each run equals the frozen list. The tool binaries were the same in all three
+# runs. Their SHA-256 (built with -march=native, so the hashes are specific to this machine):
+#   1c7cf611e08fb89210e5c80d3d9eb8f6303b31821b935d71fff71333571ffef8  oracle_encode.exe
+#   207214fa3b64110784365caa678cfd22468169f4bc524ef91e8a2b53efc56f38  oracle_decode.exe
+#   345d773161cd089f4fb0166fe27f0ca05729f86c6d832ee3b55344ecb980235b  nstats_orc1.exe
+#   2dd5ee93e3026faa00402d0696df2aaa24671fe735b03a605f5e39c2ecb53da4  trie_paths.exe
+#   ad16f79f65a9e1597503f5d85b3fd8978008c0fb1ece8d27447060557ec57661  dlist_from_paths.exe
+#   bdd344a66d9bc75aceab5e7af69c4ecf13471718002a028b5ea85049c6f10a77  list_build.exe
+#   e97c0c7f08cd7f78aa82ca56f25488a7cd4a469fcd669e82327204f75ef05a80  cnd_encode.exe
+#   77ca2d090828859ca1707681b9331388f9c814c01d30cd3a84270898a6d60d09  cnd_decode.exe
+#   c9fa97402429286f0f87c3616ed27150edfcfb97cce7fe45880a621e5638516e  list_decode.exe
+#   2cc76d13e48cfc437cbdec8ce7598eb963f4dd54fb4651567682910583a0cf35  pwt2_encode.exe
+#   882ce3f591bb6ffb3308d7d510dd6819684acdb3dae059743738eec1bf535df9  pwt2_decode.exe
+#   fbb48ee9b0907956a908d29ec537de67eb47407e4117befc2b79412bd0e50dc7  dsel_set2.exe
+#
+# Negative checks, same day: a tool directory without list_decode stops with "missing tool"
+# (exit 2); a pwt2_decode without --emit-paths fails (exit 1); one changed digit in the
+# paths_c111x.bin golden fails exactly that entry (exit 1). The sorted-record comparison
+# accepts a reordering of records and rejects a one-byte change and a duplicated record.
+#
+# Run 4 (2026-10-06, `make check` in the repository, log runs/selftest_prefix_2026-10-06_run4_repo.txt)
+# followed two edits of comments, no code change. Line 5 of selftest_prefix.sh now credits
+# Shallue and Webster's table. Line 312 now says the path fields are big-endian, as
+# docs/PATHS_FORMAT.md specifies. The script's sha256 became
+# d6ee57bd65fb3cea201b1aee3c383aa6e5b66e10148c57ac3d21dc213fabbd0c (tests/prefix/SHA256SUMS).
+# Same goldens. The tools were built from src/ in the repository. Their hashes equal the list
+# above except dsel_set2.exe, whose build from src/ has sha256
+# 0fbd6b8dab50725a7788f1efbacd0b9a2c79f0b00863404ee26e6c2ca263e951 (the README explains the
+# two source edits).

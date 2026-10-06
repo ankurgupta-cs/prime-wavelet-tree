@@ -1,0 +1,10 @@
+c001 exit=0 secs=222.73 bytes=1545310979 sha=0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd status=MATCH
+c000 exit=0 secs=22.21 bytes=2362758686 sha=5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8 status=MATCH
+c100 exit=0 secs=15.51 bytes=1220449393 sha=57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575 status=MATCH
+c010 exit=0 secs=352.15 bytes=2591083919 sha=b7e2e68993e5e09b6c36a642eb01f9629551b5f86e219dbabe644e2fc43ab9e6 status=MATCH
+c011 exit=0 secs=711.62 bytes=1234242404 sha=dd69b283217bb41c96b26751591d5bd04f5fb261d29abbbc4fb10313d666adad status=MATCH
+c110 exit=0 secs=338.31 bytes=1296532881 sha=d2ba4ade81f4e972eadd573bef11e309a7999f9122789be56dbfdbed6a54a1bf status=MATCH
+c111 exit=0 secs=447.81 bytes=604904156 sha=0b387083f508818bb42dda65b3e0bc1bdc7161a009788f8036346f475247e317 status=MATCH
+dsel_emit exit=0 secs=232.09 bytes=21579595730 sha=92302de4e0a0d3d7ab4ef10dab431e4fd21805607166ea87b7fccfdb57fc8e8e status=MATCH
+c111x exit=0 secs=467.79 bytes=588684305 sha=3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6 status=MATCH
+chain all done

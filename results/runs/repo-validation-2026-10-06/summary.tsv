@@ -1,0 +1,19 @@
+verify-001	0	108.8	make verify-001
+verify-101	0	85.7	make verify-101
+verify-011	0	284.7	make verify-011
+verify-111	0	192.8	make verify-111
+verify-111x	0	190.7	make verify-111x
+verify-oracle	0	292.2	make verify-oracle
+verify-000	0	71.5	make verify-000
+verify-100	0	49.3	make verify-100
+verify-010	0	120.9	make verify-010
+verify-110	0	154.2	make verify-110
+copy-n-raw	0	8.1	cp <certified>/n.raw <work>/n.raw
+copy-d-raw	0	9.1	cp <certified>/d.raw <work>/d.raw
+copy-dpaths	0	32.9	cp <certified>/dpaths.bin <work>/dpaths.bin
+rebuild-001	0	320.7	make rebuild-001
+rebuild-101	0	302.4	make rebuild-101
+rebuild-111x-masks	0	1353.0	make rebuild-111x
+certify-001	0	129.9	make certify-001
+certify-111	0	217.3	make certify-111
+certify-101	0	1353.9	make certify-101

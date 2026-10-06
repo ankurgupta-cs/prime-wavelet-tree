@@ -1,0 +1,36 @@
+=== per-step samples (wall s; background mean cores in brackets) and median
+X1  r1=80.32 [n/a]  r2=77.42 [0.06]  r3=77.10 [0.05]  median 77.42 s (min 77.10, max 80.32, spread 4.2%)  cpu median 77.4 s
+E1  r1=134.78 [n/a]  r2=126.16 [0.05]  r3=126.19 [0.04]  median 126.19 s (min 126.16, max 134.78, spread 6.8%)  cpu median 125.5 s
+X2  r1=50.20 [n/a]  r2=48.45 [0.03]  r3=48.65 [0.07]  median 48.65 s (min 48.45, max 50.20, spread 3.6%)  cpu median 48.3 s
+E2  r1=87.07 [n/a]  r2=83.39 [0.06]  r3=84.07 [0.25]  median 84.07 s (min 83.39, max 87.07, spread 4.4%)  cpu median 83.2 s
+E3  r1=74.72 [n/a]  r2=72.01 [0.06]  r3=74.61 [0.41]  median 74.61 s (min 72.01, max 74.72, spread 3.8%)  cpu median 74.6 s
+X3  r1=1,116.99 [n/a]  r2=1,133.93 [0.67]  r3=1,114.00 [0.47]  median 1,116.99 s (min 1,114.00, max 1,133.93, spread 1.8%)  cpu median 13,924.6 s
+E4  r1=348.59 [n/a]  r2=367.88 [0.54]  r3=356.08 [0.04]  median 356.08 s (min 348.59, max 367.88, spread 5.5%)  cpu median 415.3 s
+E5  r1=432.27 [n/a]  r2=460.99 [0.41]  r3=433.72 [0.05]  median 433.72 s (min 432.27, max 460.99, spread 6.6%)  cpu median 495.5 s
+X4  r1=17.46 [n/a]  r2=16.74 [0.51]  r3=17.08 [0.04]  median 17.08 s (min 16.74, max 17.46, spread 4.3%)  cpu median 88.2 s
+E6  r1=311.70 [n/a]  r2=334.16 [0.43]  r3=326.93 [0.05]  median 326.93 s (min 311.70, max 334.16, spread 7.2%)  cpu median 395.3 s
+E7  r1=600.28 [n/a]  r2=660.74 [0.42]  r3=611.77 [0.05]  median 611.77 s (min 600.28, max 660.74, spread 10.1%)  cpu median 679.9 s
+E8  r1=445.55 [n/a]  r2=452.48 [0.07]  r3=482.03 [0.42]  median 452.48 s (min 445.55, max 482.03, spread 8.2%)  cpu median 517.9 s
+
+=== flat_bench phases (s): load = read + ascending check; VByte encode <= VByte phase - stamped decode (bound still holds the output-array allocation and the compare); split+BIC = class split + stamped BIC encode
+E1     load 5.3  VByte-encode<= 7.65  split+BIC 67.0 (BIC stamp 30.6)
+E1_r2  load 4.7  VByte-encode<= 7.18  split+BIC 62.4 (BIC stamp 29.3)
+E1_r3  load 4.8  VByte-encode<= 8.19  split+BIC 61.6 (BIC stamp 29.3)
+E1     MEDIAN load 4.8  VByte-encode<= 7.65  split+BIC 62.4 (BIC stamp 29.3)
+E2     load 5.2  VByte-encode<= 4.81  split+BIC 33.5 (BIC stamp 22.4)
+E2_r2  load 4.6  VByte-encode<= 4.98  split+BIC 33.4 (BIC stamp 21.5)
+E2_r3  load 4.7  VByte-encode<= 4.98  split+BIC 32.9 (BIC stamp 21.4)
+E2     MEDIAN load 4.7  VByte-encode<= 4.98  split+BIC 33.4 (BIC stamp 21.5)
+
+=== per-cell construction = row extraction (median) + cell encode (median)
+000   X1     77.42 s + E1 load+VByte (<=)                                     12.45 s =       89.87 s = 1.50 min
+001   X1     77.42 s + E1 load+split+BIC                                      67.20 s =      144.62 s = 2.41 min
+100   X2     48.65 s + E2 load+VByte (<=)                                      9.68 s =       58.33 s = 0.97 min
+101   X2     48.65 s + E3 cnd_encode                                          74.61 s =      123.26 s = 2.05 min
+010   X4     17.08 s + E6 pwt2 naive                                         326.93 s =      344.01 s = 5.73 min
+011   X4     17.08 s + E7 pwt2 s3                                            611.77 s =      628.85 s = 10.5 min
+110   X3  1,116.99 s + E4 pwt2 naive                                         356.08 s =    1,473.07 s = 24.6 min
+111   X3  1,116.99 s + E5 pwt2 s3                                            433.72 s =    1,550.71 s = 25.8 min
+opt5  X3  1,116.99 s + E8 pwt2 s3 (+ dsel_set2 119,102.1 s from logs)    119,554.58 s =  120,671.57 s = 2,011.2 min
+
+upper bounds (whole flat_bench process incl. decodes + verification): 000/001 3.39 min, 100 2.21 min

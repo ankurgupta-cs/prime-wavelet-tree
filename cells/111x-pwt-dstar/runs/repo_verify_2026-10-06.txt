@@ -1,0 +1,19 @@
+cmd:   make verify-111x
+start: 2026-10-06T16:04:25Z
+----
+bash scripts/cell.sh verify 111x
+hashing   <data>/c111x-pwt-dstar.pwt2 (588684305 bytes) ...
+MATCH     cell 111x file  sha256 3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6
++ <repo>/build/pwt2_decode.exe <data>/c111x-pwt-dstar.pwt2
+container   588684305 bytes, 308279939 records, divisor mode, entropy-coded, max depth 11, m 6993373 primes in 6008 classes, context set 3
+structure   OK (payload SHA-256, tables, 1384 blocks, 1451178003 symbols); read 0.2 s, loaded 2.2 s
+rank table  6993373 primes decoded (2.8 s cumulative)
+decoded     308279939 numbers in tree order (131.7 s cumulative)
+phases      read 0.2 s | checks + sieve 2.0 s | rank table 0.6 s | tree 128.8 s | in-memory decode 129.5 s (table + tree)
+sorted      (178.1 s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     178.1 s
+VERIFIED  cell 111x: file hash, structure and footer targets
+----
+end:   2026-10-06T16:07:35Z
+exit:  0
+seconds: 190.7

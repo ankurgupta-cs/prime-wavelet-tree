@@ -1,0 +1,7 @@
+container   1296532881 bytes, 308279939 records, divisor mode, byte-aligned, max depth 12, m 7037363 primes in 11766 classes, context set 1
+structure   OK (payload SHA-256, tables, 0 blocks, 1009770142 symbols); read 0.4 s, loaded 4.5 s
+rank table  7037363 primes decoded (5.0 s cumulative)
+decoded     308279939 numbers in tree order (83.5 s cumulative)
+phases      read 0.4 s | checks + sieve 4.1 s | rank table 0.5 s | tree 78.4 s | in-memory decode 78.9 s (table + tree)
+sorted      (129.4 s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     129.4 s

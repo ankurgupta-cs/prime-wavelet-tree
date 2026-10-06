@@ -1,0 +1,15 @@
+cmd:   make certify-101
+start: 2026-10-06T16:58:43Z
+----
+bash scripts/cell.sh certify 101
++ <repo>/build/cnd_decode.exe <data>/c101-dmin-cnd1.cnd1 --certify <data>/new_table.orc1 --threads 16
+records    308279939   M 2310   end_width 59
+decoded    308279939 d values, payload sha OK, span [51, 1087125999730037130781]
+factored   all 308279939 d (threads 16), reconstructing order...
+sha nset   ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (match)
+oracle     308279939 records elementwise equal
+round-trip CERTIFIED
+----
+end:   2026-10-06T17:21:17Z
+exit:  0
+seconds: 1353.9

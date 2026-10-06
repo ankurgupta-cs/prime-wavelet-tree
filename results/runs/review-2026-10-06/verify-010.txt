@@ -1,0 +1,19 @@
+cmd:   env FILE=<work>/release_build/c010.pwt2n make verify-010
+env:   DATA=<data> WORK=<work> 
+start: 
+----
+bash scripts/cell.sh verify 010
+hashing   <work>/release_build/c010.pwt2n (2591083919 bytes) ...
+MATCH     cell 010 file  sha256 b7e2e68993e5e09b6c36a642eb01f9629551b5f86e219dbabe644e2fc43ab9e6
++ <bin>/pwt2_decode.exe <work>/release_build/c010.pwt2n
+container   2591083919 bytes, 308279939 records, full mode, byte-aligned, max depth 14, m 7428174 primes in 12563 classes, context set 1
+structure   OK (payload SHA-256, tables, 0 blocks, 2049518631 symbols); read 1.3 s, loaded 9.6 s
+rank table  7428174 primes decoded (10.3 s cumulative)
+decoded     308279939 numbers in tree order (29.1 s cumulative)
+phases      read 1.3 s | checks + sieve 8.3 s | rank table 0.6 s | tree 18.8 s | in-memory decode 19.4 s (table + tree)
+sorted      (78.0 s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     78.0 s
+VERIFIED  cell 010: file hash, structure and footer targets
+----
+exit:  0
+secs:  123.0

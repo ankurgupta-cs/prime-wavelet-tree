@@ -1,0 +1,23 @@
+tag:     b1_cert_c111
+cmd:     <repo>/build/pwt2_decode.exe <work>/release_data/c111-pwt-dmin.pwt2 --certify <work>/data/new_table.orc1
+cwd:     <work>/release_build
+start:   2026-10-06T14:57:25Z
+----
+container   604904156 bytes, 308279939 records, divisor mode, entropy-coded, max depth 12, m 7037363 primes in 11766 classes, context set 3
+structure   OK (payload SHA-256, tables, 1424 blocks, 1492263498 symbols); read 0.4 s, loaded 2.5 s
+rank table  7037363 primes decoded (3.3 s cumulative)
+decoded     308279939 numbers in tree order (141.8 s cumulative)
+phases      read 0.4 s | checks + sieve 2.1 s | rank table 0.7 s | tree 138.6 s | in-memory decode 139.3 s (table + tree)
+sorted      (189.8 s); sha_nset MATCH; total_check MATCH; count MATCH
+oracle file SHA-256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f (204.8 s)
+CERTIFIED   every decoded number equals the oracle's, in order (218.5 s); oracle sha_src c934af2a208832689586d12bbfe9e9cfc4ccb6447375baa39308d2e3373e6170
+elapsed     218.5 s
+----
+end:     2026-10-06T15:01:04Z
+exit:    0
+seconds: 218.80 (process wall, measured by run_job.sh)
+output:  -
+bytes:   -
+sha256:  - (hashing 0 s)
+expect:  -
+status:  NO-OUTPUT

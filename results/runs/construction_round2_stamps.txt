@@ -1,0 +1,21 @@
+2026-09-29 15:03:33  X1L_r1   open=0.004  extract=18.234  close=0.285  total=18.674
+2026-09-29 15:06:17  X2P_r1   alloc=0.940  read=3.287  multiply=6.975  sort=25.776  check=0.402  write=3.420  total=41.248
+2026-09-29 15:07:11  E000_r1  load=1.669  prepare=0.527  encode=3.051  write=1.466  total=6.831
+2026-09-29 15:07:48  E100_r1  load=1.621  prepare=0.530  encode=1.999  write=0.940  total=5.227
+2026-09-29 15:11:27  E001_r1  load=1.634  targets=15.861  prepare=25.825  encode=30.860  seal=5.081  write=0.709  total=80.116  total-targets=64.255
+2026-09-29 15:14:56  E101_r1  load=1.634  targets=33.450  prepare=9.348  encode=21.528  seal=3.158  write=0.396  total=69.665  total-targets=36.216
+2026-09-29 15:15:31  X1L_r2   open=0.002  extract=18.528  close=0.283  total=18.935
+2026-09-29 15:18:12  X2P_r2   alloc=0.926  read=3.283  multiply=6.895  sort=25.690  check=0.400  write=3.366  total=40.995
+2026-09-29 15:19:06  E000_r2  load=1.608  prepare=0.528  encode=3.010  write=1.516  total=6.783
+2026-09-29 15:19:41  E100_r2  load=1.623  prepare=0.537  encode=2.002  write=0.955  total=5.252
+2026-09-29 15:23:20  E001_r2  load=1.630  targets=15.869  prepare=25.554  encode=30.850  seal=5.039  write=0.716  total=79.807  total-targets=63.939
+2026-09-29 15:26:49  E101_r2  load=1.628  targets=33.307  prepare=9.257  encode=21.586  seal=3.143  write=0.378  total=69.448  total-targets=36.141
+2026-09-29 15:27:23  X1L_r3   open=0.002  extract=18.443  close=0.438  total=19.004
+2026-09-29 15:30:24  X2P_r3   alloc=1.067  read=3.673  multiply=7.349  sort=28.227  check=0.436  write=3.017  total=44.170
+2026-09-29 15:31:23  E000_r3  load=1.908  prepare=0.525  encode=3.233  write=1.589  total=7.377
+2026-09-29 15:32:03  E100_r3  load=1.913  prepare=0.530  encode=2.143  write=0.892  total=5.601
+2026-09-29 15:36:11  E001_r3  load=1.927  targets=17.092  prepare=31.555  encode=33.922  seal=5.502  write=0.774  total=90.911  total-targets=73.819
+2026-09-29 15:39:59  E101_r3  load=1.886  targets=36.083  prepare=10.156  encode=23.156  seal=3.345  write=0.369  total=75.132  total-targets=39.048
+2026-09-29 16:00:10  X2O15    alloc=0.964  extract=1,162.302  sort=8.058  check=0.444  write=3.140  total=1,175.025
+2026-09-29 17:30:12  X2O15b   alloc=0.870  extract=1,061.480  sort=7.115  check=0.419  write=3.258  total=1,073.255
+2026-09-29 20:22:53  X2O1     alloc=0.870  extract=9,446.827  sort=25.796  check=0.400  write=3.067  total=9,477.113

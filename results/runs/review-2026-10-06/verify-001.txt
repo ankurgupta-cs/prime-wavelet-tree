@@ -1,0 +1,27 @@
+cmd:   make verify-001
+env:   DATA=<data> WORK=<work> 
+start: 
+----
+bash scripts/cell.sh verify 001
+hashing   <data>/c001-n-classes.cnd (1545310979 bytes) ...
+MATCH     cell 001 file  sha256 0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd
++ <bin>/list_decode.exe <data>/c001-n-classes.cnd
+stamp  load                0.671 s   cum      0.671 s   whole file read into memory
+input      <data>/c001-n-classes.cnd: 1545310979 B, format CND (classes mod M, interpolative)
+file       sha256 0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd
+stamp  file-sha            4.934 s   cum      5.605 s   SHA-256 of the whole file
+structure  CND: M = 10810800, end_width 57, 308279939 records in 430391 nonempty classes; directory 11372460 B, body 1533938367 B; payload SHA-256 OK
+stamp  structure           5.033 s   cum     10.638 s   header, directory, payload SHA-256 over header||dir||body
+stamp  decode             29.853 s   cum     40.491 s   interpolative classes -> values (class by class)
+stamp  sort               19.764 s   cum     60.254 s   global sort of the decoded classes
+values     308279939 values, span [561, 999999999855878641139521], strictly ascending
+size       40.101 bits per value (whole file)
+values     sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 87794795725388084167960692697377
+stamp  values-sha         20.148 s   cum     80.402 s   strictly-ascending check + SHA-256 and sum of the value stream
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62; total_check 87794795725388084167960692697377
+stamp  total              80.402 s   (phases sum 80.402 s, unaccounted 0.000 s)
+DECODED    308279939 values; structure OK (no --certify: not compared with the oracle)
+VERIFIED  cell 001: file hash and sorted values hash ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62
+----
+exit:  0
+secs:  112.0

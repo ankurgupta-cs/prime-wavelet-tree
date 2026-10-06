@@ -1,0 +1,6 @@
+records    308279939   blocks 75264   threads 15   mode FULL factorization   fields 14 (70 B/record)
+verified   308279939 records (product == n); paths emitted to data/fpaths.bin
+path len   max 14; histogram: 3:1494738 4:548265 5:3429390 6:19665194 7:62338997 8:99469866 9:81041495 10:33199094 11:6529921 12:547590 13:15328 14:61
+omega(n)   histogram: 3:1494738 4:548265 5:3429390 6:19665194 7:62338997 8:99469866 9:81041495 10:33199094 11:6529921 12:547590 13:15328 14:61
+path has   p_max(n) 1.0000   p_min(n) 1.0000
+elapsed    817.6 s

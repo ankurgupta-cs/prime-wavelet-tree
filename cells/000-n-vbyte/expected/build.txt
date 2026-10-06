@@ -1,0 +1,15 @@
+# cell 000: the encode step of make rebuild-000
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## encode
+stamp  load                <t> s   cum      <t> s   open + zero-filled allocation + read
+input      <work>/n.raw: 308279939 records; mode vbyte
+stamp  prepare             <t> s   cum      <t> s   input check: strictly ascending
+stamp  encode              <t> s   cum      <t> s   VByte gap stream in RAM (first value absolute)
+stamp  write               <t> s   cum      <t> s   24 B header + payload, closed
+stamp  total               <t> s   (phases sum <t> s, unaccounted <t> s)
+payload    2362758662 B = 61.315 bits/el   (flat_bench "VByte gaps" figure)
+file       2362758686 B = 61.315 bits/el   (payload + 24 B header)
+verify     (untimed) 308279939 values decoded from disk in <t> s, all equal to the input; brute-force VByte count 2362758662 B == payload: VERIFIED
+sha256     5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8  (untimed; the file as read back from disk)

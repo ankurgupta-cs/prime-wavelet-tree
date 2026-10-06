@@ -1,0 +1,9 @@
+container   604904156 bytes, 308279939 records, divisor mode, entropy-coded, max depth 12, m 7037363 primes in 11766 classes, context set 3
+structure   OK (payload SHA-256, tables, 1424 blocks, 1492263498 symbols); read 0.2 s, loaded 2.3 s
+rank table  7037363 primes decoded (3.0 s cumulative)
+decoded     308279939 numbers in tree order (131.0 s cumulative)
+phases      read 0.2 s | checks + sieve 2.0 s | rank table 0.7 s | tree 128.1 s | in-memory decode 128.8 s (table + tree)
+sorted      (177.0 s); sha_nset MATCH; total_check MATCH; count MATCH
+oracle file SHA-256 a970d7d665e3ce6e11b5017371833a2ae9fafc12ef5509f0cba12ce102a5815f (191.5 s)
+CERTIFIED   every decoded number equals the oracle's, in order (204.7 s); oracle sha_src c934af2a208832689586d12bbfe9e9cfc4ccb6447375baa39308d2e3373e6170
+elapsed     204.7 s

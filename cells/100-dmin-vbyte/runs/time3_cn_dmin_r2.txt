@@ -1,0 +1,5 @@
+mode dmin (Shallue-Webster Algorithm 1 for n and r*)   oracle 308279939 records in 75264 blocks   sampling 753 blocks (stride 100)   threads 1
+records 3084288   mismatches 0   wall 228.2 s on 1 threads
+Algorithm 1: 2.21 ladders per record, 0 records needed the generic fallback
+phase A (factor d, lambda, n): 41.73 us/record -> 3.57 h single-thread; phase B (factor r*): 1.80 us/record -> 0.15 h; both 3.73 h single-thread, 223.7 min on 1 threads (extrapolated)
+every factorization equals the oracle's factor list

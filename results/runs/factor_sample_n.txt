@@ -1,0 +1,4 @@
+mode n   oracle 308279939 records in 75264 blocks   sampling 753 blocks (stride 100)   threads 1
+records 3084288   mismatches 0   wall 362.0 s on 1 threads
+factor n from scratch: 117.22 us/record CPU -> full table 10.04 h single-thread, 602.3 min on 1 threads (extrapolated from this sample)
+every factorization equals the oracle's factor list

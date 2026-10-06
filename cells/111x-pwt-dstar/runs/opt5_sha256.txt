@@ -1,0 +1,4 @@
+7fad3a8bff6b09940f969a7503e242c024d1703428a1fee36b2da42130d04a3c *pwt2/new_table_opt5.s2.pwt2
+3bc8369bd280892da4517dcdc8573a409081fb937a7bd568abaa13f6ab8cfed6 *pwt2/new_table_opt5.s3.pwt2
+41d402f1e07799aec3f96a9499255d2272246b565b4727cd9c1e7ac61c10b1c6 *pwt2/new_table_opt5.pwt2n
+done

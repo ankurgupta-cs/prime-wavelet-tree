@@ -1,0 +1,46 @@
+tag:     b1_paths_cmp
+cmd:     <repo>/build/paths_cmp.exe <work>/release_build/dstar_paths.bin <work>/scratch/dsel_set2/full5/s2_full5.bin --fields 14 --scratch <work>/release_build/sc_pathscmp --threads 8
+cwd:     <work>/release_build
+start:   2026-10-06T15:04:56Z
+----
+A          <work>/release_build/dstar_paths.bin
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+stamp  sort_a             70.072 s   cum     70.072 s   external sort of A into runs
+B          <work>/scratch/dsel_set2/full5/s2_full5.bin
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+stamp  sort_b             86.582 s   cum    156.654 s   external sort of B into runs
+stamp  compare           151.504 s   cum    308.157 s   lockstep merge of the two sorted streams
+A          308279939 records (file 308279939), max length 11; sorted-stream sha256 e252bfb363a79ae9e6497f853b48979ce006605584377259d4b2302c7d28def6
+A lengths  2:5635746 3:31083854 4:80157026 5:95865028 6:64527522 7:24771171 8:5568149 9:635487 10:35170 11:786
+B          308279939 records (file 308279939), max length 11; sorted-stream sha256 e252bfb363a79ae9e6497f853b48979ce006605584377259d4b2302c7d28def6
+B lengths  2:5635746 3:31083854 4:80157026 5:95865028 6:64527522 7:24771171 8:5568149 9:635487 10:35170 11:786
+merge      common 308279939, only in A 0, only in B 0
+stamp  total             308.159 s   (phases sum 308.157 s, unaccounted 0.001 s)
+SAME SET   308279939 paths; every record of A is in B and vice versa (no duplicates in either)
+----
+end:     2026-10-06T15:10:10Z
+exit:    0
+seconds: 313.98 (process wall, measured by run_job.sh)
+output:  -
+bytes:   -
+sha256:  - (hashing 0 s)
+expect:  -
+status:  NO-OUTPUT

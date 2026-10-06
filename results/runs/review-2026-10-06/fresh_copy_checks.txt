@@ -1,0 +1,40 @@
+== files: 446, size 4.0M, >5MB: 0
+== make -j8
+exit=0
+== binary hashes (clone vs project build)
+cnd_decode.exe 77ca2d090828859c 77ca2d090828859c SAME
+cnd_encode.exe e97c0c7f08cd7f78 e97c0c7f08cd7f78 SAME
+cofactor_bench.exe 2455c2cd2f8d0c39 2455c2cd2f8d0c39 SAME
+dlist_from_paths.exe ad16f79f65a9e159 ad16f79f65a9e159 SAME
+dsel_set2.exe 0fbd6b8dab50725a fbb48ee9b0907956 DIFF
+factor_bench.exe f8debc302b14effc f8debc302b14effc SAME
+flat_bench.exe 1503f700b203ddb3 1503f700b203ddb3 SAME
+list_build.exe bdd344a66d9bc75a bdd344a66d9bc75a SAME
+list_decode.exe c9fa97402429286f c9fa97402429286f SAME
+nstats_orc1.exe 345d773161cd089f 345d773161cd089f SAME
+oracle_decode.exe 207214fa3b641107 207214fa3b641107 SAME
+oracle_encode.exe 1c7cf611e08fb892 1c7cf611e08fb892 SAME
+paths_cmp.exe 8588df7c15a33dcc 8588df7c15a33dcc SAME
+pwt2_decode.exe 882ce3f591bb6ffb 882ce3f591bb6ffb SAME
+pwt2_encode.exe 2cc76d13e48cfc43 2cc76d13e48cfc43 SAME
+trie_paths.exe 2dd5ee93e3026faa 2dd5ee93e3026faa SAME
+== make check
+exit=0
+91 ok, 0 failed; 52.09 s total; logs in /tmp/cn-prefix-selftest.Wz83X3/logs
+== make test
+exit=0
+all tests passed (sieve N = 10000000, 664579 primes)
+all oracle tests passed
+all splitter tests passed (637 fixture lines certified)
+all cnd tests passed
+test_pwt: all OK
+test_cnfactor: all OK
+test_pwt2: all OK
+== make test-release-tools
+exit=0
+== 90 passed, 0 failed
+== make table-check
+0 of 15 outputs out of date
+== SHA256SUMS vs release_data
+IDENTICAL
+final clone done

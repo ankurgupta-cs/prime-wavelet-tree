@@ -1,0 +1,21 @@
+# cell 001: the encode step of make rebuild-001
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## encode
+stamp  load                <t> s   cum      <t> s   open + zero-filled allocation + read
+input      <work>/n.raw: 308279939 records; mode classes, M = 10810800
+stamp  targets            <t> s   cum     <t> s   sha_nset + total_check of the loaded input
+stamp  prepare            <t> s   cum     <t> s   class split: validate, r = v mod M, k = (v - r)/M per class; end width
+stamp  encode             <t> s   cum     <t> s   interpolative blob per class + VByte directory
+stamp  seal                <t> s   cum     <t> s   header + SHA-256 over header||dir||body + footer
+stamp  write               <t> s   cum     <t> s   header, directory, blobs, footer; closed
+stamp  total              <t> s   (phases sum <t> s, unaccounted <t> s)
+stamp  total-targets      <t> s   (total minus targets)
+classes    430391 nonempty of 10810800, end width 57
+container  header 64 + directory 11372460 + blobs 1533938367 + footer 88 = 1545310979 B = 40.101 bits/el
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62
+sha256     0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd  (untimed; the file as read back from disk)
+crosscheck (untimed) shipped cnd1_encode into RAM: <t> s, 1545310979 B; written file BYTE-IDENTICAL to it
+verify     (untimed) relaxed CND reader, M = 10810800 from the header: structure + payload sha OK; classes decoded <t> s + global sort <t> s; 308279939 values all equal to the input: VERIFIED
+verify     v1 Cnd1Reader not run: it pins M = 2310 (this file has M = 10810800)

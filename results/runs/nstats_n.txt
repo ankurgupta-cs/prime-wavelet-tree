@@ -1,0 +1,13 @@
+stream check: ascending OK, all odd OK, count == header OK, sum == oracle total_check OK
+sha256 of the 16-byte-LE n stream: ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62  (must equal sha_nset in the CND1 footer)
+emitted      308279939 records to data/n.raw
+records      308279939
+n span       [561, 999999999855878641139521]
+gap(S)       49.830 bits/el  (1.788 GiB = 1.920 GB decimal)
+delta Z(S)   +12.000 bits/el decodable overhead
+trie(S)      51.773 edges/el (strie <= gap + 2n - 2 after shift)
+VByte gaps   2362758662 B = 61.315 bits/el  (2.200 GiB = 2.363 GB decimal)
+VByte absolute (NO differencing) 3528636118 B = 91.570 bits/el; fixed 80-bit = 3082799390 B
+len+raw n-gaps         52.761 bits/el = 2033127791 B  (order-0 bit-length entropy + raw bits; realizable)
+len+raw odd-only gaps  51.761 bits/el = 1994592799 B  (same, coding g/2: the parity lever)
+binomial floor reference: 53.4 bits/el

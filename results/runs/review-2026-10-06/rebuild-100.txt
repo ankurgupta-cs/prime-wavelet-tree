@@ -1,0 +1,35 @@
+cmd:   make rebuild-100
+env:   DATA=<data> WORK=<work>
+start: Tue Oct  6 18:50:58 UTC 2026
+----
+bash scripts/cell.sh rebuild 100
++ <bin>/dlist_from_paths.exe --orc1 <data>/new_table.orc1 <work>/d.raw.partial --threads 16
+input      <data>/new_table.orc1: 308279939 records, 75264 blocks, mode orc1 (choose_dmin), threads 16
+stamp  alloc               0.714 s   cum      0.714 s   ORC1 header/index + d array, zero-filled
+stamp  extract           984.254 s   cum    984.968 s   ORC1 block reads + record decode + choose_dmin
+stamp  sort                7.632 s   cum    992.599 s   run sorts + merge rounds
+stamp  check               0.296 s   cum    992.896 s   strictly increasing (d_min injective)
+stamp  write               3.982 s   cum    996.878 s   16-byte LE records, closed
+stamp  total             996.878 s   (phases sum 996.878 s, unaccounted 0.000 s)
+output     <work>/d.raw.partial: 308279939 records, 4932479024 B
+span       [51, 1087125999730037130781]
+sha256     22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8  (untimed; full table must be 22b9b6ab918bca08...)
+parallel   with --threads: multiply/extract and sort; read/write are I/O; check is one pass
+hashing   <work>/d.raw.partial (4932479024 bytes) ...
+MATCH     dmin_list  sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8
++ <bin>/list_build.exe vbyte <work>/d.raw <work>/c100-dmin-vbyte.vbg
+stamp  load                1.706 s   cum      1.706 s   open + zero-filled allocation + read
+input      <work>/d.raw: 308279939 records; mode vbyte
+stamp  prepare             0.295 s   cum      2.001 s   input check: strictly ascending
+stamp  encode              1.892 s   cum      3.893 s   VByte gap stream in RAM (first value absolute)
+stamp  write               0.941 s   cum      4.834 s   24 B header + payload, closed
+stamp  total               4.834 s   (phases sum 4.834 s, unaccounted 0.000 s)
+payload    1220449369 B = 31.671 bits/el   (flat_bench "VByte gaps" figure)
+file       1220449393 B = 31.671 bits/el   (payload + 24 B header)
+verify     (untimed) 308279939 values decoded from disk in 2.764 s, all equal to the input; brute-force VByte count 1220449369 B == payload: VERIFIED
+sha256     57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575  (untimed; the file as read back from disk)
+hashing   <work>/c100-dmin-vbyte.vbg (1220449393 bytes) ...
+MATCH     cell 100 (<work>/c100-dmin-vbyte.vbg)  sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575
+----
+exit:  0
+secs:  1133.1

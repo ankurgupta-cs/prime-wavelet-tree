@@ -1,0 +1,30 @@
+tag:     c001
+cmd:     <repo>/build/list_build.exe classes <work>/data/n.raw <work>/release_build/c001.cnd --mod 10810800 --targets-self
+cwd:     <work>/release_build
+start:   2026-10-06T12:44:31Z
+----
+stamp  load                3.677 s   cum      3.677 s   open + zero-filled allocation + read
+input      <work>/data/n.raw: 308279939 records; mode classes, M = 10810800
+stamp  targets            16.050 s   cum     19.727 s   sha_nset + total_check of the loaded input
+stamp  prepare            29.387 s   cum     49.114 s   class split: validate, r = v mod M, k = (v - r)/M per class; end width
+stamp  encode             32.360 s   cum     81.473 s   interpolative blob per class + VByte directory
+stamp  seal                4.983 s   cum     86.456 s   header + SHA-256 over header||dir||body + footer
+stamp  write               0.625 s   cum     87.081 s   header, directory, blobs, footer; closed
+stamp  total              87.081 s   (phases sum 87.081 s, unaccounted 0.000 s)
+stamp  total-targets      71.031 s   (total minus targets)
+classes    430391 nonempty of 10810800, end width 57
+container  header 64 + directory 11372460 + blobs 1533938367 + footer 88 = 1545310979 B = 40.101 bits/el
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62
+sha256     0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd  (untimed; the file as read back from disk)
+crosscheck (untimed) shipped cnd1_encode into RAM: 70.409 s, 1545310979 B; written file BYTE-IDENTICAL to it
+verify     (untimed) relaxed CND reader, M = 10810800 from the header: structure + payload sha OK; classes decoded 34.280 s + global sort 21.485 s; 308279939 values all equal to the input: VERIFIED
+verify     v1 Cnd1Reader not run: it pins M = 2310 (this file has M = 10810800)
+----
+end:     2026-10-06T12:48:20Z
+exit:    0
+seconds: 222.73 (process wall, measured by run_job.sh)
+output:  <work>/release_build/c001.cnd
+bytes:   1545310979
+sha256:  0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd (hashing 6.0 s)
+expect:  0a623eaeab8e77c115e35177e0fe154b5fd244758b29ac8999ba72ea28d954cd
+status:  MATCH

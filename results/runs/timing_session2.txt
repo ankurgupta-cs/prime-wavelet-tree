@@ -1,0 +1,95 @@
+# Redacted on 2026-10-06 for publication: the power plan line and the process lists
+# (tasklist) were removed. Every other line is as captured.
+=== timing session Sat Sep 26 08:04:25 EDT 2026
+c4402f7c06b76ab3020ebb34383fab37469ee70087b961c9eab9d9829ba7ca7d *pwt_decode_t.exe
+491b1ae0df0611d24fe0f6868511160068f75cd000425474d66fc59d1e08d473 *pwt2_decode_t.exe
+2455c2cd2f8d0c39b98d2c5dafd91d23bbecbf9e2cc4fe7d0560dbc68b4935b6 *cofactor_bench_t.exe
+[power plan line removed]
+MaxClockSpeed  Name                                      NumberOfCores  NumberOfLogicalProcessors  
+3600           Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz  8              16                         
+--- state Sat Sep 26 08:04:26 EDT 2026
+FreePhysicalMemory  
+39181348            
+LoadPercentage  
+0               
+[process list removed]
+new_table_dmin.pwt1 r1 exit 0 08:07:20
+new_table_full.pwt1 r1 exit 0 08:09:57
+new_table_dmin.pwt0 r1 exit 0 08:12:17
+new_table_full.pwt0 r1 exit 0 08:13:42
+new_table_dmin.pwt2 r1 exit 0 08:15:59
+new_table_full.pwt2 r1 exit 0 08:17:34
+new_table_dmin.pwt2n r1 exit 0 08:19:44
+new_table_full.pwt2n r1 exit 0 08:20:59
+new_table_dmin.s2.pwt2 r1 exit 0 08:23:33
+new_table_full.s2.pwt2 r1 exit 0 08:25:51
+new_table_dmin.s3.pwt2 r1 exit 0 08:28:49
+new_table_full.s3.pwt2 r1 exit 0 08:32:29
+new_table_opt5.s2.pwt2 r1 exit 0 08:35:04
+new_table_opt5.s3.pwt2 r1 exit 0 08:38:00
+new_table_opt5.pwt2n r1 exit 0 08:40:09
+--- state Sat Sep 26 08:40:09 EDT 2026
+FreePhysicalMemory  
+39236576            
+LoadPercentage  
+2               
+[process list removed]
+new_table_dmin.pwt1 r2 exit 0 08:43:02
+new_table_full.pwt1 r2 exit 0 08:45:39
+new_table_dmin.pwt0 r2 exit 0 08:47:58
+new_table_full.pwt0 r2 exit 0 08:49:21
+new_table_dmin.pwt2 r2 exit 0 08:51:38
+new_table_full.pwt2 r2 exit 0 08:53:12
+new_table_dmin.pwt2n r2 exit 0 08:55:22
+new_table_full.pwt2n r2 exit 0 08:56:35
+new_table_dmin.s2.pwt2 r2 exit 0 08:59:10
+new_table_full.s2.pwt2 r2 exit 0 09:01:29
+new_table_dmin.s3.pwt2 r2 exit 0 09:04:27
+new_table_full.s3.pwt2 r2 exit 0 09:08:07
+new_table_opt5.s2.pwt2 r2 exit 0 09:10:41
+new_table_opt5.s3.pwt2 r2 exit 0 09:13:37
+new_table_opt5.pwt2n r2 exit 0 09:15:46
+--- state Sat Sep 26 09:15:46 EDT 2026
+FreePhysicalMemory  
+39188692            
+LoadPercentage  
+2               
+[process list removed]
+new_table_dmin.pwt1 r3 exit 0 09:18:39
+new_table_full.pwt1 r3 exit 0 09:21:17
+new_table_dmin.pwt0 r3 exit 0 09:23:37
+new_table_full.pwt0 r3 exit 0 09:25:01
+new_table_dmin.pwt2 r3 exit 0 09:27:17
+new_table_full.pwt2 r3 exit 0 09:28:51
+new_table_dmin.pwt2n r3 exit 0 09:31:01
+new_table_full.pwt2n r3 exit 0 09:32:14
+new_table_dmin.s2.pwt2 r3 exit 0 09:34:49
+new_table_full.s2.pwt2 r3 exit 0 09:37:07
+new_table_dmin.s3.pwt2 r3 exit 0 09:40:05
+new_table_full.s3.pwt2 r3 exit 0 09:43:43
+new_table_opt5.s2.pwt2 r3 exit 0 09:46:18
+new_table_opt5.s3.pwt2 r3 exit 0 09:49:14
+new_table_opt5.pwt2n r3 exit 0 09:51:24
+--- state Sat Sep 26 09:51:24 EDT 2026
+FreePhysicalMemory  
+39126080            
+LoadPercentage  
+4               
+[process list removed]
+cofactor dmin r1 exit 0 09:51:33
+cofactor opt (scratch/dsel_set2/full5/s2_full5.bin) r1 exit 0 09:51:40
+cofactor dmin r2 exit 0 09:51:47
+cofactor opt (scratch/dsel_set2/full5/s2_full5.bin) r2 exit 0 09:51:54
+recertify new_table_dmin.pwt2 exit 0
+recertify new_table_full.pwt2 exit 0
+recertify new_table_dmin.pwt2n exit 0
+recertify new_table_full.pwt2n exit 0
+recertify new_table_dmin.s2.pwt2 exit 0
+recertify new_table_full.s2.pwt2 exit 0
+recertify new_table_dmin.s3.pwt2 exit 0
+recertify new_table_full.s3.pwt2 exit 0
+recertify new_table_opt5.s2.pwt2 exit 0
+recertify new_table_opt5.s3.pwt2 exit 0
+recertify new_table_opt5.pwt2n exit 0
+cofactor full verify opt5 exit 0
+=== timing done Sat Sep 26 10:35:06 EDT 2026

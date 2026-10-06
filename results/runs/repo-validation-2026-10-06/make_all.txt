@@ -1,0 +1,66 @@
+mkdir -p build
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/oracle_encode.cpp -o build/oracle_encode.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/oracle_decode.cpp -o build/oracle_decode.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/nstats_orc1.cpp -o build/nstats_orc1.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/trie_paths.cpp -o build/trie_paths.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/dlist_from_paths.cpp -o build/dlist_from_paths.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/list_build.cpp -o build/list_build.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/list_decode.cpp -o build/list_decode.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/cnd_encode.cpp -o build/cnd_encode.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/cnd_decode.cpp -o build/cnd_decode.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/pwt2_encode.cpp -o build/pwt2_encode.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/pwt2_decode.cpp -o build/pwt2_decode.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/dsel_set2.cpp -o build/dsel_set2.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/paths_cmp.cpp -o build/paths_cmp.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/factor_bench.cpp -o build/factor_bench.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/cofactor_bench.cpp -o build/cofactor_bench.exe
+x86_64-w64-mingw32-g++ -std=c++20 -O2 -Wall -Wextra -march=native -Isrc src/flat_bench.cpp -o build/flat_bench.exe
+In file included from <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:61,
+                 from <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/algorithm:63,
+                 from src/pwt2_encode.cpp:21:
+In function 'constexpr void std::__adjust_heap(_RandomAccessIterator, _Distance, _Distance, _Tp, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Distance = long long int; _Tp = long long unsigned int; _Compare = less<void>]',
+    inlined from 'constexpr void std::__make_heap(_RandomAccessIterator, _RandomAccessIterator, _Compare&) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_heap.h:356:22,
+    inlined from 'constexpr void std::__heap_select(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1593:23,
+    inlined from 'constexpr void std::__partial_sort(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1876:25,
+    inlined from 'constexpr void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Size = long long int; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1892:27,
+    inlined from 'constexpr void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1913:25,
+    inlined from 'constexpr void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1908:5,
+    inlined from 'constexpr void std::sort(_RAIter, _RAIter) [with _RAIter = long long unsigned int*]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:4817:18,
+    inlined from '{anonymous}::run<14>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()>' at src/pwt2_encode.cpp:149:34,
+    inlined from 'constexpr _Res std::__invoke_impl(__invoke_other, _Fn&&, _Args&& ...) [with _Res = void; _Fn = {anonymous}::run<14>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, size_t)>::<lambda()>; _Args = {}]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/invoke.h:63:36,
+    inlined from 'constexpr typename std::__invoke_result<_Functor, _ArgTypes>::type std::__invoke(_Callable&&, _Args&& ...) [with _Callable = {anonymous}::run<14>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, size_t)>::<lambda()>; _Args = {}]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/invoke.h:98:40,
+    inlined from 'typename std::thread::_Invoker<_Tuple>::__result<_Tuple>::type std::thread::_Invoker<_Tuple>::_M_invoke(std::_Index_tuple<_Ind ...>) [with long long unsigned int ..._Ind = {0}; _Tuple = std::tuple<{anonymous}::run<14>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> >]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/std_thread.h:303:26,
+    inlined from 'typename std::thread::_Invoker<_Tuple>::__result<_Tuple>::type std::thread::_Invoker<_Tuple>::operator()() [with _Tuple = std::tuple<{anonymous}::run<14>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> >]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/std_thread.h:310:20,
+    inlined from 'void std::thread::_State_impl<_Callable>::_M_run() [with _Callable = std::thread::_Invoker<std::tuple<{anonymous}::run<14>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> > >]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/std_thread.h:255:20:
+<toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_heap.h:245:36: warning: array subscript [17, 1152921504606846973] is outside array bounds of 'cn::u64 [14]' {aka 'long long unsigned int [14]'} [-Warray-bounds=]
+  245 |           *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first
+      |                                    ^
+src/pwt2_encode.cpp: In member function 'void std::thread::_State_impl<_Callable>::_M_run() [with _Callable = std::thread::_Invoker<std::tuple<{anonymous}::run<14>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> > >]':
+src/pwt2_encode.cpp:139:25: note: at offset [136, 9223372036854775784] into object 'rk' of size 112
+  139 |                     u64 rk[kPathMaxFields];
+      |                         ^~
+In function 'constexpr void std::__adjust_heap(_RandomAccessIterator, _Distance, _Distance, _Tp, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Distance = long long int; _Tp = long long unsigned int; _Compare = less<void>]',
+    inlined from 'constexpr void std::__make_heap(_RandomAccessIterator, _RandomAccessIterator, _Compare&) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_heap.h:356:22,
+    inlined from 'constexpr void std::__heap_select(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1593:23,
+    inlined from 'constexpr void std::__partial_sort(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1876:25,
+    inlined from 'constexpr void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Size = long long int; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1892:27,
+    inlined from 'constexpr void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1913:25,
+    inlined from 'constexpr void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = long long unsigned int*; _Compare = less<void>]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:1908:5,
+    inlined from 'constexpr void std::sort(_RAIter, _RAIter) [with _RAIter = long long unsigned int*]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_algo.h:4817:18,
+    inlined from '{anonymous}::run<12>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()>' at src/pwt2_encode.cpp:149:34,
+    inlined from 'constexpr _Res std::__invoke_impl(__invoke_other, _Fn&&, _Args&& ...) [with _Res = void; _Fn = {anonymous}::run<12>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, size_t)>::<lambda()>; _Args = {}]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/invoke.h:63:36,
+    inlined from 'constexpr typename std::__invoke_result<_Functor, _ArgTypes>::type std::__invoke(_Callable&&, _Args&& ...) [with _Callable = {anonymous}::run<12>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, size_t)>::<lambda()>; _Args = {}]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/invoke.h:98:40,
+    inlined from 'typename std::thread::_Invoker<_Tuple>::__result<_Tuple>::type std::thread::_Invoker<_Tuple>::_M_invoke(std::_Index_tuple<_Ind ...>) [with long long unsigned int ..._Ind = {0}; _Tuple = std::tuple<{anonymous}::run<12>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> >]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/std_thread.h:303:26,
+    inlined from 'typename std::thread::_Invoker<_Tuple>::__result<_Tuple>::type std::thread::_Invoker<_Tuple>::operator()() [with _Tuple = std::tuple<{anonymous}::run<12>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> >]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/std_thread.h:310:20,
+    inlined from 'void std::thread::_State_impl<_Callable>::_M_run() [with _Callable = std::thread::_Invoker<std::tuple<{anonymous}::run<12>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> > >]' at <toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/std_thread.h:255:20:
+<toolchain>/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/bits/stl_heap.h:245:36: warning: array subscript [17, 1152921504606846973] is outside array bounds of 'cn::u64 [14]' {aka 'long long unsigned int [14]'} [-Warray-bounds=]
+  245 |           *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first
+      |                                    ^
+src/pwt2_encode.cpp: In member function 'void std::thread::_State_impl<_Callable>::_M_run() [with _Callable = std::thread::_Invoker<std::tuple<{anonymous}::run<12>(const char*, const char*, const char*, bool, bool, cn::u64, cn::PathSortOptions, int)::<lambda(const uint8_t*, std::size_t)>::<lambda()> > >]':
+src/pwt2_encode.cpp:139:25: note: at offset [136, 9223372036854775784] into object 'rk' of size 112
+  139 |                     u64 rk[kPathMaxFields];
+      |                         ^~
+
+real	0m16.299s
+user	0m0.000s
+sys	0m0.015s

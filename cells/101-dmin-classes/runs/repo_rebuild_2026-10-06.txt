@@ -1,0 +1,28 @@
+cmd:   make rebuild-101
+start: 2026-10-06T16:25:16Z
+----
+bash scripts/cell.sh rebuild 101
+present   dmin_list (<work>/d.raw, sha256 22b9b6ab918bca08...)
++ <repo>/build/list_build.exe classes <work>/d.raw <work>/c101-dmin-cnd1.cnd1 --mod 2310 --targets-orc1 <data>/new_table.orc1
+stamp  load                1.652 s   cum      1.652 s   open + zero-filled allocation + read
+input      <work>/d.raw: 308279939 records; mode classes, M = 2310
+stamp  targets            34.537 s   cum     36.189 s   sha_nset + total_check streamed from ORC1
+stamp  prepare            10.327 s   cum     46.515 s   class split: validate, r = v mod M, k = (v - r)/M per class; end width
+stamp  encode             22.393 s   cum     68.908 s   interpolative blob per class + VByte directory
+stamp  seal                3.054 s   cum     71.963 s   header + SHA-256 over header||dir||body + footer
+stamp  write               0.208 s   cum     72.171 s   header, directory, blobs, footer; closed
+stamp  total              72.171 s   (phases sum 72.171 s, unaccounted 0.000 s)
+stamp  total-targets      37.634 s   (total minus targets)
+classes    1077 nonempty of 2310, end width 59
+container  header 64 + directory 6789 + blobs 956334775 + footer 88 = 956341716 B = 24.817 bits/el
+footer     sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62
+sha256     d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb  (untimed; the file as read back from disk)
+crosscheck (untimed) shipped cnd1_encode into RAM: 35.330 s, 956341716 B; written file BYTE-IDENTICAL to it
+verify     (untimed) relaxed CND reader, M = 2310 from the header: structure + payload sha OK; classes decoded 25.286 s + global sort 17.787 s; 308279939 values all equal to the input: VERIFIED
+verify     (untimed) official v1 Cnd1Reader decode_all 44.341 s: all equal to the input: VERIFIED
+hashing   <work>/c101-dmin-cnd1.cnd1 (956341716 bytes) ...
+MATCH     cell 101 (<work>/c101-dmin-cnd1.cnd1)  sha256 d6607faa1f0196c041b608d41812720b921cce90dfd2b0d94e509fc6a73b0acb
+----
+end:   2026-10-06T16:30:19Z
+exit:  0
+seconds: 302.4

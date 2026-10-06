@@ -1,0 +1,4 @@
+mode rstar   oracle 308279939 records in 75264 blocks   sampling 753 blocks (stride 100)   threads 1
+records 3084288   mismatches 0   wall 126.9 s on 1 threads
+factor r* only: 9.17 us/record -> full table 0.78 h single-thread, 47.1 min on 1 threads (extrapolated)
+every factorization equals the oracle's factor list

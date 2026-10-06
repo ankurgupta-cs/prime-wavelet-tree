@@ -1,0 +1,168 @@
+bash tests/prefix/selftest_prefix.sh --bin build
+prefix self-test
+  tools    <repo>/build
+  work     <tmp>
+  goldens  <repo>/tests/prefix/golden_prefix.tsv (sha256 1aa926e8114cfab05b981a472bef42c443582aa80e8517c9f923ee3f703bc3a1, 23 entries)
+
+== 0. input: the 10^12 prefix of the table
+  ok       prefix_1e12.txt          249924 B  242.615 bits/CN  df648163ece972c2
+  ok       8,241 records
+
+== 1. oracle (ORC1) and its byte-for-byte round trip
+  ran      oracle_encode                        0.11 s
+  ok       prefix.orc1               65489 B   63.574 bits/CN  631569c253dda478
+  ok       stored prefix.orc1 == rebuilt oracle
+  ran      oracle_decode                        0.08 s
+  ok       oracle_decode certificate
+  ok       oracle decodes to the input text byte for byte
+
+== 2. intermediates: n list, d_min paths, full paths, d_min list
+  ran      nstats_orc1                          0.07 s
+  ok       n.raw                    131856 B  128.000 bits/CN  04cb6542ace1c2bc
+  ran      trie_paths_dmin                      0.08 s
+  ok       dpaths.bin               494460 B  480.000 bits/CN  42773c997da5df03
+  ran      trie_paths_dmin_t4                   0.08 s
+  ok       trie_paths d_min: --threads 4 == --threads 1
+  ran      trie_paths_full                      0.06 s
+  ok       fpaths.bin               576870 B  560.000 bits/CN  916af1916f5b1846
+  ran      dlist_from_paths                     0.10 s
+  ok       d.raw                    131856 B  128.000 bits/CN  169243a85639adf3
+  ran      dlist_from_orc1                      0.12 s
+  ok       d_min list: --orc1 route (choose_dmin) == paths route
+
+== 3. list cells 000, 001, 100, 101
+  ran      list_000                             0.07 s
+  ok       list_build 000 read-back
+  ok       c000.vbg                  33207 B   32.236 bits/CN  473107cf58750525
+  ran      list_001                             0.90 s
+  ok       list_build 001 read-back
+  ok       c001.cnd               10840279 B 10523.266 bits/CN  0191b99475eb3b9b
+  ran      list_100                             0.04 s
+  ok       list_build 100 read-back
+  ok       c100.vbg                  17634 B   17.118 bits/CN  92f3e2262565f8a5
+  ran      list_101                             0.07 s
+  ok       list_build 101 read-back
+  ok       c101.cnd1                 17315 B   16.809 bits/CN  db39632180be73e5
+  ran      cnd_encode                           0.08 s
+  ok       cnd_encode == list_build classes (cell 101)
+
+== 4. tree cells 010, 011, 110, 111
+  ran      pwt2_010                             0.58 s
+  ok       c010.pwt2n                50196 B   48.728 bits/CN  20c78b35afa23881
+  ran      pwt2_011                             0.60 s
+  ok       c011.pwt2                 65539 B   63.622 bits/CN  26d8ee0f99fb739a
+  ran      pwt2_110                             0.55 s
+  ok       c110.pwt2n                27440 B   26.638 bits/CN  b5edad88cb8f0784
+  ran      pwt2_111                             0.60 s
+  ok       c111.pwt2                 38132 B   37.017 bits/CN  c1c672c0c3f9c839
+  ran      pwt2_010_runs                        0.67 s
+  ok       pwt2_encode 010: 11 sort runs, 3 threads == 1 run
+  ran      pwt2_111_runs                        0.65 s
+  ok       pwt2_encode 111: 9 sort runs, 4 threads == 1 run
+
+== 5. d* search (dsel_set2, the published settings) and cell 111 with d*
+  ran      dsel_sweeps4                         1.59 s
+  ok       dstar_masks4.bin          16490 B   16.008 bits/CN  bd38c4d17183e7fd
+  ran      dsel_sweep5                          0.49 s
+  ok       dstar_masks5.bin          16490 B   16.008 bits/CN  b86be278defa2791
+  ok       dstar_paths5.bin         576870 B  560.000 bits/CN  6ef74dbc58d433d8
+  ran      dsel_masks_route                     0.27 s
+  ok       d* paths from the saved masks (--sweeps 0) == search output
+  ran      dsel_threads2                        2.02 s
+  ok       dsel_set2 batch mode: --threads 2 == --threads 6
+  ran      pwt2_111x                            0.55 s
+  ok       c111x.pwt2                30264 B   29.379 bits/CN  c453a1a3f262bd53
+
+== 6. decode and certify against the prefix oracle
+  ran      pwt2_decode_c010                     0.19 s
+  ok       pwt2_decode --certify c010.pwt2n
+  ok       pwt2_decode --emit-n c010.pwt2n == n.raw
+  ran      pwt2_decode_c011                     0.14 s
+  ok       pwt2_decode --certify c011.pwt2
+  ok       pwt2_decode --emit-n c011.pwt2 == n.raw
+  ran      pwt2_decode_c110                     0.16 s
+  ok       pwt2_decode --certify c110.pwt2n
+  ok       pwt2_decode --emit-n c110.pwt2n == n.raw
+  ran      pwt2_decode_c111                     0.16 s
+  ok       pwt2_decode --certify c111.pwt2
+  ok       pwt2_decode --emit-n c111.pwt2 == n.raw
+  ran      pwt2_decode_c111x                    0.17 s
+  ok       pwt2_decode --certify c111x.pwt2
+  ok       pwt2_decode --emit-n c111x.pwt2 == n.raw
+  ran      cnd_decode_101                       0.12 s
+  ok       cnd_decode --certify c101.cnd1
+  ok       cnd_decode --emit-d c101.cnd1 == d.raw
+
+== 7. list_decode (every list cell) and pwt2_decode --emit-paths (every tree)
+  ran      list_decode_c000                     0.07 s
+  ok       list_decode c000.vbg structure
+  ok       list_decode --emit c000.vbg == n.raw
+  ran      list_decode_c000_certify             0.08 s
+  ok       list_decode --kind n --certify c000.vbg
+  ok       list_decode --emit-n c000.vbg == n.raw
+  ran      list_decode_c001                     0.22 s
+  ok       list_decode c001.cnd structure
+  ok       list_decode --emit c001.cnd == n.raw
+  ran      list_decode_c001_certify             0.24 s
+  ok       list_decode --kind n --certify c001.cnd
+  ok       list_decode --emit-n c001.cnd == n.raw
+  ran      list_decode_c100                     0.08 s
+  ok       list_decode c100.vbg structure
+  ok       list_decode --emit c100.vbg == d.raw
+  ran      list_decode_c100_certify             0.14 s
+  ok       list_decode --kind d --certify c100.vbg
+  ok       list_decode --emit-n c100.vbg == n.raw
+  ran      list_decode_c101                     0.09 s
+  ok       list_decode c101.cnd1 structure
+  ok       list_decode --emit c101.cnd1 == d.raw
+  ran      list_decode_c101_certify             0.13 s
+  ok       list_decode --kind d --certify c101.cnd1
+  ok       list_decode --emit-n c101.cnd1 == n.raw
+  ran      emit_paths_c010                      0.15 s
+  ok       pwt2_decode --emit-paths c010.pwt2n: printed SHA-256 == file
+  ok       paths exported from c010.pwt2n == fpaths.bin as a multiset of records
+  ok       paths_c010.bin           576870 B  560.000 bits/CN  da690f7afe59f12a
+  ran      reencode_c010                        0.61 s
+  ok       re-encode of the paths exported from c010.pwt2n == c010.pwt2n
+  ran      emit_paths_c011                      0.19 s
+  ok       pwt2_decode --emit-paths c011.pwt2: printed SHA-256 == file
+  ok       paths exported from c011.pwt2 == fpaths.bin as a multiset of records
+  ok       paths_c011.bin           576870 B  560.000 bits/CN  da690f7afe59f12a
+  ran      reencode_c011                        0.61 s
+  ok       re-encode of the paths exported from c011.pwt2 == c011.pwt2
+  ran      emit_paths_c110                      0.19 s
+  ok       pwt2_decode --emit-paths c110.pwt2n: printed SHA-256 == file
+  ok       paths exported from c110.pwt2n == dpaths.bin as a multiset of records
+  ok       paths_c110.bin           494460 B  480.000 bits/CN  fe2f5ce208763ff2
+  ran      reencode_c110                        0.57 s
+  ok       re-encode of the paths exported from c110.pwt2n == c110.pwt2n
+  ran      emit_paths_c111                      0.17 s
+  ok       pwt2_decode --emit-paths c111.pwt2: printed SHA-256 == file
+  ok       paths exported from c111.pwt2 == dpaths.bin as a multiset of records
+  ok       paths_c111.bin           494460 B  480.000 bits/CN  fe2f5ce208763ff2
+  ran      reencode_c111                        0.55 s
+  ok       re-encode of the paths exported from c111.pwt2 == c111.pwt2
+  ran      emit_paths_c111x                     0.17 s
+  ok       pwt2_decode --emit-paths c111x.pwt2: printed SHA-256 == file
+  ok       paths exported from c111x.pwt2 == dstar_paths5.bin as a multiset of records
+  ok       paths_c111x.bin          576870 B  560.000 bits/CN  dd58c568b1367a7f
+  ran      reencode_c111x                       0.58 s
+  ok       re-encode of the paths exported from c111x.pwt2 == c111x.pwt2
+
+== 8. stored copies and summary
+  ok       stored golden_files/c000.vbg == rebuilt c000.vbg
+  ok       stored golden_files/c001.cnd.gz == rebuilt c001.cnd
+  ok       stored golden_files/c010.pwt2n == rebuilt c010.pwt2n
+  ok       stored golden_files/c011.pwt2 == rebuilt c011.pwt2
+  ok       stored golden_files/c100.vbg == rebuilt c100.vbg
+  ok       stored golden_files/c101.cnd1 == rebuilt c101.cnd1
+  ok       stored golden_files/c110.pwt2n == rebuilt c110.pwt2n
+  ok       stored golden_files/c111.pwt2 == rebuilt c111.pwt2
+  ok       stored golden_files/c111x.pwt2 == rebuilt c111x.pwt2
+  ok       every golden entry was produced and checked
+
+91 ok, 0 failed; 49.39 s total; logs in <tmp>/logs
+
+real	0m50.437s
+user	0m0.000s
+sys	0m0.015s

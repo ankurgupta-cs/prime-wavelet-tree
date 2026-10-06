@@ -1,0 +1,22 @@
+input       data/fpaths.bin (fields 14, full-factorization mode, PWT2 byte-aligned VByte streams)
+order       308279939 records, 7428174 distinct primes in 12563 count classes; root-most: 19 31 37 41 13 17 29 61 (30 s)
+ranked      scratch/pwt2b/pwt2_encode_1790276052123_ranked.bin (63 s)
+  run 1: 33554432 records sorted
+  run 2: 33554432 records sorted
+  run 3: 33554432 records sorted
+  run 4: 33554432 records sorted
+  run 5: 33554432 records sorted
+  run 6: 33554432 records sorted
+  run 7: 33554432 records sorted
+  run 8: 33554432 records sorted
+  run 9: 33554432 records sorted
+  run 10: 6290051 records sorted
+sorted      308279939 records, max depth 14 (156 s)
+oracle      308279939 records, sha_nset ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (199 s)
+encoded     (387 s)
+nodes       1021045229 (3.312 per record); symbols 2049518631 (table 7428174); escapes 0
+sections    header 160 + classes 12879 + tables 0 + symbols 2591070792 + raw 0 + footer 88
+bits/el     stream 67.239 (of which rank table 0.363) + classes 0.0003 + framing 0.0000
+FILE        2591083919 bytes = 67.240 bits/el   (pwt2/new_table_full.pwt2n)
+            paths reproduce the oracle's sum; quote only after pwt2_decode --certify exits 0
+elapsed     390 s

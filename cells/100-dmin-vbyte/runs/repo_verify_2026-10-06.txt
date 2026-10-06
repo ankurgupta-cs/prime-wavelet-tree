@@ -1,0 +1,25 @@
+cmd:   make verify-100
+start: 2026-10-06T16:13:40Z
+----
+bash scripts/cell.sh verify 100
+hashing   <scratch>/c100.vbg (1220449393 bytes) ...
+MATCH     cell 100 file  sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575
++ <repo>/build/list_decode.exe <scratch>/c100.vbg
+stamp  load                0.392 s   cum      0.392 s   whole file read into memory
+input      <scratch>/c100.vbg: 1220449393 B, format VBG1 (VByte gaps)
+file       sha256 57e5be328b64de9a00ea0bbf03de95a4141f68bf5d70f67ba9aab12cfd417575
+stamp  file-sha            3.781 s   cum      4.173 s   SHA-256 of the whole file
+structure  VBG1: 308279939 records, payload 1220449369 B (header consistent with the file size)
+stamp  structure           0.000 s   cum      4.173 s   VBG1 header vs file size
+stamp  decode              2.992 s   cum      7.165 s   VByte gaps -> values (ascending by construction)
+values     308279939 values, span [51, 1087125999730037130781], strictly ascending
+size       31.671 bits per value (whole file)
+values     sha256 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 22550467583581231962095163
+stamp  values-sha         19.624 s   cum     26.789 s   strictly-ascending check + SHA-256 and sum of the value stream
+stamp  total              26.789 s   (phases sum 26.789 s, unaccounted 0.000 s)
+DECODED    308279939 values; structure OK (no --certify: not compared with the oracle)
+VERIFIED  cell 100: file hash and sorted values hash 22b9b6ab918bca087418dbe67fbbb1f49b4766cf6a4298a293a57d4d7412dcc8
+----
+end:   2026-10-06T16:14:29Z
+exit:  0
+seconds: 49.3

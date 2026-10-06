@@ -1,0 +1,15 @@
+# cell 110: make verify-110
+# Timings, memory figures and paths are masked (<t>, <m>, <work>, <data>, <bin>);
+# every other line is what a run on the full table prints.
+
+## verify
+hashing   <work>/c110.pwt2n (1296532881 bytes) ...
+MATCH     cell 110 file  sha256 d2ba4ade81f4e972eadd573bef11e309a7999f9122789be56dbfdbed6a54a1bf
+container   1296532881 bytes, 308279939 records, divisor mode, byte-aligned, max depth 12, m 7037363 primes in 11766 classes, context set 1
+structure   OK (payload SHA-256, tables, 0 blocks, 1009770142 symbols); read <t> s, loaded <t> s
+rank table  7037363 primes decoded (<t> s cumulative)
+decoded     308279939 numbers in tree order (<t> s cumulative)
+phases      read <t> s | checks + sieve <t> s | rank table <t> s | tree <t> s | in-memory decode <t> s (table + tree)
+sorted      (<t> s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     <t> s
+VERIFIED  cell 110: file hash, structure and footer targets

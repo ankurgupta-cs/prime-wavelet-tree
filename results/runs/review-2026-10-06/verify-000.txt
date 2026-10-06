@@ -1,0 +1,25 @@
+cmd:   env FILE=<work>/release_build/c000.vbg make verify-000
+env:   DATA=<data> WORK=<work> 
+start: 
+----
+bash scripts/cell.sh verify 000
+hashing   <work>/release_build/c000.vbg (2362758686 bytes) ...
+MATCH     cell 000 file  sha256 5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8
++ <bin>/list_decode.exe <work>/release_build/c000.vbg
+stamp  load                0.838 s   cum      0.838 s   whole file read into memory
+input      <work>/release_build/c000.vbg: 2362758686 B, format VBG1 (VByte gaps)
+file       sha256 5778a94fc44cfe9136ead0eb4d8563745597aa277861dc79bc82ff1c83af07f8
+stamp  file-sha            7.558 s   cum      8.396 s   SHA-256 of the whole file
+structure  VBG1: 308279939 records, payload 2362758662 B (header consistent with the file size)
+stamp  structure           0.000 s   cum      8.396 s   VBG1 header vs file size
+stamp  decode              4.708 s   cum     13.104 s   VByte gaps -> values (ascending by construction)
+values     308279939 values, span [561, 999999999855878641139521], strictly ascending
+size       61.315 bits per value (whole file)
+values     sha256 ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62 (sorted 16-byte LE stream = the --emit file); sum mod 2^128 87794795725388084167960692697377
+stamp  values-sha         20.017 s   cum     33.121 s   strictly-ascending check + SHA-256 and sum of the value stream
+stamp  total              33.122 s   (phases sum 33.121 s, unaccounted 0.000 s)
+DECODED    308279939 values; structure OK (no --certify: not compared with the oracle)
+VERIFIED  cell 000: file hash and sorted values hash ae272474e7bb0459034f867c21b4f11d8bd2f96b45d2b7b7f0bf69c5653e2e62
+----
+exit:  0
+secs:  72.7

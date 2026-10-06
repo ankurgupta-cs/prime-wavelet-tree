@@ -1,0 +1,3 @@
+paths data/dpaths.bin (fields 12); sampled 3084288 records (every 100-th ORC1 block), all cofactor factorizations equal the oracle
+cofactor primes 3.271 per number, trivial cofactors 0, Algorithm 1 ladders 2.21 per number, generic fallbacks 0
+factor the cofactor: 1.721 us/number single-thread -> 8.8 min for N = 308279939 (extrapolated)

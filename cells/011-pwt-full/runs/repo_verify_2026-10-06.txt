@@ -1,0 +1,19 @@
+cmd:   make verify-011
+start: 2026-10-06T15:56:27Z
+----
+bash scripts/cell.sh verify 011
+hashing   <data>/c011-pwt-full.pwt2 (1234242404 bytes) ...
+MATCH     cell 011 file  sha256 dd69b283217bb41c96b26751591d5bd04f5fb261d29abbbc4fb10313d666adad
++ <repo>/build/pwt2_decode.exe <data>/c011-pwt-full.pwt2
+container   1234242404 bytes, 308279939 records, full mode, entropy-coded, max depth 14, m 7428174 primes in 12563 classes, context set 3
+structure   OK (payload SHA-256, tables, 3445 blocks, 3612171525 symbols); read 0.4 s, loaded 4.6 s
+rank table  7428174 primes decoded (5.3 s cumulative)
+decoded     308279939 numbers in tree order (210.2 s cumulative)
+phases      read 0.4 s | checks + sieve 4.2 s | rank table 0.7 s | tree 204.9 s | in-memory decode 205.6 s (table + tree)
+sorted      (259.5 s); sha_nset MATCH; total_check MATCH; count MATCH
+elapsed     259.5 s
+VERIFIED  cell 011: file hash, structure and footer targets
+----
+end:   2026-10-06T16:01:11Z
+exit:  0
+seconds: 284.7
