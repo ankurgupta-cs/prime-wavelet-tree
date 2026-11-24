@@ -30,13 +30,18 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <deque>
 #include <exception>
 #include <mutex>
-#include <process.h>
-#include <deque>
 #include <string>
 #include <thread>
 #include <vector>
+
+#ifdef _WIN32
+#include <process.h>
+#else
+#include <unistd.h>
+#endif
 
 #include "pwt_paths.hpp"
 #include "sha256.hpp"
@@ -120,11 +125,19 @@ std::string rec_str(const std::uint8_t* r) {
     return s + "]";
 }
 
+std::string current_pid_str() {
+#ifdef _WIN32
+    return std::to_string(_getpid());
+#else
+    return std::to_string(static_cast<long long>(getpid()));
+#endif
+}
+
 template <int K>
 int run(const char* fa, const char* fb, const PathSortOptions& base) {
     constexpr int RB = K * kPathFieldBytes;
     PhaseClock clk;
-    const std::string pid = std::to_string(_getpid());
+    const std::string pid = current_pid_str();
 
     PathSortOptions oa = base, ob = base;
     oa.descending = ob.descending = false;     // keep the ascending record layout
